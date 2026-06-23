@@ -1,6 +1,1 @@
-Dockerfile
-.dockerignore
-nginx.conf
-README-DEPLOY.md
 .git
-.gitignore
