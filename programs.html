@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I AM+ — The Personal Mastery Journey | Discovery · Breakthrough · Abundance</title>
+<meta name="description" content="I AM+ is a three-program path Filipino graduates have walked for years — from a two-day Discovery to the Abundance Deep Dive. Explore the journey and start with Discovery.">
+<meta property="og:title" content="I AM+ — Become who you came here to be">
+<meta property="og:description" content="A three-program transformation path: Discovery, Breakthrough, Abundance. Held in Pasig & Bacoor, Philippines.">
+<meta property="og:url" content="https://i-am-plus-coaching.vercel.app/">
+<meta property="og:image" content="https://i-am-plus-coaching.vercel.app/assets/og-iamplus.jpg">
+<meta property="og:image:secure_url" content="https://i-am-plus-coaching.vercel.app/assets/og-iamplus.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="I AM+ — Become who you came here to be. Discovery, Breakthrough, Abundance.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I AM+ — Become who you came here to be">
+<meta name="twitter:description" content="A three-program transformation path: Discovery, Breakthrough, Abundance. Pasig &amp; Bacoor, Philippines.">
+<meta name="twitter:image" content="https://i-am-plus-coaching.vercel.app/assets/og-iamplus.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://i-am-plus-coaching.vercel.app/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://i-am-plus-coaching.vercel.app/assets/apple-touch-icon.png">
+<!--
+  I AM+ · PROGRAMS HUB (master landing) · STAGING (Kai Creative Studios build)
+  REBUILD — "Mindvalley-structured, media-heavy" (Paolo's brief): drop the "I AM+" text lockup,
+  mirror mindvalley.com's section flow, go wall-to-wall image+video. Anchors = Grand ANM (prestige)
+  + Heal The World (movement). Built on the discovery.html design system: I AM+ master cyan #5CE1E6,
+  dark cinematic, Fraunces + Inter, v10 nav, GSAP reveals, inline SVG icons (no emoji).
+  NO checkout here — every CTA routes OUT to discovery/breakthrough/abundance.html.
+  Preview: `cd app && python3 -m http.server 8200` -> /programs.html. [CONFIRM] = lock with Migs.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#06090f; --ink:#0a0f18; --ink-2:#0e1622; --navy:#082843; --navy-2:#0c3358;
+  --cyan:#5CE1E6; --cyan-soft:#7fe6ea; --cyan-deep:#29B6BD;
+  --purple:#6C4DB5; --purple-deep:#2A1F4D; --magenta:#b8438f; --teal:#7FE6EA;
+  --white:#f4f8fb; --fog:#c4d2de; --mute:#8a9bab; --faint:#5d6e7e;
+  --line:rgba(140,170,195,.16); --line-2:rgba(140,170,195,.28);
+  --font-display:"Fraunces",Georgia,serif;
+  --font-body:"Inter",system-ui,-apple-system,sans-serif;
+  --maxw:1200px; --gap:clamp(20px,4vw,40px);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);background:var(--void);color:var(--fog);line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background-image:var(--grain);background-size:160px;opacity:.04}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;line-height:1.04;color:var(--white);letter-spacing:-.018em;font-optical-sizing:auto;text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--cyan);color:var(--ink)}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+.section{position:relative;z-index:2;padding-block:clamp(76px,11vw,150px)}
+.eyebrow{font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:.34em;font-size:.7rem;color:var(--cyan);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);opacity:.7}
+.eyebrow--center::after{content:"";width:26px;height:1px;background:var(--cyan);opacity:.7}
+.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--fog);max-width:60ch;line-height:1.7}
+.ico{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-weight:600;font-size:.96rem;letter-spacing:.01em;
+  padding:16px 30px;border-radius:999px;cursor:pointer;border:0;background:var(--cyan);color:#04222b;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .25s}
+.btn:hover{transform:translateY(-2px);background:var(--cyan-soft);box-shadow:0 14px 40px -10px rgba(92,225,230,.55)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn .arr{transition:transform .25s}.btn:hover .arr{transform:translateX(4px)}
+.btn--ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn--ghost:hover{background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--cyan)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.metarow{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:9px;font-size:.82rem;font-weight:500;color:var(--fog);padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);backdrop-filter:blur(6px)}
+.chip b{color:var(--cyan);font-weight:600}.chip .ico{width:15px;height:15px;color:var(--cyan)}
+.todo{display:inline-block;background:rgba(92,225,230,.1);color:var(--cyan);border:1px dashed rgba(92,225,230,.4);border-radius:5px;padding:0 6px;font-size:.66rem;font-weight:600;letter-spacing:.04em;vertical-align:middle}
+
+/* ===== NAV (v10) ===== */
+.top{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .35s,box-shadow .35s,backdrop-filter .35s;background:linear-gradient(180deg,rgba(6,9,15,.5),rgba(6,9,15,0))}
+.top.scrolled{background:rgba(8,12,20,.8);backdrop-filter:blur(16px) saturate(140%);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brandmark{display:flex;align-items:center;gap:11px}
+.brandmark img{height:34px;width:auto;filter:drop-shadow(0 0 12px rgba(92,225,230,.4))}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:.9rem;font-weight:500;color:var(--fog);position:relative;transition:color .2s}
+.nav a:hover{color:var(--white)}.nav a.active{color:var(--white)}
+.nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--cyan);border-radius:2px;box-shadow:0 0 10px rgba(92,225,230,.8)}
+.nav .btn{padding:11px 22px;font-size:.86rem}
+.top .nav>.btn{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2)}
+.top .nav>.btn:hover{background:rgba(92,225,230,.08);box-shadow:inset 0 0 0 1px var(--cyan)}
+.top.scrolled .nav>.btn{background:var(--cyan);color:#04222b;box-shadow:0 0 0 rgba(92,225,230,0)}
+.top.scrolled .nav>.btn:hover{background:var(--cyan-soft);box-shadow:0 12px 30px -10px rgba(92,225,230,.5)}
+.navtoggle{display:none;position:relative;width:44px;height:44px;border:0;background:transparent;cursor:pointer;align-items:center;justify-content:center;border-radius:12px;transition:background .25s;-webkit-tap-highlight-color:transparent}
+.navtoggle:hover{background:rgba(255,255,255,.05)}
+.navtoggle span{position:absolute;left:11px;width:22px;height:2px;background:var(--white);border-radius:2px;transition:transform .32s cubic-bezier(.2,.7,.3,1),opacity .2s}
+.navtoggle span:nth-child(1){transform:translateY(-6px)}.navtoggle span:nth-child(3){transform:translateY(6px)}
+body.menu-open .navtoggle span:nth-child(1){transform:rotate(45deg)}
+body.menu-open .navtoggle span:nth-child(2){opacity:0}
+body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:55;visibility:hidden;pointer-events:none}
+.drawer.open{visibility:visible;pointer-events:auto}
+.drawer__scrim{position:absolute;inset:0;background:rgba(4,8,14,.62);backdrop-filter:blur(5px);opacity:0;transition:opacity .35s}
+.drawer.open .drawer__scrim{opacity:1}
+.drawer__panel{position:absolute;top:0;right:0;height:100%;width:min(360px,86vw);overflow-y:auto;display:flex;flex-direction:column;
+  padding:88px 28px calc(30px + env(safe-area-inset-bottom));background:linear-gradient(180deg,var(--ink-2),var(--ink));
+  box-shadow:-30px 0 80px -30px rgba(0,0,0,.85),inset 1px 0 0 var(--line);transform:translateX(100%);transition:transform .42s cubic-bezier(.2,.7,.3,1)}
+.drawer.open .drawer__panel{transform:none}
+.drawer__nav{display:flex;flex-direction:column;gap:2px}
+.drawer__nav a{font-family:var(--font-display);font-size:1.42rem;font-weight:380;color:var(--fog);padding:14px;border-radius:12px;display:flex;align-items:center;gap:14px;position:relative;transition:color .2s,background .2s}
+.drawer__nav a::before{content:"";flex:none;width:0;height:18px;border-radius:2px;background:var(--cyan);box-shadow:0 0 12px rgba(92,225,230,.7);transition:width .25s}
+.drawer__nav a:hover{color:var(--white);background:rgba(255,255,255,.03)}
+.drawer__nav a.active{color:var(--white)}.drawer__nav a.active::before{width:4px}
+.drawer__cta{margin-top:auto;width:100%;justify-content:center;font-size:1.02rem;padding:17px}
+.drawer__foot{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:.8rem;color:var(--faint)}
+.drawer__foot .ico{width:14px;height:14px;color:var(--cyan)}
+@media(max-width:880px){.navtoggle{display:inline-flex}.nav{display:none}}
+@media(min-width:881px){.drawer{display:none}}
+.seatbar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(170%);z-index:45;display:flex;align-items:center;gap:18px;
+  width:max-content;max-width:min(580px,calc(100vw - 28px));padding:11px 12px 11px 26px;border-radius:999px;opacity:0;pointer-events:none;
+  background:rgba(10,15,24,.84);backdrop-filter:blur(16px) saturate(140%);
+  box-shadow:inset 0 0 0 1px var(--line-2),0 24px 60px -18px rgba(0,0,0,.85),0 0 60px -22px rgba(92,225,230,.4);transition:transform .5s cubic-bezier(.2,.7,.3,1),opacity .4s}
+.seatbar.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.seatbar__info{font-size:.9rem;color:var(--white);font-weight:600;white-space:nowrap}
+.seatbar__info em{font-style:normal;font-weight:400;color:var(--mute);margin-left:9px}
+.seatbar__btn{display:inline-flex;align-items:center;gap:9px;background:var(--cyan);color:#04222b;font-weight:600;font-size:.92rem;padding:13px 24px;border-radius:999px;transition:background .25s,box-shadow .3s}
+.seatbar__btn .arr{transition:transform .25s}
+.seatbar:hover .seatbar__btn{background:var(--cyan-soft);box-shadow:0 10px 26px -8px rgba(92,225,230,.6)}
+.seatbar:hover .seatbar__btn .arr{transform:translateX(4px)}
+@media(max-width:560px){.seatbar{left:12px;right:12px;bottom:12px;transform:translateY(170%);max-width:none;width:auto;justify-content:space-between;gap:12px;padding:10px 10px 10px 20px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}.seatbar.show{transform:translateY(0)}.seatbar__info{font-size:.86rem}.seatbar__info em{display:none}.seatbar__btn{padding:13px 20px}}
+@media(max-width:380px){.seatbar{justify-content:center;padding:8px}.seatbar__info{display:none}.seatbar__btn{width:100%;justify-content:center;padding:15px}}
+
+/* ===== HERO (full-bleed video, no I AM+ text) ===== */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate}
+.hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.05);will-change:transform}
+.hero__scrim{position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(110% 80% at 84% 2%,rgba(92,225,230,.16),transparent 52%),
+    radial-gradient(95% 75% at 6% 102%,rgba(8,40,67,.55),transparent 60%),
+    linear-gradient(180deg,rgba(6,9,15,.6) 0%,rgba(6,9,15,.24) 32%,rgba(6,9,15,.74) 74%,var(--void) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:128px 0 70px;width:100%}
+.hero__inner{max-width:920px;margin-inline:auto;text-align:center}
+.hero__title{font-size:clamp(2.7rem,8.2vw,6.4rem);font-weight:360;line-height:.98;color:var(--white);letter-spacing:-.028em;margin-bottom:.32em}
+.hero__title .cy{font-style:italic;color:var(--cyan)}
+.hero__sub{font-size:clamp(1.08rem,1.9vw,1.4rem);color:var(--fog);max-width:60ch;margin-inline:auto;line-height:1.6}
+.hero__cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+.hero__meta{margin-top:30px;justify-content:center}
+.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:9px}
+.scrollcue .ln{width:1px;height:42px;background:linear-gradient(var(--cyan),transparent);position:relative;overflow:hidden}
+.scrollcue .ln::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--cyan);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{top:-50%}60%,100%{top:100%}}
+@media(max-width:880px){.scrollcue{display:none}}
+
+/* ===== STATS ===== */
+.stats{position:relative;border-block:1px solid var(--line);background:linear-gradient(180deg,rgba(8,12,20,.84),rgba(10,15,24,.9)),url("https://i-am-plus-coaching.vercel.app/assets/batch-montage.webp") center/cover}
+.stats .wrap{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;padding-block:clamp(48px,6vw,76px)}
+.stat .num{font-family:var(--font-display);font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:340;color:var(--white);line-height:1;font-variant-numeric:tabular-nums}
+.stat .num b{color:var(--cyan);font-weight:340}
+.stat .lbl{margin-top:12px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.stat:not(:last-child){border-right:1px solid var(--line)}
+@media(max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr;gap:30px}.stat:nth-child(odd){border-right:1px solid var(--line)}.stat:nth-child(-n+2){border-bottom:1px solid var(--line);padding-bottom:26px}.stat:last-child{border-right:0}}
+@media(max-width:420px){.stats .wrap{grid-template-columns:1fr}.stat{border-right:0!important}.stat:not(:last-child){border-bottom:1px solid var(--line);padding-bottom:26px}}
+
+/* ===== EDITORIAL THESIS ===== */
+.shift{background:radial-gradient(82% 120% at 10% 0%,rgba(8,40,67,.4),transparent 55%),linear-gradient(180deg,var(--void),var(--ink))}
+.shift__grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(30px,6vw,80px);align-items:end}
+.shift__big{font-size:clamp(2rem,4.6vw,3.7rem);line-height:1.06;color:var(--white);font-weight:380;letter-spacing:-.02em}
+.shift__big .hl{color:var(--cyan);font-style:italic}
+.shift__side p{font-size:1.05rem;color:var(--mute);line-height:1.75;padding-bottom:8px}
+@media(max-width:820px){.shift__grid{grid-template-columns:1fr;gap:26px}}
+
+/* ===== PROGRAMS LADDER ===== */
+.ladder{background:var(--ink)}
+.ladder__head{max-width:680px;margin:0 auto clamp(40px,6vw,68px);text-align:center}
+.ladder__head h2{font-size:clamp(2.2rem,4.8vw,3.6rem);font-weight:360;margin-top:14px}
+.ladder__rungs{display:grid;gap:clamp(28px,5vw,64px)}
+.prog{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center;position:relative}
+.prog__media{position:relative;aspect-ratio:4/3;border-radius:20px;overflow:hidden;isolation:isolate;
+  box-shadow:inset 0 0 0 1px var(--line-2),0 40px 90px -40px rgba(0,0,0,.85)}
+.prog__media video,.prog__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prog__glow{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 40%,rgba(6,9,15,.5))}
+.prog__rung{position:absolute;top:16px;left:16px;z-index:2;display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(8,12,20,.62);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--line-2)}
+.prog__rung b{color:var(--cyan)}
+.prog__body{max-width:52ch}
+.prog__logo{height:auto;width:auto;max-height:clamp(84px,12vw,144px);max-width:100%;margin-bottom:18px;filter:drop-shadow(0 6px 26px rgba(0,0,0,.5))}
+.prog__logo--a12{max-height:clamp(132px,18vw,210px);margin-bottom:14px}
+.prog__essence{font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:360;color:var(--white);line-height:1.12;margin-bottom:16px}
+.prog__facts{list-style:none;display:grid;gap:11px;margin-bottom:24px}
+.prog__facts li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;color:var(--fog);font-size:1rem}
+.prog__facts .ico{width:17px;height:17px;color:var(--cyan);margin-top:3px}
+.prog__link{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--cyan);font-size:1rem}
+.prog__link .arr{transition:transform .25s}.prog__link:hover .arr{transform:translateX(5px)}
+.prog__body .btn{margin-top:20px}
+.prog__invite{margin-top:20px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--teal)}
+.prog.bt .prog__media video,.prog.bt .prog__media img{filter:grayscale(1) contrast(1.04)}
+.prog.bt .prog__rung b,.prog.bt .prog__link,.prog.bt .prog__facts .ico{color:var(--cyan)}
+.prog.ab .prog__rung b,.prog.ab .prog__link,.prog.ab .prog__facts .ico{color:var(--teal)}
+.prog.ab .prog__media{box-shadow:inset 0 0 0 1px rgba(127,230,234,.3),0 40px 90px -40px rgba(0,0,0,.85),0 0 90px -40px rgba(108,77,181,.5)}
+@media(min-width:861px){.prog:nth-child(even) .prog__media{order:2}}
+@media(max-width:860px){.prog{grid-template-columns:1fr;gap:22px;text-align:center}.prog__body{max-width:none}.prog__logo{margin-inline:auto}.prog__facts{display:inline-grid;text-align:left;margin-inline:auto}}
+.ladder__note{text-align:center;margin-top:clamp(40px,6vw,64px);font-family:var(--font-display);font-style:italic;font-size:clamp(1.2rem,2.2vw,1.6rem);color:var(--fog)}
+
+/* ===== FULL-BLEED FILM BANDS ===== */
+.filmband{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.filmband.center{align-items:center;text-align:center}
+.filmband__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.07);will-change:transform}
+.filmband__scrim{position:absolute;inset:0;z-index:-1}
+.filmband.prestige .filmband__scrim{background:radial-gradient(80% 70% at 50% 0%,rgba(92,225,230,.12),transparent 55%),linear-gradient(180deg,rgba(6,9,15,.55),rgba(6,9,15,.2) 40%,rgba(6,9,15,.92))}
+.filmband.movement .filmband__scrim{background:radial-gradient(80% 70% at 18% 90%,rgba(108,77,181,.42),transparent 60%),linear-gradient(180deg,rgba(6,9,15,.5),rgba(6,9,15,.16) 40%,rgba(6,9,15,.92))}
+.filmband .wrap{position:relative;z-index:2;padding-block:clamp(52px,8vw,100px);width:100%}
+.filmband__cap{max-width:640px}
+.filmband.center .filmband__cap{max-width:760px;margin-inline:auto}
+.filmband__cap h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:360;margin:12px 0 16px}
+.filmband__cap p{font-size:1.1rem;color:var(--fog);max-width:52ch}
+.filmband.center .filmband__cap p{margin-inline:auto}
+.filmband__cap .btn{margin-top:24px}
+
+/* ===== TEACHERS ===== */
+.teachers{background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+.teachers__head{text-align:center;max-width:700px;margin:0 auto clamp(40px,5vw,58px)}
+.teachers__head h2{font-size:clamp(2.2rem,4.8vw,3.5rem);font-weight:360;margin-top:12px}
+.teachers__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,20px)}
+.teacher{position:relative;aspect-ratio:3/4;border-radius:18px;overflow:hidden;isolation:isolate;
+  box-shadow:inset 0 0 0 1px var(--line),0 26px 60px -32px rgba(0,0,0,.8);transition:transform .4s,box-shadow .4s}
+.teacher img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.teacher__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 38%,rgba(6,9,15,.5) 66%,rgba(6,9,15,.92))}
+.teacher__ring{position:absolute;inset:0;z-index:2;border-radius:18px;box-shadow:inset 0 0 0 1px transparent;transition:box-shadow .4s}
+.teacher:hover{transform:translateY(-5px)}
+.teacher:hover img{transform:scale(1.05)}
+.teacher:hover .teacher__ring{box-shadow:inset 0 0 0 1.5px rgba(92,225,230,.6)}
+.teacher--lead .teacher__ring{box-shadow:inset 0 0 0 1.5px rgba(92,225,230,.42)}
+.teacher--lead .teacher__cap span{color:var(--cyan-soft)}
+.teacher__cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:18px 18px 20px}
+.teacher__cap b{display:block;font-family:var(--font-display);font-size:1.18rem;color:var(--white);font-weight:400;line-height:1.15}
+.teacher__cap span{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-top:6px}
+@media(max-width:900px){.teachers__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.teachers__grid{grid-template-columns:1fr 1fr;gap:12px}}
+
+/* ===== WATCH THE FILM (click-to-play) ===== */
+.film{background:radial-gradient(60% 80% at 50% 0%,rgba(8,40,67,.4),transparent 60%),linear-gradient(180deg,var(--ink-2),var(--void))}
+.film__head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px)}
+.film__head h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:360;margin-top:12px}
+.film__frame{position:relative;max-width:1120px;margin-inline:auto;border-radius:18px;overflow:hidden;aspect-ratio:21/9;background:#000;cursor:pointer;
+  box-shadow:inset 0 0 0 1px var(--line-2),0 50px 110px -40px rgba(0,0,0,.9),0 0 130px -30px rgba(8,40,67,.6)}
+.film__frame video{width:100%;height:100%;object-fit:cover}
+.film__play{position:absolute;inset:0;z-index:3;display:grid;place-items:center;border:0;background:rgba(6,9,15,.28);cursor:pointer;transition:background .3s}
+.film__play:hover{background:rgba(6,9,15,.12)}
+.film__play .disc{width:clamp(72px,9vw,96px);height:clamp(72px,9vw,96px);border-radius:50%;display:grid;place-items:center;
+  background:rgba(92,225,230,.16);box-shadow:inset 0 0 0 1.5px var(--cyan),0 0 50px -8px rgba(92,225,230,.6);backdrop-filter:blur(4px);transition:transform .3s,background .3s}
+.film__play:hover .disc{transform:scale(1.06);background:rgba(92,225,230,.26)}
+.film__play .disc .ico{width:34%;height:34%;color:var(--white);fill:var(--white);stroke:none;margin-left:4px}
+.film__play .lbl{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-weight:600;font-size:.9rem;color:var(--white);text-shadow:0 2px 14px rgba(0,0,0,.7)}
+.film__play.hidden{display:none}
+
+/* ===== TESTIMONIALS ===== */
+.testi{background:radial-gradient(60% 80% at 50% 0%,rgba(8,40,67,.34),transparent 60%),linear-gradient(180deg,var(--void),var(--ink))}
+.testi__head{text-align:center;max-width:680px;margin:0 auto clamp(30px,4vw,46px)}
+.testi__head h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:360;margin-top:12px}
+.testi__head .sub{font-family:var(--font-display);font-style:italic;color:var(--fog);font-size:clamp(1.1rem,2vw,1.45rem);margin-top:14px}
+.vsl__frame{position:relative;max-width:900px;margin-inline:auto;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#000;cursor:pointer;box-shadow:inset 0 0 0 1px var(--line-2),0 50px 110px -40px rgba(0,0,0,.85)}
+.vsl__video{width:100%;height:100%;object-fit:cover}
+.vsl__sound{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:999px;border:0;cursor:pointer;
+  font-weight:600;font-size:.9rem;color:var(--white);background:rgba(8,12,20,.72);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px var(--line-2);transition:.25s}
+.vsl__sound:hover{background:rgba(92,225,230,.2);box-shadow:inset 0 0 0 1px var(--cyan);transform:translateX(-50%) translateY(-2px)}
+.vsl__sound .ico{width:18px;height:18px}.vsl__sound.hidden{display:none}
+.marquee{margin-top:clamp(30px,4vw,50px);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee__track{display:flex;gap:18px;width:max-content;animation:scrollx 80s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.shot{height:clamp(340px,48vw,440px);flex:none;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line),0 26px 60px -28px rgba(0,0,0,.8)}
+.shot img{height:100%;width:auto;display:block}.shot.ph img{display:none}
+.shot.ph{width:240px;display:grid;place-items:center;text-align:center;padding:20px;color:var(--faint);font-size:.84rem;line-height:1.5}
+.shot.ph::after{content:"Graduate story"}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee{-webkit-mask-image:none;mask-image:none}.marquee__track{animation:none;flex-wrap:wrap;justify-content:center}}
+
+/* ===== EMOTION GRADIENT WALL ===== */
+.wall{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;isolation:isolate;z-index:2}
+.wall__grid{position:absolute;inset:0;z-index:-3;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.wall__grid img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+.wall__wash{position:absolute;inset:0;z-index:-2;mix-blend-mode:soft-light;opacity:.9;background:linear-gradient(125deg,var(--navy) 0%,var(--cyan-deep) 38%,var(--purple) 70%,var(--navy-2) 100%)}
+.wall__scrim{position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 100% at 50% 42%,rgba(6,9,15,.16),rgba(6,9,15,.84)),linear-gradient(180deg,rgba(6,9,15,.4),transparent 30%,transparent 70%,var(--void))}
+.wall__cap{max-width:720px;padding-inline:24px}
+.wall__cap h2{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:360;margin:14px 0 16px;text-shadow:0 2px 36px rgba(0,0,0,.55)}
+.wall__cap p{font-size:1.1rem;color:var(--fog);max-width:48ch;margin-inline:auto}
+@media(max-width:680px){.wall__grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,1fr)}}
+
+/* ===== CITIES ===== */
+.cities{background:linear-gradient(180deg,var(--ink),var(--void))}
+.cities__head{text-align:center;max-width:640px;margin:0 auto clamp(26px,4vw,40px)}
+.cities__head h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:360;margin-top:12px}
+.cityrail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 0 14px;scrollbar-width:thin;scrollbar-color:rgba(92,225,230,.45) transparent}
+.cityrail::-webkit-scrollbar{height:6px}.cityrail::-webkit-scrollbar-thumb{background:rgba(92,225,230,.4);border-radius:3px}
+.citycard{flex:none;width:clamp(228px,26vw,288px);aspect-ratio:3/4;border-radius:18px;overflow:hidden;position:relative;scroll-snap-align:start;display:flex;align-items:flex-end;
+  box-shadow:inset 0 0 0 1px var(--line),0 26px 60px -30px rgba(0,0,0,.8);transition:transform .35s}
+.citycard:hover{transform:translateY(-4px)}
+.citycard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.citycard__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 28%,rgba(6,9,15,.55) 62%,rgba(6,9,15,.9))}
+.citycard__cap{position:relative;z-index:2;padding:22px}
+.citycard__cap b{display:block;font-family:var(--font-display);font-size:1.5rem;color:var(--white);font-weight:380;line-height:1.1}
+.citycard__cap span{display:block;font-size:.82rem;color:var(--fog);margin-top:5px}
+.citycard.ph{background:linear-gradient(160deg,rgba(108,77,181,.32),rgba(10,15,24,.72) 72%)}
+.citycard.ph .citycard__cap span{color:var(--cyan-soft)}
+.citycard.intl{background:linear-gradient(160deg,rgba(92,225,230,.24),rgba(108,77,181,.22) 55%,rgba(10,15,24,.72))}
+
+/* ===== FAQ ===== */
+.faq{background:linear-gradient(180deg,var(--void),var(--ink))}
+.faq__grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(30px,6vw,64px);align-items:start}
+.faq h2{font-size:clamp(2rem,4.4vw,3rem);font-weight:360;position:sticky;top:110px}
+.faq__list details{border-top:1px solid var(--line);padding:22px 0}
+.faq__list details:last-child{border-bottom:1px solid var(--line)}
+.faq__list summary{display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;list-style:none;font-family:var(--font-display);font-size:clamp(1.1rem,1.9vw,1.35rem);color:var(--white);font-weight:380}
+.faq__list summary::-webkit-details-marker{display:none}
+.faq__list summary .pm{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--cyan);transition:transform .3s,background .3s}
+.faq__list summary .pm .ico{width:14px;height:14px}
+.faq__list details[open] summary .pm{transform:rotate(45deg);background:rgba(92,225,230,.12)}
+.faq__list details p{color:var(--mute);margin-top:14px;font-size:1.02rem;line-height:1.7;max-width:62ch}
+@media(max-width:820px){.faq__grid{grid-template-columns:1fr;gap:24px}.faq h2{position:static}}
+
+/* ===== CLOSING CTA ===== */
+.cta{position:relative;overflow:hidden;isolation:isolate;background:var(--void)}
+.cta__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.32}
+.cta__scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(95% 85% at 50% 28%,rgba(6,9,15,.52),rgba(6,9,15,.93))}
+.cta::before{content:"";position:absolute;width:760px;height:760px;left:50%;top:-30%;transform:translateX(-50%);background:radial-gradient(circle,rgba(92,225,230,.16),transparent 62%);pointer-events:none;z-index:1}
+.cta .wrap{position:relative;z-index:2;text-align:center;max-width:720px}
+.cta h2{font-size:clamp(2.4rem,5.4vw,4rem);font-weight:360;margin-top:14px}
+.cta p{font-size:1.12rem;color:var(--fog);max-width:54ch;margin:18px auto 0}
+.cta__btns{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.cta__sub{margin-top:22px;font-size:.84rem;color:var(--faint)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--void);border-top:1px solid var(--line);padding-block:clamp(50px,6vw,72px);position:relative;z-index:2}
+.footer .wrap{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.footer__brand{display:flex;align-items:center;gap:13px}
+.footer__brand img{height:40px;filter:drop-shadow(0 0 14px rgba(92,225,230,.4))}
+.footer__brand .nm{font-family:var(--font-display);font-size:1.15rem;color:var(--white)}
+.footer__brand .nm small{display:block;font-family:var(--font-body);font-size:.74rem;color:var(--mute);letter-spacing:.05em;margin-top:2px}
+.footer__nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
+.footer__nav a{font-size:.88rem;color:var(--mute);transition:color .2s}.footer__nav a:hover{color:var(--cyan)}
+.footer__social{grid-column:1/-1;margin-top:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.footer__social>a{color:var(--mute);display:inline-flex;align-items:center;transition:color .2s}
+.footer__social>a:hover{color:var(--cyan)}
+.footer__social svg{width:21px;height:21px;fill:currentColor}
+.footer__regions{font-size:.82rem;color:var(--faint)}
+.footer__regions a{color:var(--mute);transition:color .2s}.footer__regions a:hover{color:var(--cyan)}
+.footer__legal{grid-column:1/-1;margin-top:24px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--faint)}
+.footer__legal a{color:var(--faint)}.footer__legal a:hover{color:var(--mute)}
+@media(max-width:680px){.footer .wrap{grid-template-columns:1fr}.footer__nav{justify-content:flex-start}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero__media,.filmband__media{transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brandmark" href="/programs" aria-label="I AM+ home">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching & Training Corp.">
+    </a>
+    <nav class="nav" aria-label="On this page">
+      <a href="#journey" data-spy="journey">The path</a>
+      <a href="#programs" data-spy="programs">Programs</a>
+      <a href="#teachers" data-spy="teachers">Coaches</a>
+      <a href="#stories" data-spy="stories">Stories</a>
+      <a href="#visit" data-spy="visit">Visit</a>
+      <a class="btn" href="/discovery">Start with Discovery <span class="arr">&rarr;</span></a>
+    </nav>
+    <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="mobileNav">
+  <div class="drawer__scrim" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <nav class="drawer__nav" aria-label="Sections">
+      <a href="#journey" data-spy="journey">The path</a>
+      <a href="#programs" data-spy="programs">Programs</a>
+      <a href="#teachers" data-spy="teachers">Coaches</a>
+      <a href="#stories" data-spy="stories">Stories</a>
+      <a href="#visit" data-spy="visit">Visit</a>
+    </nav>
+    <a class="btn drawer__cta" href="/discovery">Start with Discovery <span class="arr">&rarr;</span></a>
+    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Pasig &amp; Bacoor · Philippines</p>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <video class="hero__media autoplay-iv" autoplay muted loop playsinline preload="metadata" poster="https://i-am-plus-coaching.vercel.app/assets/grand-anm-poster.webp" aria-hidden="true">
+    <source src="https://i-am-plus-coaching.vercel.app/assets/grand-anm.mp4" type="video/mp4">
+  </video>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <h1 class="hero__title" data-reveal>Become who you<br>came here to <span class="cy">be.</span></h1>
+      <p class="hero__sub" data-reveal>I AM+ is a three-program path Filipino graduates have walked for years — from your first two-day Discovery to the Abundance Deep Dive. You climb it in order, at your own pace.</p>
+      <div class="hero__cta" data-reveal>
+        <a class="btn" href="#programs">Explore the three programs <span class="arr">&rarr;</span></a>
+        <a class="btn btn--ghost" href="/discovery">Start with Discovery</a>
+      </div>
+      <div class="hero__meta metarow" data-reveal>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 5h11l-2 3 2 3H4"/></svg><b>3</b> signature programs</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><b>Pasig &amp; Bacoor</b> · Philippines</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9z"/></svg>From Pasig to <b>Dubai</b></span>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><span class="ln"></span></div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat" data-reveal><div class="num"><b>10,000</b>+</div><div class="lbl">Lives transformed</div></div>
+    <div class="stat" data-reveal><div class="num"><b>270</b>+</div><div class="lbl">Batches run</div></div>
+    <div class="stat" data-reveal><div class="num">3</div><div class="lbl">Signature programs</div></div>
+    <div class="stat" data-reveal><div class="num">7</div><div class="lbl">Cities reached</div></div>
+  </div>
+</section>
+
+<!-- ===== EDITORIAL THESIS ===== -->
+<section class="section shift" id="journey">
+  <div class="wrap">
+    <div class="shift__grid">
+      <h2 class="shift__big" data-reveal>Transformation isn't a weekend — <span class="hl">it's a path you climb in order.</span></h2>
+      <div class="shift__side" data-reveal>
+        <p>Every I AM+ program builds on the one before it. You start where you are, do the work in front of you, and earn the next room. Nobody skips a step — and nobody who climbs the whole path comes out the same.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS LADDER ===== -->
+<section class="section ladder" id="programs">
+  <div class="wrap">
+    <div class="ladder__head">
+      <span class="eyebrow eyebrow--center" data-reveal>The three programs</span>
+      <h2 data-reveal>One path, three rooms. It all starts with Discovery.</h2>
+    </div>
+    <div class="ladder__rungs">
+
+      <article class="prog disc" data-reveal>
+        <div class="prog__media">
+          <video class="autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/discovery-hero-rc-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/discovery-hero-rc.mp4" type="video/mp4"></video>
+          <div class="prog__glow"></div>
+          <span class="prog__rung"><b>01</b> · Discovery</span>
+        </div>
+        <div class="prog__body">
+          <img class="prog__logo" src="https://i-am-plus-coaching.vercel.app/assets/discovery-logo.webp" alt="Discovery — Personal Mastery">
+          <p class="prog__essence">Two days that change how you think, decide, and lead.</p>
+          <ul class="prog__facts">
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> 2-day experiential Personal Mastery program</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Monthly batches in Pasig &amp; Bacoor</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> The entry point — no experience needed</li>
+          </ul>
+          <a class="btn" href="/discovery">Explore Discovery <span class="arr">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="prog bt" data-reveal>
+        <div class="prog__media">
+          <video class="autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/bt-band-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/bt-band.mp4" type="video/mp4"></video>
+          <div class="prog__glow"></div>
+          <span class="prog__rung"><b>02</b> · Breakthrough</span>
+        </div>
+        <div class="prog__body">
+          <img class="prog__logo" src="https://i-am-plus-coaching.vercel.app/assets/bt-logo.webp" alt="Breakthrough — 3-Day Seminar">
+          <p class="prog__essence">Three days that take you into what you've avoided — and break you through it.</p>
+          <ul class="prog__facts">
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> 3-day Life + Leadership + Success intensive</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Discovery is the prerequisite</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> House of Transformation, Pasig</li>
+          </ul>
+          <a class="btn" href="/breakthrough">Explore Breakthrough <span class="arr">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="prog ab" data-reveal>
+        <div class="prog__media">
+          <video class="autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/ab-band-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/ab-band.mp4" type="video/mp4"></video>
+          <div class="prog__glow"></div>
+          <span class="prog__rung"><b>03</b> · Abundance</span>
+        </div>
+        <div class="prog__body">
+          <img class="prog__logo prog__logo--a12" src="https://i-am-plus-coaching.vercel.app/assets/ab-logo-a12.webp" alt="Abundance 12 — The Game of My Life">
+          <p class="prog__essence">The pinnacle — a multi-weekend Deep Dive where mastery becomes a life.</p>
+          <ul class="prog__facts">
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Three Deep Dives over two months</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Breakthrough is the prerequisite</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Themed per batch — currently "The Game of My Life"</li>
+          </ul>
+          <a class="btn btn--ghost" href="/abundance">Explore Abundance <span class="arr">&rarr;</span></a>
+          <p class="prog__invite">By invitation · for Breakthrough graduates</p>
+        </div>
+      </article>
+
+    </div>
+    <p class="ladder__note" data-reveal>Whatever you came for — it starts the same way.</p>
+  </div>
+</section>
+
+<!-- ===== ANCHOR BAND 1 — GRAND (prestige) ===== -->
+<section class="filmband prestige">
+  <video class="filmband__media autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/grand-anm-stage-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/grand-anm-stage.mp4" type="video/mp4"></video>
+  <div class="filmband__scrim"></div>
+  <div class="wrap">
+    <div class="filmband__cap" data-reveal>
+      <span class="eyebrow">The room you're walking into</span>
+      <h2>You're joining more than a program.</h2>
+      <p>Every I AM+ batch is part of a community that comes together — on one stage, in one room.</p>
+      <a class="btn btn--ghost" href="#programs">See the journey <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEACHERS ===== -->
+<section class="section teachers" id="teachers">
+  <div class="wrap">
+    <div class="teachers__head" data-reveal>
+      <span class="eyebrow eyebrow--center">The people who hold the room</span>
+      <h2>You're not learning from a slide deck.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">Every I AM+ program is led, in the room, by facilitators who've walked the whole path themselves.</p>
+    </div>
+    <div class="teachers__grid" data-reveal>
+      <figure class="teacher teacher--lead"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-russ.webp" alt="Coach Russ Juson" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Russ Juson</b><span>Founder</span></figcaption></figure>
+      <figure class="teacher teacher--lead"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-migs.webp" alt="Coach Migs Flores" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Migs Flores</b><span>President</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-max.webp" alt="Coach Max Salazar" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Max Salazar</b><span>Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-gina.webp" alt="Coach Gina Katigbak" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Gina Katigbak</b><span>Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-mj.webp" alt="Coach Mj Aguilar" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Mj Aguilar</b><span>Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-louise.webp" alt="Coach Louise Flores" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Louise Flores</b><span>Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-jhed.webp" alt="Coach Jhed Batallones" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Jhed Batallones</b><span>Discovery Teens Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-madz.webp" alt="Coach Madz Gonzales" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Madz Gonzales</b><span>Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-diana.webp" alt="Coach Diana Reyes" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Diana Reyes</b><span>Junior Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-val.webp" alt="Coach Val Domingo" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Val Domingo</b><span>Junior Facilitator</span></figcaption></figure>
+      <figure class="teacher"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-cathy.webp" alt="Coach Cathy Domingo" loading="lazy"><div class="teacher__scrim"></div><div class="teacher__ring"></div><figcaption class="teacher__cap"><b>Cathy Domingo</b><span>Junior Facilitator</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WATCH THE FILM (Grand Expo full, click-to-play) ===== -->
+<section class="section film">
+  <div class="wrap">
+    <div class="film__head" data-reveal>
+      <span class="eyebrow eyebrow--center">See it for yourself</span>
+      <h2>Watch a full I AM+ gathering.</h2>
+    </div>
+    <div class="film__frame" data-reveal>
+      <video id="filmVideo" muted playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/grand-anm-poster.webp"><source src="https://i-am-plus-coaching.vercel.app/assets/grand-anm-full.mp4" type="video/mp4"></video>
+      <button class="film__play" id="filmPlay" type="button" aria-label="Tap for sound">
+        <span class="disc"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg></span>
+        <span class="lbl">Tap for sound</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANCHOR BAND 2 — HEAL THE WORLD (movement) ===== -->
+<section class="filmband movement center">
+  <video class="filmband__media autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/heal-the-world-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/heal-the-world.mp4" type="video/mp4"></video>
+  <div class="filmband__scrim"></div>
+  <div class="wrap">
+    <div class="filmband__cap" data-reveal>
+      <span class="eyebrow eyebrow--center">Bigger than any one of us</span>
+      <h2>What starts as your breakthrough doesn't stay yours.</h2>
+      <p>Every year, I AM+ graduates turn the work outward — into their families, their teams, and their communities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section testi" id="stories">
+  <div class="wrap">
+    <div class="testi__head" data-reveal>
+      <span class="eyebrow eyebrow--center">Graduates of I AM+</span>
+      <h2>Don't take our word for it.</h2>
+      <p class="sub">Watch what the path does — in their own words.</p>
+    </div>
+    <div class="vsl__frame" data-reveal>
+      <video id="testiVideo" class="vsl__video" playsinline preload="none" muted poster="https://i-am-plus-coaching.vercel.app/assets/testimonials/discovery-testimonial-poster.webp"><source src="https://i-am-plus-coaching.vercel.app/assets/testimonials/discovery-testimonial.mp4" type="video/mp4"></video>
+      <button class="vsl__sound" id="testiSound" type="button" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span class="lbl">Tap for sound</span></button>
+    </div>
+    <div class="marquee" data-reveal aria-label="Graduate testimonials from Facebook">
+      <div class="marquee__track">
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-1.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-2.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-3.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-4.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-5.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-6.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-7.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-8.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-9.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-10.webp" alt="Graduate Facebook testimonial" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-1.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-2.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-3.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-4.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-5.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-6.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-7.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-8.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-9.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+        <figure class="shot" aria-hidden="true"><img src="https://i-am-plus-coaching.vercel.app/assets/testimonials/screenshots/grad-10.webp" alt="" loading="lazy" onerror="this.closest('.shot').classList.add('ph')"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMOTION GRADIENT WALL ===== -->
+<section class="wall">
+  <div class="wall__grid" aria-hidden="true">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-cryhug.webp" alt="">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-hug-crowd.webp" alt="">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-hug-men.webp" alt="">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-hug-film.webp" alt="">
+  </div>
+  <div class="wall__wash"></div>
+  <div class="wall__scrim"></div>
+  <div class="wrap">
+    <div class="wall__cap" data-reveal>
+      <span class="eyebrow eyebrow--center">What it actually looks like</span>
+      <h2>The breakthroughs happen in the room, together.</h2>
+      <p>Strangers walk in. By the end, they're the people who watched you become who you came to be.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CITIES ===== -->
+<section class="section cities" id="visit">
+  <div class="wrap">
+    <div class="cities__head" data-reveal>
+      <span class="eyebrow eyebrow--center">One house, many cities</span>
+      <h2>From Pasig to Dubai.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">Two homes in the Philippines — and graduates who carry the work far beyond them.</p>
+    </div>
+    <div class="cityrail" data-reveal>
+      <article class="citycard"><img src="https://i-am-plus-coaching.vercel.app/assets/house-of-transformation.webp" alt="I AM+ batch in Pasig City" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Pasig City</b><span>House of Transformation · Ortigas</span></div></article>
+      <article class="citycard"><img src="https://i-am-plus-coaching.vercel.app/assets/house-of-prime.webp" alt="I AM+ batch in Bacoor, Cavite" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Bacoor</b><span>House of Prime · Cavite</span></div></article>
+      <article class="citycard"><img src="https://i-am-plus-coaching.vercel.app/assets/cities/quezon-city.webp" alt="I AM+ graduates in Quezon City" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Quezon City</b><span>Graduates here</span></div></article>
+      <article class="citycard"><img src="https://i-am-plus-coaching.vercel.app/assets/cities/davao.webp" alt="I AM+ graduates in Davao" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Davao</b><span>Graduates here</span></div></article>
+      <article class="citycard"><img src="https://i-am-plus-coaching.vercel.app/assets/cities/cebu.webp" alt="I AM+ graduates in Cebu" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Cebu</b><span>Graduates here</span></div></article>
+      <article class="citycard"><img src="https://i-am-plus-coaching.vercel.app/assets/cities/bacolod.webp" alt="I AM+ graduates in Bacolod" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Bacolod</b><span>Graduates here</span></div></article>
+      <article class="citycard intl"><img src="https://i-am-plus-coaching.vercel.app/assets/cities/dubai.webp" alt="I AM+ graduates in Dubai" loading="lazy"><div class="citycard__scrim"></div><div class="citycard__cap"><b>Dubai</b><span>And beyond</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq">
+  <div class="wrap">
+    <div class="faq__grid">
+      <h2 data-reveal>Good to<br>know.</h2>
+      <div class="faq__list" data-reveal>
+        <details open><summary>Do I have to start with Discovery?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Yes. Discovery is the entry point and the prerequisite for everything that follows. Breakthrough requires Discovery, and Abundance requires Breakthrough. You climb the path in order.</p></details>
+        <details><summary>Where are the programs held?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>At two homes — House of Transformation in Ortigas, Pasig City, and House of Prime in Bacoor, Cavite. Graduates come from across the Philippines and beyond.</p></details>
+        <details><summary>How long is each one?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Discovery is 2 full days, Breakthrough is a 3-day intensive, and Abundance is a multi-weekend journey of three Deep Dives across two months.</p></details>
+        <details><summary>Is Abundance only for graduates?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Yes. Abundance is the pinnacle of the journey, reserved for graduates of Breakthrough — so everyone in the room arrives with the same foundation.</p></details>
+        <details><summary>How do I pay?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Secure online checkout on each program page via GCash, Maya, or card — your seat is confirmed instantly.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSING CTA ===== -->
+<section class="section cta" id="start">
+  <video class="cta__media autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/heal-the-world-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/heal-the-world.mp4" type="video/mp4"></video>
+  <div class="cta__scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow eyebrow--center" data-reveal>Start your journey</span>
+    <h2 data-reveal>The path begins with two days.</h2>
+    <p data-reveal>Discovery is where it starts — and the doorway to Breakthrough and Abundance. Whatever you came for, you begin in the same room.</p>
+    <div class="cta__btns" data-reveal>
+      <a class="btn" href="/discovery">Start with Discovery <span class="arr">&rarr;</span></a>
+      <a class="btn btn--ghost" href="/breakthrough">See Breakthrough</a>
+      <a class="btn btn--ghost" href="/abundance">See Abundance</a>
+    </div>
+    <p class="cta__sub" data-reveal>Secure checkout on each program page · GCash, Maya &amp; cards.</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer__brand" href="/programs">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+">
+      <span class="nm">I AM+<small>Coaching &amp; Training Corp.</small></span>
+    </a>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/programs">Programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/breakthrough">Breakthrough</a>
+      <a href="/abundance">Abundance</a>
+      <a href="#start">Start</a>
+    </nav>
+    <div class="footer__social" aria-label="I AM+ on social media">
+      <a href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener" aria-label="I AM+ Coaching on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.81V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+      <a href="https://www.instagram.com/iampluscoaching_/" target="_blank" rel="noopener" aria-label="I AM+ on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.46.36 1.26.41 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.43-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.46.17-1.26.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.41-.61-.24-1.05-.52-1.51-.98-.46-.46-.74-.9-.98-1.51-.17-.46-.36-1.26-.41-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.43.24-.61.52-1.05.98-1.51.46-.46.9-.74 1.51-.98.46-.17 1.26-.36 2.43-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.4-.55.22-.94.47-1.36.89-.42.42-.67.81-.89 1.36-.16.42-.35 1.04-.4 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.19.22.55.47.94.89 1.36.42.42.81.67 1.36.89.42.16 1.04.35 2.19.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.4.55-.22.94-.47 1.36-.89.42-.42.67-.81.89-1.36.16-.42.35-1.04.4-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.19-.22-.55-.47-.94-.89-1.36-.42-.42-.81-.67-1.36-.89-.42-.16-1.04-.35-2.19-.4-1.24-.06-1.61-.07-4.76-.07zm0 2.76A5.46 5.46 0 1 0 12 17.46 5.46 5.46 0 0 0 12 6.54zm0 9A3.54 3.54 0 1 1 12 8.46a3.54 3.54 0 0 1 0 7.08zm6.95-9.22a1.28 1.28 0 1 1-2.56 0 1.28 1.28 0 0 1 2.56 0z"/></svg></a>
+      <span class="footer__regions">Regional pages:
+        <a href="https://www.facebook.com/iamplusmindanao" target="_blank" rel="noopener">Mindanao</a> ·
+        <a href="https://www.facebook.com/profile.php?id=61586574663518" target="_blank" rel="noopener">Western Visayas</a> ·
+        <a href="https://www.facebook.com/profile.php?id=61587979468052" target="_blank" rel="noopener">Central Visayas</a>
+      </span>
+    </div>
+    <div class="footer__legal">
+      <span>© 2026 I AM+ Coaching &amp; Training Corp. · The Personal Mastery Journey</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== STICKY CTA ===== -->
+<a class="seatbar" id="seatBar" href="/discovery" aria-hidden="true" tabindex="-1" aria-label="Start with Discovery">
+  <span class="seatbar__info">Your journey <em>starts with Discovery</em></span>
+  <span class="seatbar__btn">Start with Discovery <span class="arr">&rarr;</span></span>
+</a>
+
+<!-- ===== MOTION ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const top=document.getElementById('top');
+  const onScroll=()=>top.classList.toggle('scrolled',window.scrollY>40);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Scroll-spy across nav + drawer
+  const navLinks=[...document.querySelectorAll('[data-spy]')];
+  const spySections=[...new Set(navLinks.map(a=>document.getElementById(a.dataset.spy)).filter(Boolean))];
+  if(spySections.length&&'IntersectionObserver'in window){
+    const spyObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(a=>a.classList.toggle('active',a.dataset.spy===id));}}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    spySections.forEach(s=>spyObs.observe(s));
+  }
+
+  // Mobile drawer
+  const drawer=document.getElementById('mobileNav'), navToggle=document.getElementById('navToggle');
+  let lastFocus=null;
+  const bgEls=()=>[...document.querySelectorAll('body > *:not(#mobileNav):not(script)')];
+  const openDrawer=()=>{drawer.classList.add('open');document.body.classList.add('menu-open');navToggle.setAttribute('aria-expanded','true');lastFocus=document.activeElement;bgEls().forEach(el=>el.inert=true);const f=drawer.querySelector('.drawer__nav a');f&&f.focus();updateSeatbar();};
+  const closeDrawer=()=>{drawer.classList.remove('open');document.body.classList.remove('menu-open');navToggle.setAttribute('aria-expanded','false');bgEls().forEach(el=>el.inert=false);lastFocus&&lastFocus.focus&&lastFocus.focus();updateSeatbar();};
+  if(drawer&&navToggle){
+    navToggle.addEventListener('click',()=>drawer.classList.contains('open')?closeDrawer():openDrawer());
+    drawer.querySelectorAll('[data-drawer-close],.drawer__nav a,.drawer__cta').forEach(el=>el.addEventListener('click',closeDrawer));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open'))closeDrawer();});
+  }
+
+  // Sticky CTA
+  const seatBar=document.getElementById('seatBar');
+  let pastHero=false,nearGoal=false;
+  function updateSeatbar(){if(!seatBar)return;const show=pastHero&&!nearGoal&&!document.body.classList.contains('menu-open');seatBar.classList.toggle('show',show);seatBar.setAttribute('aria-hidden',show?'false':'true');seatBar.tabIndex=show?0:-1;}
+  if(seatBar){
+    const heroEl=document.querySelector('.hero');
+    const goals=[document.getElementById('start'),document.querySelector('.footer')].filter(Boolean);
+    if('IntersectionObserver'in window){
+      if(heroEl)new IntersectionObserver(es=>es.forEach(e=>{pastHero=!e.isIntersecting;updateSeatbar();}),{threshold:0,rootMargin:'-45% 0px 0px 0px'}).observe(heroEl);
+      const gv=new Map();const go=new IntersectionObserver(es=>{es.forEach(e=>gv.set(e.target,e.isIntersecting));nearGoal=[...gv.values()].some(Boolean);updateSeatbar();},{threshold:0});
+      goals.forEach(el=>go.observe(el));
+    }else{const onsc=()=>{pastHero=window.scrollY>window.innerHeight*0.6;nearGoal=goals.some(el=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight&&r.bottom>0;});updateSeatbar();};onsc();window.addEventListener('scroll',onsc,{passive:true});}
+  }
+
+  // Play muted loop videos in view — cap to MAX concurrent decoders (mobile decode limit), and honor
+  // prefers-reduced-motion (WCAG 2.2.2) + Save-Data: leave the poster, don't autoplay.
+  const reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData=navigator.connection&&navigator.connection.saveData;
+  const loopVids=[...document.querySelectorAll('video.autoplay-iv')];
+  if(reduceMotion||saveData){/* posters only — no decorative autoplay */}
+  else if('IntersectionObserver'in window){
+    const MAX=2, playing=new Set(), ratio=new Map();
+    const sync=()=>{
+      const inView=[...ratio.entries()].filter(([,r])=>r>0).sort((a,b)=>b[1]-a[1]).map(([v])=>v);
+      inView.forEach((v,i)=>{
+        if(i<MAX){if(!playing.has(v)){const p=v.play&&v.play();p&&p.catch&&p.catch(()=>{});playing.add(v);}}
+        else if(playing.has(v)){v.pause&&v.pause();playing.delete(v);}
+      });
+      [...playing].forEach(v=>{if(!ratio.get(v)){v.pause&&v.pause();playing.delete(v);}});
+    };
+    const vidObs=new IntersectionObserver(es=>{es.forEach(e=>ratio.set(e.target,e.isIntersecting?e.intersectionRatio:0));sync();},{threshold:[0,.1,.25,.5,.75]});
+    loopVids.forEach(v=>vidObs.observe(v));
+  }else{loopVids.forEach(v=>{const p=v.play&&v.play();p&&p.catch&&p.catch(()=>{});});}
+
+  // Testimonial: autoplay muted in view (skipped under reduced-motion) + tap for sound (manual opt-in)
+  const tv=document.getElementById('testiVideo'), tvBtn=document.getElementById('testiSound');
+  if(tv){
+    if('IntersectionObserver'in window){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!reduceMotion){const p=tv.play&&tv.play();p&&p.catch&&p.catch(()=>{});}else{tv.pause&&tv.pause();}}),{threshold:.4}).observe(tv);}
+    const unmute=()=>{tv.muted=false;tv.controls=true;const p=tv.play&&tv.play();p&&p.catch&&p.catch(()=>{});tvBtn&&tvBtn.classList.add('hidden');};
+    tvBtn&&tvBtn.addEventListener('click',e=>{e.stopPropagation();unmute();});
+    tv.addEventListener('click',()=>{if(tv.muted)unmute();});
+  }
+
+  // "Watch the film": autoplay MUTED in view, pause out of view, tap for sound
+  // (preload=none keeps it off the initial load; it only starts streaming once scrolled to).
+  const fv=document.getElementById('filmVideo'), fvBtn=document.getElementById('filmPlay');
+  if(fv){
+    if('IntersectionObserver'in window){
+      new IntersectionObserver(es=>es.forEach(e=>{
+        if(e.isIntersecting){const p=fv.play&&fv.play();p&&p.catch&&p.catch(()=>{});}else{fv.pause&&fv.pause();}
+      }),{threshold:.35}).observe(fv);
+    }else{const p=fv.play&&fv.play();p&&p.catch&&p.catch(()=>{});}
+    const unmute=()=>{fv.muted=false;fv.controls=true;const p=fv.play&&fv.play();p&&p.catch&&p.catch(()=>{});fvBtn&&fvBtn.classList.add('hidden');};
+    fvBtn&&fvBtn.addEventListener('click',e=>{e.stopPropagation();unmute();});
+    fv.addEventListener('click',()=>{if(fv.muted)unmute();});
+  }
+
+  if(!window.gsap){return;}
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);
+  const heroBits=gsap.utils.toArray('.hero [data-reveal]');
+  if(reduce){gsap.set(heroBits,{autoAlpha:1,y:0});}
+  else{
+    gsap.from(heroBits,{autoAlpha:0,y:34,duration:1,ease:'power3.out',stagger:.12,delay:.15});
+    gsap.to('.hero__media',{scale:1.13,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    gsap.utils.toArray('.filmband').forEach(b=>gsap.to(b.querySelector('.filmband__media'),{yPercent:-7,scale:1.12,ease:'none',scrollTrigger:{trigger:b,start:'top bottom',end:'bottom top',scrub:true}}));
+  }
+  if(window.ScrollTrigger){
+    const items=gsap.utils.toArray('[data-reveal]').filter(el=>!el.closest('.hero'));
+    if(reduce){gsap.set(items,{autoAlpha:1,y:0});}
+    else{ScrollTrigger.batch(items,{start:'top 86%',once:true,onEnter:b=>gsap.from(b,{autoAlpha:0,y:30,duration:.85,ease:'power3.out',stagger:.09,overwrite:true})});}
+  }
+})();
+</script>
+</body>
+</html>

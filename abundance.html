@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abundance 12 — The Game of My Life | I AM+</title>
+<meta name="description" content="The pinnacle I AM+ experience. A multi-weekend Deep Dive journey to master your inner game, build real wealth, and live the life your breakthrough was for. Breakthrough is the prerequisite.">
+<meta property="og:title" content="Abundance 12 — The Game of My Life | I AM+">
+<meta property="og:description" content="Where legends are made. The highest-level I AM+ journey — three Deep Dives across two months.">
+<meta property="og:image" content="https://i-am-plus-coaching.vercel.app/assets/ab-hero-poster.webp">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://i-am-plus-coaching.vercel.app/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://i-am-plus-coaching.vercel.app/assets/apple-touch-icon.png">
+<!--
+  I AM+ · ABUNDANCE 12 "The Game of My Life" · PRODUCTION site_pages build (Jericson's domain)
+  PREMIUM REDESIGN — "Midnight Velvet" — built on the discovery.html design system.
+  Sub-brand flex: house base Fraunces + Inter; ABUNDANCE accent = Cormorant Garamond (luxe) + Great Vibes (script).
+  Deep violet #16284d + teal #E6C56C accent. GOLD lives ONLY inside imagery (logo/video/stills) — never UI chrome.
+  Abundance is themed PER BATCH (current = A12 "The Game of My Life · Where legends are made"); rebuild art each batch.
+  Hero = the A12 Reveal epic key-art trailer (title baked in). VSL = the Abundance 11 SDE film (click-to-play; it's large).
+  Icons = inline SVG (no emoji), per taste / ui-ux skills.
+
+  PRODUCTION DIFFS vs abundance.html (mirrors discovery-live.html):
+    • assets absolutized to https://i-am-plus-coaching.vercel.app/assets/... (page renders inside Jericson's site_pages iframe)
+    • nav/footer links are root-relative + extensionless (/programs /discovery /breakthrough /abundance)
+    • inline checkout modal + failBanner + its <script> IIFE REMOVED — the Reserve CTA now links to the hosted
+      product checkout: CHECKOUT_BASE + '/checkout/abundance-12'. Abundance is ONE product (a single enrollment that
+      covers all 3 Deep Dives at a fixed ₱150,000) — NOT per-batch, so there is no cityKey and no per-date slug.
+      The 3 Deep Dive dates are informational only (a timeline), not separately buyable units.
+    • generic "Reserve" CTAs still scroll to the #reserve pricecard (the one real checkout button lives there)
+    • no <base href> — the site_pages wrapper injects <base target="_top"> at render time
+  [CONFIRM] markers = inputs to lock with Migs.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* deep storm-blue base — Abundance 12 'The Game of My Life' = BLUE + GOLD */
+  --void:#081225; --ink:#0d1a33; --ink-2:#132544; --violet:#2F63B8; --violet-deep:#16284d; --plum:#1e3a66;
+  /* GOLD — the ONE signature accent (the gold of the A12 key art). NOTE legacy var name --teal kept = gold */
+  --teal:#E6C56C; --teal-soft:#F4DEA0; --teal-deep:#C49A3F;
+  /* blue-flame accent lives only in gradient washes — never as flat UI */
+  --magenta:#5A93DD;
+  /* text on velvet */
+  --white:#f4f7fc; --fog:#cdd9ee; --mute:#8fa1c2; --faint:#5f7197;
+  --line:rgba(150,180,230,.15); --line-2:rgba(150,180,230,.28);
+  --font-display:"Fraunces",Georgia,serif;            /* house */
+  --font-luxe:"Cormorant Garamond",Georgia,serif;     /* Abundance accent — elegant high-contrast serif */
+  --font-script:"Great Vibes",cursive;                /* script flourish */
+  --font-body:"Inter",system-ui,-apple-system,sans-serif;
+  --maxw:1200px; --gap:clamp(20px,4vw,40px);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);background:var(--void);color:var(--fog);
+  line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:var(--grain);background-size:160px;opacity:.045;
+}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;line-height:1.05;color:var(--white);
+  letter-spacing:-.012em;font-optical-sizing:auto;text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--teal);color:var(--ink)}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+.section{position:relative;z-index:2;padding-block:clamp(76px,11vw,150px)}
+.eyebrow{font-family:var(--font-body);font-weight:600;text-transform:uppercase;
+  letter-spacing:.34em;font-size:.7rem;color:var(--teal);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--teal);opacity:.7}
+.eyebrow--center::after{content:"";width:26px;height:1px;background:var(--teal);opacity:.7}
+.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--fog);max-width:60ch;line-height:1.7}
+/* Cormorant luxe display + Great Vibes script flourish */
+.lux{font-family:var(--font-luxe);font-weight:400;letter-spacing:.004em;line-height:1.02}
+.lux .te{color:var(--teal);font-style:italic}
+.script{font-family:var(--font-script);font-weight:400;color:var(--teal-soft);letter-spacing:.01em}
+
+/* inline-SVG icon system (no emoji) */
+.ico{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-weight:600;
+  font-size:.96rem;letter-spacing:.01em;padding:16px 30px;border-radius:999px;cursor:pointer;border:0;
+  background:var(--teal);color:#0c1a30;transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .25s;
+  box-shadow:0 0 0 rgba(230,197,108,0)}
+.btn:hover{transform:translateY(-2px);background:var(--teal-soft);box-shadow:0 14px 40px -10px rgba(230,197,108,.5)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn--ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn--ghost:hover{background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--teal)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+/* chips */
+.metarow{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:9px;font-size:.82rem;font-weight:500;color:var(--fog);
+  padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.045);
+  box-shadow:inset 0 0 0 1px var(--line);backdrop-filter:blur(6px)}
+.chip b{color:var(--teal);font-weight:600}
+.chip .ico{width:15px;height:15px;color:var(--teal)}
+.todo{display:inline-block;background:rgba(230,197,108,.1);color:var(--teal);border:1px dashed rgba(230,197,108,.4);
+  border-radius:5px;padding:0 6px;font-size:.66rem;font-weight:600;font-family:var(--font-body);letter-spacing:.04em;vertical-align:middle}
+
+/* ============ TOP NAV ============ */
+.top{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .35s,box-shadow .35s,backdrop-filter .35s;
+  background:linear-gradient(180deg,rgba(8,18,37,.55),rgba(8,18,37,0))}
+.top.scrolled{background:rgba(8,18,37,.8);backdrop-filter:blur(16px) saturate(140%);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brandmark{display:flex;align-items:center;gap:11px}
+.brandmark img{height:34px;width:auto;filter:drop-shadow(0 0 12px rgba(230,197,108,.4))}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:.9rem;font-weight:500;color:var(--fog);position:relative;transition:color .2s}
+.nav a:hover{color:var(--white)}
+.nav a.active{color:var(--white)}
+.nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--teal);border-radius:2px;
+  box-shadow:0 0 10px rgba(230,197,108,.8)}
+.nav .btn{padding:11px 22px;font-size:.86rem}
+.top .nav>.btn{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2)}
+.top .nav>.btn:hover{background:rgba(230,197,108,.08);color:var(--white);box-shadow:inset 0 0 0 1px var(--teal)}
+.top.scrolled .nav>.btn{background:var(--teal);color:#0c1a30;box-shadow:0 0 0 rgba(230,197,108,0)}
+.top.scrolled .nav>.btn:hover{background:var(--teal-soft);color:#0c1a30;box-shadow:0 12px 30px -10px rgba(230,197,108,.5)}
+
+/* ===== hamburger + drawer ===== */
+.navtoggle{display:none;position:relative;width:44px;height:44px;border:0;background:transparent;cursor:pointer;
+  align-items:center;justify-content:center;border-radius:12px;transition:background .25s;-webkit-tap-highlight-color:transparent}
+.navtoggle:hover{background:rgba(255,255,255,.05)}
+.navtoggle span{position:absolute;left:11px;width:22px;height:2px;background:var(--white);border-radius:2px;
+  transition:transform .32s cubic-bezier(.2,.7,.3,1),opacity .2s}
+.navtoggle span:nth-child(1){transform:translateY(-6px)}
+.navtoggle span:nth-child(3){transform:translateY(6px)}
+body.menu-open .navtoggle span:nth-child(1){transform:rotate(45deg)}
+body.menu-open .navtoggle span:nth-child(2){opacity:0}
+body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:55;visibility:hidden;pointer-events:none}
+.drawer.open{visibility:visible;pointer-events:auto}
+.drawer__scrim{position:absolute;inset:0;background:rgba(8,6,18,.66);backdrop-filter:blur(5px);opacity:0;transition:opacity .35s}
+.drawer.open .drawer__scrim{opacity:1}
+.drawer__panel{position:absolute;top:0;right:0;height:100%;width:min(360px,86vw);overflow-y:auto;
+  display:flex;flex-direction:column;padding:88px 28px calc(30px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,var(--ink-2),var(--ink));
+  box-shadow:-30px 0 80px -30px rgba(0,0,0,.85),inset 1px 0 0 var(--line);
+  transform:translateX(100%);transition:transform .42s cubic-bezier(.2,.7,.3,1)}
+.drawer.open .drawer__panel{transform:none}
+.drawer__nav{display:flex;flex-direction:column;gap:2px}
+.drawer__nav a{font-family:var(--font-luxe);font-size:1.6rem;font-weight:500;color:var(--fog);
+  padding:12px 14px;border-radius:12px;display:flex;align-items:center;gap:14px;position:relative;
+  transition:color .2s,background .2s}
+.drawer__nav a::before{content:"";flex:none;width:0;height:18px;border-radius:2px;background:var(--teal);
+  box-shadow:0 0 12px rgba(230,197,108,.7);transition:width .25s}
+.drawer__nav a:hover{color:var(--white);background:rgba(255,255,255,.03)}
+.drawer__nav a.active{color:var(--white)}
+.drawer__nav a.active::before{width:4px}
+.drawer__cta{margin-top:auto;width:100%;justify-content:center;font-size:1.02rem;padding:17px}
+.drawer__foot{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:7px;
+  font-size:.8rem;color:var(--faint);letter-spacing:.02em}
+.drawer__foot .ico{width:14px;height:14px;color:var(--teal)}
+@media(max-width:880px){.navtoggle{display:inline-flex}.nav{display:none}}
+@media(min-width:881px){.drawer{display:none}}
+
+/* ===== sticky Reserve CTA ===== */
+.seatbar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(170%);z-index:45;
+  display:flex;align-items:center;gap:18px;width:max-content;max-width:min(580px,calc(100vw - 28px));
+  padding:11px 12px 11px 26px;border-radius:999px;opacity:0;pointer-events:none;
+  background:rgba(16,12,34,.84);backdrop-filter:blur(16px) saturate(140%);
+  box-shadow:inset 0 0 0 1px var(--line-2),0 24px 60px -18px rgba(0,0,0,.85),0 0 60px -22px rgba(230,197,108,.4);
+  transition:transform .5s cubic-bezier(.2,.7,.3,1),opacity .4s}
+.seatbar.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.seatbar__info{font-family:var(--font-body);font-size:.9rem;color:var(--white);font-weight:600;white-space:nowrap}
+.seatbar__info em{font-style:normal;font-weight:400;color:var(--mute);margin-left:9px}
+.seatbar__btn{display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:#0c1a30;
+  font-family:var(--font-body);font-weight:600;font-size:.92rem;padding:13px 24px;border-radius:999px;
+  transition:background .25s,box-shadow .3s}
+.seatbar__btn .arr{transition:transform .25s}
+.seatbar:hover .seatbar__btn{background:var(--teal-soft);box-shadow:0 10px 26px -8px rgba(230,197,108,.6)}
+.seatbar:hover .seatbar__btn .arr{transform:translateX(4px)}
+@media(max-width:560px){
+  .seatbar{left:12px;right:12px;bottom:12px;transform:translateY(170%);max-width:none;width:auto;
+    justify-content:space-between;gap:12px;padding:10px 10px 10px 20px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+  .seatbar.show{transform:translateY(0)}
+  .seatbar__info{font-size:.86rem}.seatbar__info em{display:none}
+  .seatbar__btn{padding:13px 20px}
+}
+@media(max-width:380px){.seatbar{justify-content:center;padding:8px}.seatbar__info{display:none}.seatbar__btn{width:100%;justify-content:center;padding:15px}}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;isolation:isolate}
+.hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);will-change:transform}
+.hero__scrim{position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(90% 60% at 50% 6%,rgba(8,18,37,.16),transparent 52%),
+    radial-gradient(80% 70% at 6% 102%,rgba(47,99,184,.4),transparent 60%),
+    radial-gradient(70% 60% at 96% 6%,rgba(230,197,108,.1),transparent 55%),
+    linear-gradient(180deg,rgba(8,18,37,.18) 0%,rgba(8,18,37,.06) 34%,rgba(8,18,37,.78) 76%,var(--void) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:0 0 clamp(56px,9vw,104px);width:100%}
+.hero__inner{max-width:760px;margin-inline:auto;text-align:center}
+.hero__logo{display:block;width:clamp(264px,40vw,448px);height:auto;margin:0 auto 6px;filter:drop-shadow(0 0 40px rgba(8,5,18,.72)) drop-shadow(0 12px 36px rgba(0,0,0,.55))}
+.hero__tagline{font-family:var(--font-luxe);font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.3vw,1.6rem);color:#efe7d6;
+  letter-spacing:.05em;margin-top:12px;text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.hero__sub{font-size:clamp(1.08rem,1.9vw,1.38rem);color:var(--fog);max-width:54ch;margin:18px auto 0;line-height:1.6;font-weight:400}
+.hero__cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+.hero__meta{margin-top:28px;justify-content:center}
+.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;
+  font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:9px}
+.scrollcue .ln{width:1px;height:42px;background:linear-gradient(var(--teal),transparent);position:relative;overflow:hidden}
+.scrollcue .ln::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--teal);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{top:-50%}60%,100%{top:100%}}
+@media(max-width:880px){.scrollcue{display:none}}
+
+/* ============ VSL (click-to-play — the SDE film is large) ============ */
+.vsl{background:radial-gradient(60% 80% at 50% 0%,rgba(47,99,184,.2),transparent 60%),linear-gradient(180deg,var(--void),var(--ink))}
+.vsl__head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,46px)}
+.vsl__head h2{font-size:clamp(2.4rem,5vw,4rem);margin-top:10px}
+.vsl__frame{position:relative;max-width:1000px;margin-inline:auto;border-radius:18px;overflow:hidden;
+  aspect-ratio:16/9;background:#000;cursor:pointer;
+  box-shadow:inset 0 0 0 1px var(--line-2),0 50px 110px -40px rgba(0,0,0,.9),0 0 130px -30px rgba(47,99,184,.4)}
+.vsl__video{width:100%;height:100%;object-fit:cover;display:block}
+.vsl__play{position:absolute;inset:0;z-index:3;display:grid;place-items:center;border:0;background:rgba(8,18,37,.28);cursor:pointer;transition:background .3s}
+.vsl__play:hover{background:rgba(8,18,37,.12)}
+.vsl__play .disc{width:clamp(72px,9vw,96px);height:clamp(72px,9vw,96px);border-radius:50%;display:grid;place-items:center;
+  background:rgba(230,197,108,.16);box-shadow:inset 0 0 0 1.5px var(--teal),0 0 50px -8px rgba(230,197,108,.6);backdrop-filter:blur(4px);
+  transition:transform .3s,background .3s}
+.vsl__play:hover .disc{transform:scale(1.06);background:rgba(230,197,108,.26)}
+.vsl__play .disc .ico{width:34%;height:34%;color:var(--white);fill:var(--white);stroke:none;margin-left:4px}
+.vsl__play .lbl{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--font-body);font-weight:600;
+  font-size:.9rem;color:var(--white);text-shadow:0 2px 14px rgba(0,0,0,.7)}
+.vsl__play.hidden{display:none}
+
+/* ============ THE SHIFT ============ */
+.shift{background:radial-gradient(82% 120% at 88% 0%,rgba(47,99,184,.22),transparent 55%),linear-gradient(180deg,var(--void),var(--ink))}
+.shift__grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(30px,6vw,80px);align-items:end}
+.shift__big{font-family:var(--font-luxe);font-size:clamp(2.4rem,5.6vw,4.6rem);line-height:1.04;color:var(--white);font-weight:400;letter-spacing:.002em}
+.shift__big .te{color:var(--teal);font-style:italic}
+.shift__side{padding-bottom:10px}
+.shift__side p{font-size:1.05rem;color:var(--mute);line-height:1.75}
+@media(max-width:820px){.shift__grid{grid-template-columns:1fr;gap:26px}}
+
+/* ============ WHAT IT IS ============ */
+.feat{background:var(--ink)}
+.feat__grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(36px,7vw,96px);align-items:start}
+.feat__intro{position:sticky;top:104px}
+.feat__intro h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.8rem);margin:12px 0 18px;line-height:1.04}
+.feat__intro .lead{max-width:42ch}
+.feat__list{list-style:none}
+.feat__list li{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,42px);align-items:start;
+  padding-block:clamp(26px,3.6vw,40px);border-top:1px solid var(--line)}
+.feat__list li:last-child{border-bottom:1px solid var(--line)}
+.feat__num{font-family:var(--font-luxe);font-size:clamp(2rem,3.4vw,2.8rem);color:var(--teal);font-variant-numeric:tabular-nums;line-height:1}
+.feat__list h3{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.5rem,2.6vw,2.1rem);margin-bottom:8px;color:var(--white)}
+.feat__list p{font-size:1.04rem;color:var(--mute);line-height:1.7;max-width:54ch}
+@media(max-width:820px){.feat__grid{grid-template-columns:1fr;gap:28px}.feat__intro{position:static}}
+
+/* ============ PILLARS (01–03, luxe over a darkened SDE wash) ============ */
+.pillars{position:relative;background:
+  radial-gradient(70% 70% at 92% 4%,rgba(230,197,108,.1),transparent 55%),
+  linear-gradient(180deg,rgba(18,13,40,.94),rgba(8,18,37,.96)),
+  url("https://i-am-plus-coaching.vercel.app/assets/ab-wall-3.webp") center/cover}
+.pillars__head{max-width:760px;margin-bottom:clamp(36px,6vw,64px)}
+.pillars__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.6rem,6vw,4.6rem);margin-top:14px;line-height:1.02}
+.pillar{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:baseline;
+  padding-block:clamp(28px,4vw,46px);border-top:1px solid var(--line);transition:background .4s}
+.pillars .pillar:last-child{border-bottom:1px solid var(--line)}
+.pillar:hover{background:rgba(230,197,108,.03)}
+.pillar__n{font-family:var(--font-luxe);font-size:clamp(2.8rem,6vw,5rem);color:transparent;
+  -webkit-text-stroke:1px var(--line-2);line-height:.9;font-variant-numeric:tabular-nums;
+  transition:-webkit-text-stroke-color .4s,color .4s}
+.pillar:hover .pillar__n{-webkit-text-stroke-color:var(--teal);color:rgba(230,197,108,.08)}
+.pillar__body{max-width:64ch}
+.pillar__body h3{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.04;margin-bottom:10px;color:var(--white)}
+.pillar__body p{font-size:1.06rem;color:var(--mute);line-height:1.72}
+@media(max-width:640px){.pillar{grid-template-columns:1fr;gap:8px}}
+
+/* ============ FULL-BLEED BAND (SDE celebration video) ============ */
+.band{position:relative;min-height:82vh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.band__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.08);will-change:transform}
+.band__scrim{position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(85% 70% at 12% 92%,rgba(47,99,184,.5),transparent 60%),
+    radial-gradient(60% 60% at 90% 8%,rgba(230,197,108,.12),transparent 60%),
+    linear-gradient(180deg,rgba(8,18,37,.42),rgba(8,18,37,.16) 40%,rgba(8,18,37,.9))}
+.band .wrap{padding-block:clamp(48px,7vw,92px);width:100%}
+.band__cap{max-width:680px}
+.band__cap h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);margin:12px 0 14px;line-height:1.04}
+.band__cap p{font-size:1.08rem;color:var(--fog);max-width:52ch}
+.band__credit{position:absolute;right:clamp(16px,4vw,32px);bottom:14px;z-index:2;
+  font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+
+/* ============ GRADIENT PHOTO WALL (luxe SDE stills under a violet/teal wash) ============ */
+.wall{position:relative;min-height:94vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;isolation:isolate;z-index:2}
+.wall__grid{position:absolute;inset:0;z-index:-3;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.wall__grid img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+.wall__wash{position:absolute;inset:0;z-index:-2;mix-blend-mode:soft-light;opacity:.94;
+  background:linear-gradient(125deg,var(--violet) 0%,var(--magenta) 34%,var(--violet-deep) 64%,var(--teal-deep) 100%)}
+.wall__scrim{position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(120% 100% at 50% 42%,rgba(8,18,37,.16),rgba(8,18,37,.84)),
+    linear-gradient(180deg,rgba(8,18,37,.4),transparent 30%,transparent 70%,var(--void))}
+.wall__cap{max-width:720px;padding-inline:24px}
+.wall__cap .script{font-size:clamp(2.2rem,5vw,3.4rem);display:block;margin-bottom:.1em}
+.wall__cap h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:1.02;margin-bottom:16px;text-shadow:0 2px 36px rgba(0,0,0,.55)}
+.wall__cap p{font-size:1.1rem;color:var(--fog);max-width:48ch;margin-inline:auto}
+@media(max-width:680px){.wall__grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,1fr)}}
+
+/* ============ WHO IT'S FOR ============ */
+.who{position:relative;background:radial-gradient(70% 90% at 88% 12%,rgba(47,99,184,.22),transparent 55%),linear-gradient(180deg,var(--ink-2),var(--ink))}
+.who__grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,70px);align-items:start}
+.who h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.04;position:sticky;top:110px;color:var(--white)}
+.who__list{display:grid;gap:2px}
+.who__item{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding-block:24px;border-top:1px solid var(--line)}
+.who__item:last-child{border-bottom:1px solid var(--line)}
+.who__item .ck{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;margin-top:2px;
+  background:rgba(230,197,108,.1);box-shadow:inset 0 0 0 1px rgba(230,197,108,.4);color:var(--teal)}
+.who__item .ck .ico{width:14px;height:14px}
+.who__item p{font-size:clamp(1.05rem,1.7vw,1.22rem);color:var(--white);font-weight:400;line-height:1.5}
+@media(max-width:820px){.who__grid{grid-template-columns:1fr;gap:26px}.who h2{position:static}}
+
+/* ============ STAT STRIP ============ */
+.stats{position:relative;border-block:1px solid var(--line);
+  background:radial-gradient(80% 120% at 50% 50%,rgba(47,99,184,.2),transparent 70%),var(--void)}
+.stats .wrap{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center;padding-block:clamp(48px,6vw,76px)}
+.stat .num{font-family:var(--font-luxe);font-size:clamp(3rem,6.4vw,5rem);color:var(--white);line-height:.95;font-variant-numeric:tabular-nums}
+.stat .num b{color:var(--teal);font-weight:400}
+.stat .lbl{margin-top:12px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.stat:not(:last-child){border-right:1px solid var(--line)}
+
+/* ===== PROGRAM STRUCTURE (SuperLife) ===== */
+.struct{background:linear-gradient(180deg,var(--ink),var(--void))}
+.struct__head{max-width:700px;margin:0 auto clamp(40px,6vw,64px);text-align:center}
+.struct__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);margin-top:12px;color:var(--white);line-height:1.04}
+.struct__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,26px)}
+.struct__card{position:relative;padding:clamp(26px,3vw,40px);border-radius:18px;overflow:hidden;
+  background:linear-gradient(165deg,rgba(47,99,184,.16),rgba(19,37,68,.5));box-shadow:inset 0 0 0 1px var(--line)}
+.struct__card .ico{width:30px;height:30px;color:var(--teal);margin-bottom:16px;stroke-width:1.6}
+.struct__card .k{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.struct__card h3{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.4rem,2.4vw,1.95rem);color:var(--white);margin-bottom:10px;line-height:1.08}
+.struct__card p{font-size:1.02rem;color:var(--mute);line-height:1.65}
+@media(max-width:760px){.struct__grid{grid-template-columns:1fr}}
+
+/* ===== YOUR GOALS ===== */
+.goals{background:var(--ink-2)}
+.goals__head{max-width:720px;margin:0 auto clamp(40px,6vw,64px);text-align:center}
+.goals__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);margin-top:12px;color:var(--white);line-height:1.04}
+.goals__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px)}
+.goal{position:relative;padding:clamp(30px,3vw,42px) clamp(24px,2.6vw,34px);border-radius:18px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(19,37,68,.72),rgba(8,18,37,.5));box-shadow:inset 0 0 0 1px var(--line)}
+.goal::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--teal),var(--violet))}
+.goal--2::before{background:linear-gradient(90deg,var(--violet),var(--magenta))}
+.goal--3::before{background:linear-gradient(90deg,var(--magenta),#E4C16A)}
+.goal .ico{width:28px;height:28px;color:var(--teal);margin-bottom:16px;stroke-width:1.6}
+.goal--2 .ico{color:var(--violet)}.goal--3 .ico{color:#E4C16A}
+.goal h3{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.55rem,2.6vw,2.05rem);color:var(--white);margin-bottom:14px;line-height:1.05}
+.goal p{font-size:1.02rem;color:var(--mute);line-height:1.68}
+@media(max-width:820px){.goals__grid{grid-template-columns:1fr}}
+
+/* ===== MILESTONES (verified batch results) ===== */
+.mile{position:relative;border-block:1px solid var(--line);
+  background:radial-gradient(85% 100% at 50% 0%,rgba(28,47,85,.5),transparent 62%),var(--void)}
+.mile__head{max-width:740px;margin:0 auto clamp(38px,5vw,56px);text-align:center}
+.mile__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);margin-top:12px;color:var(--white);line-height:1.04}
+.mile__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,1.8vw,22px)}
+.mile__card{text-align:center;padding:clamp(24px,2.6vw,34px) 14px;border-radius:16px;
+  background:linear-gradient(180deg,rgba(19,37,68,.55),rgba(8,18,37,.42));box-shadow:inset 0 0 0 1px var(--line)}
+.mile__num{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.5rem,2.3vw,2.15rem);line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#F6DC8E,#D6A648);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mile__lbl{margin-top:14px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fog)}
+.mile__foot{max-width:760px;margin:clamp(30px,4vw,44px) auto 0;text-align:center;font-size:.94rem;color:var(--mute);line-height:1.7}
+.mile__foot b{color:var(--fog);font-weight:500;font-variant-numeric:tabular-nums}
+@media(max-width:900px){.mile__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.mile__grid{grid-template-columns:1fr}}
+.mile__batches{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,30px)}
+.mile__batch{padding:clamp(26px,3vw,40px);border-radius:18px;box-shadow:inset 0 0 0 1px var(--line);
+  background:linear-gradient(180deg,rgba(19,37,68,.6),rgba(8,18,37,.45))}
+.mile__bh{margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.mile__bh h3{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.5rem,2.6vw,2.05rem);color:var(--white);line-height:1.06}
+.mile__bh span{display:block;margin-top:6px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+.mile__stats{margin:0;display:grid;gap:0}
+.mile__stats>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.mile__stats>div:last-child{border-bottom:0;padding-bottom:0}
+.mile__stats dt{font-size:.94rem;color:var(--mute)}
+.mile__stats dd{margin:0;font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.2rem,1.9vw,1.55rem);font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#F6DC8E,#D6A648);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:760px){.mile__batches{grid-template-columns:1fr}}
+.mile__slides{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,28px)}
+.mile__slide{margin:0;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line-2),0 30px 70px -40px rgba(0,0,0,.85)}
+.mile__slide img{display:block;width:100%;height:auto}
+@media(max-width:760px){.mile__slides{grid-template-columns:1fr}}
+
+/* ===== THE NEXT ABUNDANCE — poster showcase ===== */
+.poster{background:linear-gradient(180deg,var(--void),var(--ink))}
+.poster__grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,5vw,72px);align-items:center}
+.poster__art{margin:0;border-radius:18px;overflow:hidden;max-width:430px;justify-self:center;
+  box-shadow:inset 0 0 0 1px var(--line-2),0 50px 100px -50px rgba(0,0,0,.9),0 0 120px -50px rgba(230,197,108,.45)}
+.poster__art img{display:block;width:100%;height:auto}
+.poster__copy .eyebrow{margin-bottom:14px}
+.poster__copy h2{font-size:clamp(2.2rem,4.4vw,3.4rem);margin:0 0 18px;color:var(--white)}
+.poster__copy .lead{margin-bottom:28px}
+@media(max-width:860px){.poster__grid{grid-template-columns:1fr;gap:28px}.poster__copy{text-align:center}.poster__copy .lead{margin-inline:auto}.poster__art{max-width:360px;margin-inline:auto}}
+@media(max-width:760px){.stats .wrap{grid-template-columns:1fr;gap:34px}.stat:not(:last-child){border-right:0;border-bottom:1px solid var(--line);padding-bottom:30px}}
+
+/* ============ FACILITATORS ============ */
+.facils{background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+.facils__head{text-align:center;max-width:680px;margin:0 auto clamp(36px,5vw,56px)}
+.facils__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px}
+.facils__grid{display:flex;flex-wrap:wrap;gap:clamp(22px,3.4vw,44px);justify-content:center;max-width:880px;margin-inline:auto}
+.facil{display:flex;flex-direction:column;align-items:center;text-align:center;width:160px}
+.facil__mono{width:clamp(112px,14vw,150px);aspect-ratio:1;border-radius:50%;
+  box-shadow:0 0 0 2px rgba(230,197,108,.55),inset 0 0 32px -8px rgba(230,197,108,.35),0 14px 42px -14px rgba(230,197,108,.4);
+  display:grid;place-items:center;font-family:var(--font-luxe);font-weight:500;color:var(--teal-soft);
+  font-size:clamp(1.9rem,3.2vw,2.5rem);letter-spacing:.02em;
+  background:radial-gradient(circle at 50% 36%,rgba(230,197,108,.16),rgba(19,37,68,.6))}
+.facil img{width:clamp(112px,14vw,150px);aspect-ratio:1;border-radius:50%;object-fit:cover;background:#132544;
+  box-shadow:0 0 0 2px rgba(230,197,108,.55),0 14px 42px -14px rgba(230,197,108,.4)}
+.facil figcaption{margin-top:16px}
+.facil figcaption b{display:block;font-family:var(--font-luxe);font-weight:500;font-size:1.22rem;color:var(--white);line-height:1.2}
+.facil figcaption em{display:block;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-style:normal;margin-top:7px}
+
+/* ============ TESTIMONIALS ============ */
+.testi{background:radial-gradient(60% 80% at 50% 0%,rgba(47,99,184,.18),transparent 60%),linear-gradient(180deg,var(--ink-2),var(--void))}
+.testi__head{text-align:center;max-width:700px;margin:0 auto clamp(30px,4vw,46px)}
+.testi__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.8rem);margin-top:10px}
+.testi__head .sub{font-family:var(--font-display);font-style:italic;color:var(--fog);font-size:clamp(1.1rem,2vw,1.45rem);margin-top:14px}
+.marquee{margin-top:clamp(30px,4vw,50px);overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee__track{display:flex;gap:18px;width:max-content;animation:scrollx 80s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.shot{height:clamp(360px,52vw,470px);flex:none;border-radius:16px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  box-shadow:inset 0 0 0 1px var(--line),0 26px 60px -28px rgba(0,0,0,.8)}
+.shot img{height:100%;width:auto;display:block}
+.shot.ph img{display:none}
+.shot.ph{width:250px;display:grid;place-items:center;text-align:center;padding:20px;color:var(--faint);font-size:.84rem;line-height:1.5}
+.shot.ph::after{content:"Graduate story"}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee{-webkit-mask-image:none;mask-image:none}.marquee__track{animation:none;flex-wrap:wrap;justify-content:center}}
+
+/* ============ RESERVE ============ */
+.reserve{background:var(--void);position:relative;overflow:hidden;isolation:isolate}
+.reserve__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.3}
+.reserve__scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(95% 85% at 50% 28%,rgba(8,18,37,.5),rgba(8,18,37,.93))}
+.reserve::before{content:"";position:absolute;width:760px;height:760px;left:50%;top:-30%;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(230,197,108,.16),transparent 62%);pointer-events:none;z-index:1}
+.reserve .wrap{position:relative;z-index:2}
+.reserve__head{text-align:center;max-width:660px;margin-inline:auto}
+.reserve__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1.02;margin-top:12px;color:var(--white)}
+.pricecard{margin:clamp(36px,5vw,52px) auto 0;max-width:560px;border-radius:22px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  box-shadow:inset 0 0 0 1px var(--line-2),0 40px 90px -40px rgba(0,0,0,.85)}
+.pricecard__top{padding:38px 38px 30px;text-align:center;border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 100% at 50% 0%,rgba(230,197,108,.1),transparent 70%)}
+.pricecard__price{font-family:var(--font-luxe);font-size:clamp(3.2rem,7.5vw,4.8rem);font-weight:500;color:var(--white);line-height:1}
+.pricecard__price sup{font-size:.9rem;color:var(--teal);vertical-align:super;font-family:var(--font-body);font-weight:600;letter-spacing:.1em}
+.pricecard__per{margin-top:8px;font-size:.86rem;color:var(--mute)}
+.pricecard__body{padding:30px 38px 38px}
+.incl{list-style:none;display:grid;gap:14px;margin-bottom:26px}
+.incl li{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;color:var(--fog);font-size:1rem}
+.incl li .ico{width:18px;height:18px;color:var(--teal);margin-top:3px}
+.pricecard .btn{width:100%;justify-content:center;font-size:1.02rem;padding:18px}
+.pricecard__sec{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:.8rem;color:var(--faint)}
+.pricecard__sec .ico{width:13px;height:13px;color:var(--teal-soft)}
+.guarantee{margin-top:22px;text-align:center;font-size:.9rem;color:var(--mute);max-width:50ch;margin-inline:auto}
+.guarantee b{color:var(--teal-soft)}
+
+/* ============ THE JOURNEY — 3 Deep Dives (timeline) ============ */
+.dives{background:var(--void)}
+.dives__head{text-align:center;max-width:680px;margin:0 auto clamp(40px,6vw,64px)}
+.dives__head h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.6rem,5.4vw,4rem);margin-top:12px;line-height:1.02}
+.timeline{max-width:780px;margin-inline:auto;position:relative}
+.timeline::before{content:"";position:absolute;left:clamp(18px,4vw,28px);top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,var(--teal),rgba(230,197,108,.1));border-radius:2px}
+.dive{position:relative;display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,40px);
+  padding-left:0;padding-block:clamp(20px,3vw,30px)}
+.dive__dot{position:relative;z-index:1;width:clamp(38px,8vw,58px);height:clamp(38px,8vw,58px);border-radius:50%;
+  display:grid;place-items:center;font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--ink);
+  background:var(--teal);box-shadow:0 0 0 6px var(--void),0 0 40px -8px rgba(230,197,108,.7)}
+.dive__body{padding-top:4px}
+.dive__body .lbl{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:600}
+.dive__body h3{font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--white);margin:6px 0 6px;line-height:1.05}
+.dive__body .date{font-family:var(--font-display);font-size:1.1rem;color:var(--fog)}
+.dive__body p{font-size:1rem;color:var(--mute);line-height:1.68;margin-top:8px;max-width:52ch}
+.dives__venue{max-width:780px;margin:clamp(34px,5vw,50px) auto 0;text-align:center;padding-top:26px;border-top:1px solid var(--line);
+  font-size:.98rem;color:var(--mute)}
+.dives__venue b{color:var(--white);font-weight:500;font-family:var(--font-luxe);font-size:1.1rem}
+
+/* ============ FAQ ============ */
+.faq{background:linear-gradient(180deg,var(--void),var(--ink))}
+.faq__grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(30px,6vw,64px);align-items:start}
+.faq h2{font-family:var(--font-luxe);font-weight:400;font-size:clamp(2.4rem,5vw,3.4rem);position:sticky;top:110px}
+.faq__list details{border-top:1px solid var(--line);padding:22px 0}
+.faq__list details:last-child{border-bottom:1px solid var(--line)}
+.faq__list summary{display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;
+  list-style:none;font-family:var(--font-luxe);font-weight:500;font-size:clamp(1.2rem,2.1vw,1.5rem);color:var(--white)}
+.faq__list summary::-webkit-details-marker{display:none}
+.faq__list summary .pm{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  box-shadow:inset 0 0 0 1px var(--line-2);color:var(--teal);transition:transform .3s,background .3s}
+.faq__list summary .pm .ico{width:14px;height:14px}
+.faq__list details[open] summary .pm{transform:rotate(45deg);background:rgba(230,197,108,.12)}
+.faq__list details p{color:var(--mute);margin-top:14px;font-size:1.02rem;line-height:1.7;max-width:62ch}
+@media(max-width:820px){.faq__grid{grid-template-columns:1fr;gap:24px}.faq h2{position:static}}
+
+/* ============ FOOTER ============ */
+.footer{background:var(--void);border-top:1px solid var(--line);padding-block:clamp(50px,6vw,72px);position:relative;z-index:2}
+.footer .wrap{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.footer__brand{display:flex;align-items:center;gap:13px}
+.footer__brand img{height:40px;filter:drop-shadow(0 0 14px rgba(230,197,108,.4))}
+.footer__brand .nm{font-family:var(--font-display);font-size:1.15rem;color:var(--white)}
+.footer__brand .nm small{display:block;font-family:var(--font-body);font-size:.74rem;color:var(--mute);letter-spacing:.05em;margin-top:2px}
+.footer__nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
+.footer__nav a{font-size:.88rem;color:var(--mute);transition:color .2s}
+.footer__nav a:hover{color:var(--teal)}
+.footer__social{grid-column:1/-1;margin-top:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.footer__social>a{color:var(--mute);display:inline-flex;align-items:center;transition:color .2s}
+.footer__social>a:hover{color:var(--teal)}
+.footer__social svg{width:21px;height:21px;fill:currentColor}
+.footer__regions{font-size:.82rem;color:var(--faint)}
+.footer__regions a{color:var(--mute);transition:color .2s}.footer__regions a:hover{color:var(--teal)}
+.footer__legal{grid-column:1/-1;margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--faint)}
+.footer__legal a{color:var(--faint)}.footer__legal a:hover{color:var(--mute)}
+@media(max-width:680px){.footer .wrap{grid-template-columns:1fr}.footer__nav{justify-content:flex-start}}
+
+/* ============ CHECKOUT MODAL (restyled; markup + JS unchanged from code-reviewed v1) ============ */
+.banner{position:fixed;top:74px;left:0;right:0;z-index:39;background:rgba(192,57,43,.95);color:#fff;text-align:center;padding:11px;font-size:.9rem;font-weight:600;display:none}
+.banner.show{display:block}
+.modal{position:fixed;inset:0;background:rgba(8,6,18,.74);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:60;padding:20px}
+.modal.open{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal__card{background:linear-gradient(180deg,var(--ink-2),var(--ink));border-radius:20px;max-width:460px;width:100%;
+  padding:34px;position:relative;box-shadow:inset 0 0 0 1px var(--line-2),0 40px 100px -30px rgba(0,0,0,.9);animation:pop .3s cubic-bezier(.2,.7,.3,1)}
+@keyframes pop{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.modal__card h3{font-family:var(--font-luxe);font-weight:500;font-size:1.7rem;margin:4px 0 0}
+.modal__card .x{position:absolute;top:16px;right:18px;background:none;border:0;font-size:1.7rem;color:var(--mute);cursor:pointer;line-height:1;transition:color .2s}
+.modal__card .x:hover{color:var(--white)}
+.field{margin-top:16px}
+.field label{display:block;font-family:var(--font-body);font-weight:500;font-size:.8rem;color:var(--fog);margin-bottom:6px;letter-spacing:.02em}
+.field input{width:100%;padding:13px 15px;border:0;border-radius:11px;font-size:1rem;font-family:var(--font-body);
+  background:rgba(255,255,255,.04);color:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.field input::placeholder{color:var(--faint)}
+.field input:focus{outline:none;box-shadow:inset 0 0 0 1px var(--teal),0 0 0 3px rgba(230,197,108,.12)}
+.modal__msg{font-size:.85rem;margin-top:14px;min-height:18px;color:var(--mute)}
+.modal__msg.err{color:#ff8a7a}
+.modal .btn{width:100%;justify-content:center;margin-top:18px;padding:16px}
+.modal__note{font-size:.76rem;color:var(--faint);margin-top:14px;text-align:center}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero__media,.band__media{transform:none}
+}
+</style>
+<script src="/config.js"></script></head>
+<body>
+
+<!-- ============ TOP NAV ============ -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brandmark" href="/programs" aria-label="I AM+ home">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching & Training Corp.">
+    </a>
+    <nav class="nav" aria-label="On this page">
+      <a href="#what" data-spy="what">The Experience</a>
+      <a href="#master" data-spy="master">What You Master</a>
+      <a href="#facilitators" data-spy="facilitators">Facilitators</a>
+      <a href="#journey" data-spy="journey">The Journey</a>
+      <a class="btn" href="#reserve">Reserve a seat <span class="arr">&rarr;</span></a>
+    </nav>
+    <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<div class="drawer" id="mobileNav">
+  <div class="drawer__scrim" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <nav class="drawer__nav" aria-label="Sections">
+      <a href="#what" data-spy="what">The Experience</a>
+      <a href="#master" data-spy="master">What You Master</a>
+      <a href="#facilitators" data-spy="facilitators">Facilitators</a>
+      <a href="#journey" data-spy="journey">The Journey</a>
+    </nav>
+    <a class="btn drawer__cta" href="#reserve">Reserve a seat <span class="arr">&rarr;</span></a>
+    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Abundance 12 · Philippines</p>
+  </div>
+</div>
+
+<!-- ============ HERO (SDE cuts montage — real Abundance Deep Dive footage, like the band/journey sections) ============ -->
+<section class="hero">
+  <video class="hero__media" autoplay muted loop playsinline preload="auto" poster="https://i-am-plus-coaching.vercel.app/assets/ab-hero-sde-poster.webp" aria-hidden="true">
+    <source src="https://i-am-plus-coaching.vercel.app/assets/ab-hero-sde.mp4" type="video/mp4">
+  </video>
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <img class="hero__logo" src="https://i-am-plus-coaching.vercel.app/assets/ab-logo-a12.webp" alt="Abundance 12 — The Game of My Life" data-reveal>
+      <p class="hero__tagline" data-reveal>Where legends are made</p>
+      <p class="hero__sub" data-reveal>The pinnacle I AM+ experience — a multi-weekend journey where you stop playing not to lose, and start playing the game of your life.</p>
+      <div class="hero__cta" data-reveal>
+        <a class="btn" href="#reserve">Reserve my seat <span class="arr">&rarr;</span></a>
+        <a class="btn btn--ghost" href="#what">See what's inside</a>
+      </div>
+      <div class="hero__meta metarow" data-reveal>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><b>3</b> Deep Dives · Sep–Nov 2026</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4.5"/><path d="M11 12 20 3M16.5 6.5l2.5 2.5M14.5 8.5l2 2"/></svg><b>Breakthrough</b> grads only</span>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><span class="ln"></span></div>
+</section>
+
+<!-- ============ VSL — the Abundance film (click-to-play; it's the full SDE) ============ -->
+<section class="section vsl">
+  <div class="wrap">
+    <div class="vsl__head" data-reveal>
+      <span class="eyebrow eyebrow--center">See it for yourself</span>
+      <h2 class="lux">Step inside an Abundance Deep Dive.</h2>
+    </div>
+    <div class="vsl__frame" data-reveal>
+      <video id="vslVideo" class="vsl__video" muted playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/ab-vsl-poster.webp">
+        <source src="https://i-am-plus-coaching.vercel.app/assets/ab-vsl.mp4" type="video/mp4">
+      </video>
+      <button class="vsl__play" id="vslPlay" type="button" aria-label="Tap for sound">
+        <span class="disc"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg></span>
+        <span class="lbl">Tap for sound</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE NEXT ABUNDANCE — A12 portrait poster showcase ============ -->
+<section class="section poster" id="thenext">
+  <div class="wrap">
+    <div class="poster__grid">
+      <figure class="poster__art" data-reveal>
+        <img src="https://i-am-plus-coaching.vercel.app/assets/ab-poster-a12-portrait.webp" alt="Abundance 12 — The Game of My Life · official poster" width="1080" height="1350" loading="lazy">
+      </figure>
+      <div class="poster__copy" data-reveal>
+        <span class="eyebrow">The next Abundance</span>
+        <h2 class="lux">Abundance 12 — <span class="te">The Game of My Life</span>.</h2>
+        <p class="lead">This is the next chapter of the Abundance journey. Every batch becomes its own world — and this one is <em>The Game of My Life</em>, where legends are made.</p>
+        <a class="btn" href="#reserve">Reserve my seat <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE SHIFT ============ -->
+<section class="section shift">
+  <div class="wrap">
+    <div class="shift__grid">
+      <h2 class="shift__big" data-reveal>You've already broken through. <span class="te">Abundance is where you build the life it was for.</span></h2>
+      <div class="shift__side" data-reveal>
+        <p>Discovery opened the door. Breakthrough walked you through it. Abundance is the highest level of the I AM+ journey — where mastery becomes a life: real wealth, real leadership, and the version of you others come to follow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT IS ============ -->
+<section class="section feat" id="what">
+  <div class="wrap feat__grid">
+    <div class="feat__intro" data-reveal>
+      <span class="eyebrow">What it is</span>
+      <h2>The pinnacle of the journey.</h2>
+      <p class="lead">Abundance is a multi-weekend immersion reserved for those who've completed Breakthrough. Three Deep Dives across two months — about 60–72 days — designed to rebuild your inner game, your wealth, and your legacy at the highest level.</p>
+    </div>
+    <ol class="feat__list" data-reveal>
+      <li>
+        <span class="feat__num">01</span>
+        <div><h3>A journey, not an event</h3><p>Three Deep Dives over two months — each one building on the last. This is depth that a single weekend can't reach, with a group that walks the whole road with you.</p></div>
+      </li>
+      <li>
+        <span class="feat__num">02</span>
+        <div><h3>Breakthrough is the doorway</h3><p>Abundance builds on everything Discovery and Breakthrough set in place. That's why it's reserved for graduates — you arrive ready to go all the way.</p></div>
+      </li>
+      <li>
+        <span class="feat__num">03</span>
+        <div><h3>Themed for this batch</h3><p>Every batch gets its own world. This one is <em>The Game of My Life</em> — because the moment you stop playing small is the moment the game changes.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="section pillars" id="master">
+  <div class="wrap">
+    <div class="pillars__head">
+      <span class="eyebrow" data-reveal>What you'll master</span>
+      <h2 class="lux" data-reveal>Three moves that change the whole game.</h2>
+    </div>
+    <div class="pillar" data-reveal>
+      <div class="pillar__n">01</div>
+      <div class="pillar__body"><h3>Master your inner game</h3><p>The identity, beliefs, and standards of someone who lives abundantly — installed at a depth that finally holds under pressure.</p></div>
+    </div>
+    <div class="pillar" data-reveal>
+      <div class="pillar__n">02</div>
+      <div class="pillar__body"><h3>Build real wealth</h3><p>Rebuild your relationship with money, value, and contribution — so growth stops feeling like a grind and starts compounding.</p></div>
+    </div>
+    <div class="pillar" data-reveal>
+      <div class="pillar__n">03</div>
+      <div class="pillar__body"><h3>Lead your legacy</h3><p>Step fully into the person others choose to follow — and start building the kind of life that outlasts you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM STRUCTURE (SuperLife — A Hero's Journey) ============ -->
+<section class="section struct" id="structure">
+  <div class="wrap">
+    <div class="struct__head" data-reveal>
+      <span class="eyebrow eyebrow--center">The structure · SuperLife — A Hero's Journey</span>
+      <h2>More than three weekends. A way of living.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">From the moment you enroll, you step into SuperLife — daily coaching, a weekly council, focused success circles, and three deep dives that pull it all together.</p>
+    </div>
+    <div class="struct__grid">
+      <article class="struct__card" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        <span class="k">Daily call times</span>
+        <h3>Daily Coaching Calls</h3>
+        <p>Show up every day to momentum, accountability, and answers — so you never lose the thread between weekends.</p>
+      </article>
+      <article class="struct__card" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.4 20a5.6 5.6 0 0 1 11.2 0"/><path d="M16.2 5.3a3 3 0 0 1 0 5.9M17.8 20a5.4 5.4 0 0 0-3-4.8"/></svg>
+        <span class="k">Weekly council meeting</span>
+        <h3>Weekly Mastermind</h3>
+        <p>A council that thinks together — where the room's collective experience becomes your unfair advantage.</p>
+      </article>
+      <article class="struct__card" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="m12 7.6 1.5 3.1 3.4.5-2.5 2.4.6 3.4L12 18.8l-3 1.6.6-3.4-2.5-2.4 3.4-.5z"/></svg>
+        <span class="k">Health · Relationships · Business · Women Empowerment</span>
+        <h3>Success Club</h3>
+        <p>Focused circles for the areas that matter most — so growth is never lopsided across your life.</p>
+      </article>
+      <article class="struct__card" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c2.5 2 4.5 2 7 0s4.5-2 7 0M3 12c2.5 2 4.5 2 7 0s4.5-2 7 0M3 17c2.5 2 4.5 2 7 0s4.5-2 7 0"/></svg>
+        <span class="k">3 powerful deep dives</span>
+        <h3>Unlock your limitless 5D life</h3>
+        <p>Three immersive weekends that take everything deeper — and turn the work into a life you actually live.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ YOUR GOALS (the 3 goals that take you to 100%) ============ -->
+<section class="section goals" id="goals">
+  <div class="wrap">
+    <div class="goals__head" data-reveal>
+      <span class="eyebrow eyebrow--center">Your goals</span>
+      <h2>You don't drift through Abundance. You aim.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">Every journey begins by setting three goals across your whole life. They're how you measure the work — and how you cross the finish line at 100%.</p>
+    </div>
+    <div class="goals__grid">
+      <article class="goal goal--1" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.5 12 21 12 21Z"/></svg>
+        <span class="goal__k">01 · Personal</span>
+        <h3>Personal goal</h3>
+        <p>Your growth, happiness, and fulfilment as an individual — health, relationships, mindset, emotional well-being, skills, and the lifestyle that makes you feel more alive, empowered, and true to yourself.</p>
+      </article>
+      <article class="goal goal--2" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7"/></svg>
+        <span class="goal__k">02 · Professional</span>
+        <h3>Professional goal</h3>
+        <p>Advancing your career, business, or craft — skill mastery, leadership growth, financial achievements, career milestones, business expansion, or any measurable success tied to your vocation.</p>
+      </article>
+      <article class="goal goal--3" data-reveal>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v8H4v-8M2 7.5h20V12H2zM12 20V7.5M12 7.5S10.5 3.5 8 3.5a2.3 2.3 0 0 0 0 4.6h4M12 7.5S13.5 3.5 16 3.5a2.3 2.3 0 0 1 0 4.6h-4"/></svg>
+        <span class="goal__k">03 · Contribution</span>
+        <h3>Contribution goal</h3>
+        <p>Giving back and creating impact beyond yourself — sharing your gifts, talents, resources, and leadership through mentorship, community service, philanthropy, advocacy, or purpose-driven initiatives.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FULL-BLEED BAND (SDE celebration) ============ -->
+<section class="band">
+  <video class="band__media" id="bandVideo" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/ab-band-poster.webp" aria-hidden="true">
+    <source src="https://i-am-plus-coaching.vercel.app/assets/ab-band.mp4" type="video/mp4">
+  </video>
+  <div class="band__scrim"></div>
+  <div class="wrap">
+    <div class="band__cap" data-reveal>
+      <span class="eyebrow">What two months unlock</span>
+      <h2 class="lux">The room where transformation gets celebrated.</h2>
+      <p>By the final Deep Dive, the people beside you aren't strangers — they're the ones who watched you become who you came here to be.</p>
+    </div>
+  </div>
+  <span class="band__credit">Abundance · a real Deep Dive moment</span>
+</section>
+
+<!-- ============ GRADIENT PHOTO WALL ============ -->
+<section class="wall">
+  <div class="wall__grid" aria-hidden="true">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/ab-wall-1.webp" alt="">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/ab-wall-2.webp" alt="">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/ab-wall-3.webp" alt="">
+    <img src="https://i-am-plus-coaching.vercel.app/assets/ab-wall-4.webp" alt="">
+  </div>
+  <div class="wall__wash"></div>
+  <div class="wall__scrim"></div>
+  <div class="wrap">
+    <div class="wall__cap" data-reveal>
+      <span class="script">Where legends are made</span>
+      <h2 class="lux">This is what the top of the journey looks like.</h2>
+      <p>Two months. One batch. A version of your life you can't unsee once you've lived it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="section who">
+  <div class="wrap">
+    <div class="who__grid">
+      <h2 data-reveal>Is this your level?</h2>
+      <div class="who__list">
+        <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You've completed Breakthrough — and you're ready for the deep end.</p></div>
+        <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You're done with incremental — you want a step-change in how you live and lead.</p></div>
+        <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You'll commit to the full journey — three Deep Dives, all in.</p></div>
+        <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You want a room of people operating at the level you're growing into.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat" data-reveal><div class="num">3</div><div class="lbl">Deep Dives · ~2 months</div></div>
+    <div class="stat" data-reveal><div class="num">72</div><div class="lbl">Seats per batch</div></div>
+    <div class="stat" data-reveal><div class="num">2<b>&times;</b></div><div class="lbl">Batches a year</div></div>
+  </div>
+</section>
+
+<!-- ============ MILESTONES (verified results previous batches created) ============ -->
+<section class="section mile" id="milestones">
+  <div class="wrap">
+    <div class="mile__head" data-reveal>
+      <span class="eyebrow eyebrow--center">Milestones · verified results</span>
+      <h2>What our recent batches create.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">Real, tracked results from the most recent Abundance batches — money moved, weight released, lives changed, and families lifted.</p>
+    </div>
+    <!-- Actual per-batch milestone scorecards from Canva (each branded in its own batch theme — intentional). Source numbers verified. -->
+    <div class="mile__slides">
+      <figure class="mile__slide" data-reveal>
+        <img src="https://i-am-plus-coaching.vercel.app/assets/milestones/slide-2.webp" alt="Abundance 10x SuperLife results since Deep Dive 1 — ₱961,133,751.65 sales, 326.48 kg weight released, 20,245,578 steps, ₱2,707,809 contributed, 1,041,063 families impacted" loading="lazy" width="1280" height="720">
+      </figure>
+      <figure class="mile__slide" data-reveal>
+        <img src="https://i-am-plus-coaching.vercel.app/assets/milestones/slide-1.webp" alt="Abundance 11 Metamorphosis results — ₱409,171,983.91 sales, 222.90 kg weight released, 13,852,203 steps, ₱2,834,957.41 contributed, 200,189 families impacted" loading="lazy" width="1280" height="720">
+      </figure>
+      <figure class="mile__slide" data-reveal>
+        <img src="https://i-am-plus-coaching.vercel.app/assets/abundance-batches/a9.webp" alt="Abundance 9 Time of My Life results since Deep Dive 1 — ₱776,060,771 sales, 209 kg weight released, 22,847,474 steps, ₱1,108,466 contributed, 2,603 families impacted" loading="lazy" width="1600" height="900">
+      </figure>
+      <figure class="mile__slide" data-reveal>
+        <img src="https://i-am-plus-coaching.vercel.app/assets/abundance-batches/a8.webp" alt="Abundance 8 Greatness Infinity results — ₱548 million sales, ₱1.3 billion contributed, 18.5 million steps, 7,562 lives impacted" loading="lazy" width="1600" height="900">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEET YOUR FACILITATORS ============ -->
+<section class="section facils" id="facilitators">
+  <div class="wrap">
+    <div class="facils__head" data-reveal>
+      <span class="eyebrow eyebrow--center">Meet your facilitators</span>
+      <h2 class="lux">Guided by I AM+'s most senior leaders.</h2>
+      <p class="lead" style="margin-inline:auto;text-align:center">The facilitators who hold the highest room in the I AM+ journey.</p>
+    </div>
+    <div class="facils__grid" data-reveal>
+      <figure class="facil"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-russ.webp" alt="Coach Russ Juson" width="150" height="150" loading="lazy"><figcaption><b>Russ Juson</b><em>Facilitator</em></figcaption></figure>
+      <figure class="facil"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-max.webp" alt="Coach Max Salazar" width="150" height="150" loading="lazy"><figcaption><b>Max Salazar</b><em>Facilitator</em></figcaption></figure>
+      <figure class="facil"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-gina.webp" alt="Coach Gina Katigbak" width="150" height="150" loading="lazy"><figcaption><b>Gina Katigbak</b><em>Facilitator</em></figcaption></figure>
+      <figure class="facil"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-val.webp" alt="Coach Val Domingo" width="150" height="150" loading="lazy"><figcaption><b>Val Domingo</b><em>Junior Facilitator</em></figcaption></figure>
+      <figure class="facil"><img src="https://i-am-plus-coaching.vercel.app/assets/facilitators/fac-mj.webp" alt="Coach Mj Aguilar" width="150" height="150" loading="lazy"><figcaption><b>Mj Aguilar</b><em>Junior Facilitator</em></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- GRADUATE STORIES removed 2026-06-16 per Paolo — re-add once Abundance graduate stories are gathered from students (nav "Graduates" link removed too) -->
+
+<!-- ============ RESERVE ============ -->
+<section class="section reserve" id="reserve">
+  <video class="reserve__media" id="reserveVideo" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/ab-band-poster.webp" aria-hidden="true">
+    <source src="https://i-am-plus-coaching.vercel.app/assets/ab-band.mp4" type="video/mp4">
+  </video>
+  <div class="reserve__scrim"></div>
+  <div class="wrap">
+    <div class="reserve__head">
+      <span class="eyebrow eyebrow--center" data-reveal>Reserve your seat</span>
+      <h2 class="lux" data-reveal>Seats are few. The room is rare.</h2>
+      <p class="lead" data-reveal style="margin-inline:auto;text-align:center">Abundance runs only twice a year, with limited seats. When it's full, the next one is months away.</p>
+    </div>
+
+    <div class="pricecard" data-reveal>
+      <div class="pricecard__top">
+        <div class="pricecard__price"><sup>₱</sup>150,000</div>
+        <div class="pricecard__per">per seat · three Deep Dives · materials, snacks + Deep Dive 3 meals &amp; accommodations</div>
+      </div>
+      <div class="pricecard__body">
+        <ul class="incl">
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> All three Abundance Deep Dives</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> All exercises, materials &amp; the A12 experience</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Certificate of completion</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> The I AM+ graduate community &amp; network</li>
+        </ul>
+        <a class="btn checkout-link" data-product="abundance-12" href="/checkout/abundance-12">Reserve my seat <span class="arr">&rarr;</span></a>
+        <p class="pricecard__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg> Secure checkout · GCash, Maya &amp; cards · <a href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">message us for instalment options</a></p>
+      </div>
+    </div>
+    <p class="guarantee" data-reveal><b>Breakthrough is the prerequisite.</b> Abundance is reserved for graduates of Breakthrough — it's the level the whole journey has been building toward.</p>
+  </div>
+</section>
+
+<!-- ============ THE JOURNEY — 3 Deep Dives ============ -->
+<section class="section dives" id="journey">
+  <div class="wrap">
+    <div class="dives__head">
+      <span class="eyebrow eyebrow--center" data-reveal>The journey</span>
+      <h2 class="lux" data-reveal>Three Deep Dives. Two months. One transformation.</h2>
+      <p class="lead" data-reveal style="margin-inline:auto;text-align:center">You enroll once and walk the whole road with your batch — across three immersive weekends.</p>
+    </div>
+    <div class="timeline" data-reveal>
+      <div class="dive">
+        <div class="dive__dot">1</div>
+        <div class="dive__body">
+          <span class="lbl">Deep Dive 1</span>
+          <h3>The opening move</h3>
+          <span class="date">Sep 25–27, 2026</span>
+          <p>Where the game begins — you set the board, name what you're really playing for, and break the patterns that have been quietly costing you.</p>
+        </div>
+      </div>
+      <div class="dive">
+        <div class="dive__dot">2</div>
+        <div class="dive__body">
+          <span class="lbl">Deep Dive 2</span>
+          <h3>The turn</h3>
+          <span class="date">Oct 23–25, 2026</span>
+          <p>Where momentum compounds — you build the wealth, leadership, and standards that carry the life you're stepping into.</p>
+        </div>
+      </div>
+      <div class="dive">
+        <div class="dive__dot">3</div>
+        <div class="dive__body">
+          <span class="lbl">Deep Dive 3</span>
+          <h3>Where legends are made</h3>
+          <span class="date">Nov 28–29, 2026</span>
+          <p>Where it all lands — you walk out as the version of you the whole journey was for, with a room of people who'll never let you shrink again.</p>
+        </div>
+      </div>
+    </div>
+    <p class="dives__venue"><b>Venue</b> &nbsp;·&nbsp; A premium I AM+ Deep Dive venue</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq">
+  <div class="wrap">
+    <div class="faq__grid">
+      <h2 data-reveal>Good to<br>know.</h2>
+      <div class="faq__list" data-reveal>
+        <details open><summary>Do I need Breakthrough first?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Yes. Abundance is reserved for graduates of Breakthrough (which itself requires Discovery). It's the highest level of the journey, so you arrive with the foundation already in place.</p></details>
+        <details><summary>Why three weekends instead of one?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Because the work goes deeper than a single weekend can hold. The three Deep Dives are spaced across two months (about 60–72 days) so the shifts have time to take root in your real life between sessions.</p></details>
+        <details><summary>What's the theme this batch?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Each Abundance batch gets its own world. This one is <em>Abundance 12 — The Game of My Life</em>: where legends are made.</p></details>
+        <details><summary>What's included in the investment?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>All three Deep Dives, every exercise and material, the full A12 experience, a certificate of completion, and the I AM+ graduate community.</p></details>
+        <details><summary>What's the refund / transfer policy?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Seats are <b>transferable but non-refundable</b>. If you can't make your batch, you can pass your seat to someone else or move to a later batch — just message us and we'll help you arrange it.</p></details>
+        <details><summary>How do I reserve a seat?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Secure online checkout via GCash, Maya, or card. Your seat is confirmed instantly, with details sent to your email.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer__brand" href="/programs">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+">
+      <span class="nm">I AM+<small>Coaching &amp; Training Corp.</small></span>
+    </a>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/programs">Programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/breakthrough">Breakthrough</a>
+      <a href="/abundance">Abundance</a>
+      <a href="#reserve">Reserve</a>
+    </nav>
+    <div class="footer__social" aria-label="I AM+ on social media">
+      <a href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener" aria-label="I AM+ Coaching on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.81V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+      <a href="https://www.instagram.com/iampluscoaching_/" target="_blank" rel="noopener" aria-label="I AM+ on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.46.36 1.26.41 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.43-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.46.17-1.26.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.41-.61-.24-1.05-.52-1.51-.98-.46-.46-.74-.9-.98-1.51-.17-.46-.36-1.26-.41-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.43.24-.61.52-1.05.98-1.51.46-.46.9-.74 1.51-.98.46-.17 1.26-.36 2.43-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.4-.55.22-.94.47-1.36.89-.42.42-.67.81-.89 1.36-.16.42-.35 1.04-.4 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.19.22.55.47.94.89 1.36.42.42.81.67 1.36.89.42.16 1.04.35 2.19.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.4.55-.22.94-.47 1.36-.89.42-.42.67-.81.89-1.36.16-.42.35-1.04.4-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.19-.22-.55-.47-.94-.89-1.36-.42-.42-.81-.67-1.36-.89-.42-.16-1.04-.35-2.19-.4-1.24-.06-1.61-.07-4.76-.07zm0 2.76A5.46 5.46 0 1 0 12 17.46 5.46 5.46 0 0 0 12 6.54zm0 9A3.54 3.54 0 1 1 12 8.46a3.54 3.54 0 0 1 0 7.08zm6.95-9.22a1.28 1.28 0 1 1-2.56 0 1.28 1.28 0 0 1 2.56 0z"/></svg></a>
+      <span class="footer__regions">Regional pages:
+        <a href="https://www.facebook.com/iamplusmindanao" target="_blank" rel="noopener">Mindanao</a> ·
+        <a href="https://www.facebook.com/profile.php?id=61586574663518" target="_blank" rel="noopener">Western Visayas</a> ·
+        <a href="https://www.facebook.com/profile.php?id=61587979468052" target="_blank" rel="noopener">Central Visayas</a>
+      </span>
+    </div>
+    <div class="footer__legal">
+      <span>© 2026 I AM+ Coaching &amp; Training Corp. · Abundance 12 — The Game of My Life</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY RESERVE CTA ============ -->
+<a class="seatbar" id="seatBar" href="#reserve" aria-hidden="true" tabindex="-1" aria-label="Reserve my seat">
+  <span class="seatbar__info">Abundance 12 <em>The Game of My Life · limited seats</em></span>
+  <span class="seatbar__btn">Reserve my seat <span class="arr">&rarr;</span></span>
+</a>
+
+<!-- ============ MOTION — GSAP + ScrollTrigger (progressive enhancement, no Lenis) ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  // ── Checkout wiring: Abundance is ONE product (a single enrollment covering all 3 Deep Dives
+  // at a fixed ₱150,000) — NOT per-batch — so there is no cityKey or per-date slug. The Reserve
+  // CTA points at the hosted product checkout for this batch. Root-relative so it resolves on
+  // Jericson's domain where this page renders as a site_page; the injected <base target="_top">
+  // makes the link navigate the top window out of the sandboxed iframe.
+  // custom_product_id convention = abundance-12 (the batch identity; the next batch = abundance-13).
+  // Preserve any utm_* params onto the checkout link so attribution survives the click.
+  const CHECKOUT_BASE=window.IAMPLUS_CHECKOUT_BASE||"";
+  (function wireCheckout(){
+    const params=new URLSearchParams(location.search);
+    const utm=[];params.forEach((v,k)=>{if(k.indexOf('utm_')===0)utm.push(encodeURIComponent(k)+'='+encodeURIComponent(v));});
+    const qs=utm.length?('?'+utm.join('&')):'';
+    document.querySelectorAll('.checkout-link').forEach(a=>{
+      const pid=a.getAttribute('data-product')||'abundance-12';
+      a.setAttribute('href',CHECKOUT_BASE+'/checkout/'+pid+qs);
+    });
+  })();
+
+  const top=document.getElementById('top');
+  const onScroll=()=>top.classList.toggle('scrolled',window.scrollY>40);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Scroll-spy across desktop nav + drawer
+  const navLinks=[...document.querySelectorAll('[data-spy]')];
+  const spySections=[...new Set(navLinks.map(a=>document.getElementById(a.dataset.spy)).filter(Boolean))];
+  if(spySections.length&&'IntersectionObserver'in window){
+    const spyObs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(a=>a.classList.toggle('active',a.dataset.spy===id));}});
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    spySections.forEach(s=>spyObs.observe(s));
+  }
+
+  // Mobile drawer
+  const drawer=document.getElementById('mobileNav');
+  const navToggle=document.getElementById('navToggle');
+  let lastFocus=null;
+  const openDrawer=()=>{
+    drawer.classList.add('open');document.body.classList.add('menu-open');
+    navToggle.setAttribute('aria-expanded','true');lastFocus=document.activeElement;
+    const first=drawer.querySelector('.drawer__nav a');first&&first.focus();updateSeatbar();
+  };
+  const closeDrawer=()=>{
+    drawer.classList.remove('open');document.body.classList.remove('menu-open');
+    navToggle.setAttribute('aria-expanded','false');
+    lastFocus&&lastFocus.focus&&lastFocus.focus();updateSeatbar();
+  };
+  if(drawer&&navToggle){
+    navToggle.addEventListener('click',()=>drawer.classList.contains('open')?closeDrawer():openDrawer());
+    drawer.querySelectorAll('[data-drawer-close],.drawer__nav a,.drawer__cta').forEach(el=>el.addEventListener('click',closeDrawer));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open'))closeDrawer();});
+  }
+
+  // Sticky Reserve CTA
+  const seatBar=document.getElementById('seatBar');
+  let pastHero=false,nearGoal=false;
+  function updateSeatbar(){
+    if(!seatBar)return;
+    const show=pastHero&&!nearGoal&&!document.body.classList.contains('menu-open');
+    seatBar.classList.toggle('show',show);
+    seatBar.setAttribute('aria-hidden',show?'false':'true');
+    seatBar.tabIndex=show?0:-1;
+  }
+  if(seatBar){
+    const heroEl=document.querySelector('.hero');
+    const goals=[document.getElementById('reserve'),document.querySelector('.footer')].filter(Boolean);
+    if('IntersectionObserver'in window){
+      if(heroEl)new IntersectionObserver(es=>es.forEach(e=>{pastHero=!e.isIntersecting;updateSeatbar();}),
+        {threshold:0,rootMargin:'-45% 0px 0px 0px'}).observe(heroEl);
+      const goalVis=new Map();
+      const goalObs=new IntersectionObserver(es=>{
+        es.forEach(e=>goalVis.set(e.target,e.isIntersecting));
+        nearGoal=[...goalVis.values()].some(Boolean);updateSeatbar();
+      },{threshold:0});
+      goals.forEach(el=>goalObs.observe(el));
+    }else{
+      const onsc=()=>{
+        pastHero=window.scrollY>window.innerHeight*0.6;
+        nearGoal=goals.some(el=>{const r=el.getBoundingClientRect();return r.top<window.innerHeight&&r.bottom>0;});
+        updateSeatbar();
+      };
+      onsc();window.addEventListener('scroll',onsc,{passive:true});
+    }
+  }
+
+  // Play muted background/loop videos only while in view (preload=none keeps them off the initial load)
+  const inViewPlay=(el,thr)=>{
+    if(!el)return;
+    if(!('IntersectionObserver'in window)){const p=el.play&&el.play();p&&p.catch&&p.catch(()=>{});return;}
+    new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){const p=el.play&&el.play();p&&p.catch&&p.catch(()=>{});}else{el.pause&&el.pause();}
+    }),{threshold:thr}).observe(el);
+  };
+  inViewPlay(document.querySelector('.hero__media'),.05);
+  inViewPlay(document.getElementById('bandVideo'),.15);
+  inViewPlay(document.getElementById('reserveVideo'),.15);
+
+  // VSL — the SDE film: autoplay MUTED in view, pause out of view, tap for sound
+  // (preload=none keeps it off the initial load; it only starts streaming once scrolled to).
+  const vsl=document.getElementById('vslVideo'), vslPlay=document.getElementById('vslPlay');
+  if(vsl){
+    inViewPlay(vsl,.35);
+    const unmute=()=>{vsl.muted=false;vsl.controls=true;const p=vsl.play&&vsl.play();p&&p.catch&&p.catch(()=>{});vslPlay&&vslPlay.classList.add('hidden');};
+    vslPlay&&vslPlay.addEventListener('click',e=>{e.stopPropagation();unmute();});
+    vsl.addEventListener('click',()=>{if(vsl.muted)unmute();});
+  }
+
+  if(!window.gsap){return;}
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);
+
+  const heroBits=gsap.utils.toArray('.hero [data-reveal]');
+  if(reduce){gsap.set(heroBits,{autoAlpha:1,y:0});}
+  else{
+    gsap.from(heroBits,{autoAlpha:0,y:34,duration:1,ease:'power3.out',stagger:.12,delay:.15});
+    gsap.to('.hero__media',{scale:1.12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    gsap.to('.band__media',{yPercent:-8,scale:1.12,ease:'none',scrollTrigger:{trigger:'.band',start:'top bottom',end:'bottom top',scrub:true}});
+  }
+  if(window.ScrollTrigger){
+    const items=gsap.utils.toArray('[data-reveal]').filter(el=>!el.closest('.hero'));
+    if(reduce){gsap.set(items,{autoAlpha:1,y:0});}
+    else{
+      ScrollTrigger.batch(items,{start:'top 86%',once:true,
+        onEnter:b=>gsap.from(b,{autoAlpha:0,y:30,duration:.85,ease:'power3.out',stagger:.09,overwrite:true})});
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
