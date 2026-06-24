@@ -732,7 +732,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
          The 185 baked in here is the fallback; the runtime fetch below overrides it if the JSON loads + validates. -->
     <div class="stat" data-reveal><div class="num"><b data-batches>185</b></div><div class="lbl">Batches run</div></div>
     <div class="stat" data-reveal><div class="num">2<b>×</b></div><div class="lbl">Full immersive days</div></div>
-    <div class="stat" data-reveal><div class="num">2</div><div class="lbl">Houses · Pasig &amp; Bacoor</div></div>
+    <div class="stat" data-reveal><div class="num">5</div><div class="lbl">Cities · nationwide</div></div>
   </div>
 </section>
 
@@ -883,7 +883,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   <div class="wrap">
     <div class="dates__head">
       <span class="eyebrow eyebrow--center" data-reveal>The next batch</span>
-      <h2 data-reveal>Two homes for transformation.</h2>
+      <h2 data-reveal>Find your home for transformation.</h2>
       <p class="lead" data-reveal style="margin-inline:auto;text-align:center">One batch at a time — capped and high-touch. When the next date fills, that's it for the month.</p>
     </div>
     <div class="venues" data-reveal>
@@ -908,6 +908,42 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <div class="venue__foot">
             <div class="venue__date"><span class="lbl">Next batch</span><b data-next="hop">—</b></div>
             <a class="btn btn--ghost venue-reserve" data-city="hop" href="#reserve">Reserve</a>
+          </div>
+        </div>
+      </div>
+      <div class="venue">
+        <img class="venue__img" src="https://i-am-plus-coaching.vercel.app/assets/cities/davao.webp" alt="Discovery comes to Davao">
+        <div class="venue__inner">
+          <div class="venue__city">Davao</div>
+          <div class="venue__name">Venue to be announced</div>
+          <p class="venue__addr">Exact venue confirmed soon — your seat is held the moment you reserve.</p>
+          <div class="venue__foot">
+            <div class="venue__date"><span class="lbl">Next batch</span><b data-next="davao">—</b></div>
+            <a class="btn btn--ghost venue-reserve" data-city="davao" href="#reserve">Reserve</a>
+          </div>
+        </div>
+      </div>
+      <div class="venue">
+        <img class="venue__img" src="https://i-am-plus-coaching.vercel.app/assets/cities/cebu.webp" alt="Discovery comes to Cebu">
+        <div class="venue__inner">
+          <div class="venue__city">Cebu</div>
+          <div class="venue__name">Venue to be announced</div>
+          <p class="venue__addr">Exact venue confirmed soon — your seat is held the moment you reserve.</p>
+          <div class="venue__foot">
+            <div class="venue__date"><span class="lbl">Next batch</span><b data-next="cebu">—</b></div>
+            <a class="btn btn--ghost venue-reserve" data-city="cebu" href="#reserve">Reserve</a>
+          </div>
+        </div>
+      </div>
+      <div class="venue">
+        <img class="venue__img" src="https://i-am-plus-coaching.vercel.app/assets/cities/bacolod.webp" alt="Discovery comes to Bacolod">
+        <div class="venue__inner">
+          <div class="venue__city">Bacolod</div>
+          <div class="venue__name">Base Function Hall</div>
+          <p class="venue__addr">Lacson St., Mandalagan, Bacolod City · venue tentative — to be confirmed.</p>
+          <div class="venue__foot">
+            <div class="venue__date"><span class="lbl">Next batch</span><b data-next="bacolod">—</b></div>
+            <a class="btn btn--ghost venue-reserve" data-city="bacolod" href="#reserve">Reserve</a>
           </div>
         </div>
       </div>
@@ -1053,7 +1089,11 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
     hop:[['2026-01-24','2026-01-25'],['2026-02-27','2026-03-02'],['2026-03-28','2026-03-29'],
          ['2026-04-25','2026-04-26'],['2026-05-30','2026-05-31'],['2026-06-27','2026-06-28'],
          ['2026-07-25','2026-07-26'],['2026-08-29','2026-08-30'],['2026-09-26','2026-09-27'],
-         ['2026-10-25','2026-10-26'],['2026-11-28','2026-11-29'],['2026-12-19','2026-12-20']]
+         ['2026-10-25','2026-10-26'],['2026-11-28','2026-11-29'],['2026-12-19','2026-12-20']],
+    // New cities (2026) — dates confirmed, venue TBA
+    davao:[['2026-07-11','2026-07-12']],
+    cebu:[['2026-10-03','2026-10-04']],
+    bacolod:[['2026-07-11','2026-07-12']]
   };
   const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const fmtBatch=([sIso,eIso])=>{
@@ -1070,7 +1110,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   // following day (start >= today). Reads live SCHED, so the meta-JSON fetch updates it too.
   const VENUES={
     hot:{label:'Manila · Pasig',venue:'House of Transformation, Pasig'},
-    hop:{label:'Cavite · Bacoor',venue:'House of Prime, Bacoor'}
+    hop:{label:'Cavite · Bacoor',venue:'House of Prime, Bacoor'},
+    davao:{label:'Davao',venue:'Venue TBA · Davao'},
+    cebu:{label:'Cebu',venue:'Venue TBA · Cebu'},
+    bacolod:{label:'Bacolod',venue:'Base Function Hall · Bacolod (tentative)'}
   };
   const nextBuyable=arr=>{const t=new Date();t.setHours(0,0,0,0);
     for(const pair of arr){if(new Date(pair[0]+'T00:00:00')>=t)return pair;}return null;};
@@ -1084,7 +1127,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       el.textContent=nx?fmtBatch(nx):'Coming soon';
     });
     // hero chip: soonest upcoming Discovery date across ALL venues — tagged with its city
-    const CITY={hot:'Pasig',hop:'Cavite'};
+    const CITY={hot:'Pasig',hop:'Cavite',davao:'Davao',cebu:'Cebu',bacolod:'Bacolod'};
     const anyNext=Object.keys(SCHED).map(k=>{const nx=nextDate(SCHED[k]||[]);return nx?{k,nx}:null;}).filter(Boolean)
       .sort((a,b)=>new Date(a.nx[0])-new Date(b.nx[0]))[0];
     document.querySelectorAll('[data-next-any]').forEach(el=>{el.textContent=anyNext?fmtBatch(anyNext.nx)+' · '+CITY[anyNext.k]:'Coming soon';});
@@ -1097,7 +1140,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   // makes the link navigate the top window out of the sandboxed iframe.
   // custom_product_id convention = discovery-${cityKey}-${startISO} (cityKey: hot→manila, hop→cavite).
   const CHECKOUT_BASE=window.IAMPLUS_CHECKOUT_BASE||"";
-  const CITYKEY={hot:'manila',hop:'cavite'};
+  const CITYKEY={hot:'manila',hop:'cavite',davao:'davao',cebu:'cebu',bacolod:'bacolod'};
   function wireVenueCheckout(){
     document.querySelectorAll('.venue-reserve').forEach(a=>{
       const k=a.getAttribute('data-city');
