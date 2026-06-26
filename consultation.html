@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Free Business Consultation — I AM+ Coaching</title>
+<meta name="description" content="Get a free consultation with the I AM+ team. Tell us where you're stuck — in your business or your leadership — and we'll point you to the right next step. No cost, no obligation.">
+<meta property="og:title" content="Book a free business consultation — I AM+">
+<meta property="og:description" content="Tell us where you're stuck and we'll point you to the right next step. Free, no obligation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iampluscoaching.com/consultation">
+<meta property="og:image" content="https://i-am-plus-coaching.vercel.app/assets/og-iamplus.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/iam-forms.css">
+<!-- I AM+ · FREE consultation lead capture. Submissions -> shared Supabase `leads`
+     (type=consultation, anon INSERT, RLS) -> surfaced in Jericson's admin for the sales team. -->
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brandmark" href="/programs" aria-label="I AM+ home">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching &amp; Training Corp.">
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/programs">The programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/corporate">For teams</a>
+      <a class="btn" href="#book">Book my slot <span class="arr">&rarr;</span></a>
+    </nav>
+    <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="mobileNav">
+  <div class="drawer__scrim" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <nav class="drawer__nav" aria-label="Sections">
+      <a href="/programs">The programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/corporate">Corporate Discovery</a>
+      <a href="/staff">Staff with us</a>
+    </nav>
+    <a class="btn drawer__cta" href="#book">Book my slot <span class="arr">&rarr;</span></a>
+    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Philippines · nationwide</p>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <img class="hero__media" src="https://i-am-plus-coaching.vercel.app/assets/grand-anm-poster.webp" alt="" aria-hidden="true">
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <span class="eyebrow" data-reveal>Free consultation</span>
+      <h1 class="hero__title" data-reveal data-reveal-delay="80">Let's find your<br>next <span class="cy">move.</span></h1>
+      <p class="hero__sub" data-reveal data-reveal-delay="160">A free, no-pressure conversation with the I AM+ team. Tell us where you're stuck — in your business or your leadership — and we'll point you to the right next step.</p>
+      <div class="hero__cta" data-reveal data-reveal-delay="240">
+        <a class="btn" href="#book">Book my free consultation <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="hero__meta metarow" data-reveal data-reveal-delay="320">
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Free · no obligation</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 30 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE ===== -->
+<section class="section values">
+  <div class="wrap">
+    <div class="values__grid">
+      <div class="vcard" data-reveal>
+        <div class="vcard__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Real talk, not a sales call</h3>
+        <p>We start with where you actually are. If I AM+ isn't the right fit, we'll tell you that too.</p>
+      </div>
+      <div class="vcard" data-reveal data-reveal-delay="80">
+        <div class="vcard__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h3>Clarity you can use</h3>
+        <p>You'll leave with a clearer picture of your bottleneck and a concrete next step — whether or not you work with us.</p>
+      </div>
+      <div class="vcard" data-reveal data-reveal-delay="160">
+        <div class="vcard__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>From people who've done it</h3>
+        <p>The I AM+ team has guided thousands through real change. You're talking to operators, not a script.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING FORM ===== -->
+<section class="section formsec" id="book">
+  <div class="wrap">
+    <div class="formsec__grid">
+      <div class="formsec__intro" data-reveal>
+        <span class="eyebrow">Book your slot</span>
+        <h2>Tell us a little first.</h2>
+        <p class="lead">A few details so we can prepare — then our team reaches out to set a time that works for you.</p>
+        <ul class="formsec__list">
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Completely free — no card, no obligation</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> ~30 minutes, by call or message</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> We'll reach out to set the time</li>
+        </ul>
+      </div>
+
+      <div class="card" data-reveal data-reveal-delay="80">
+        <div class="form__body">
+          <div class="formnote" role="alert" aria-live="polite"></div>
+          <form data-iam-form data-table="leads" data-type="consultation" novalidate>
+            <div class="field">
+              <label for="k_name">Full name<span class="req">*</span></label>
+              <input class="control" id="k_name" name="full_name" type="text" required placeholder="Juan Dela Cruz" autocomplete="name">
+              <span class="field__err">Please enter your name.</span>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="k_email">Email<span class="req">*</span></label>
+                <input class="control" id="k_email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
+                <span class="field__err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="k_contact">Contact number<span class="req">*</span></label>
+                <input class="control" id="k_contact" name="contact_number" type="tel" required placeholder="0917 000 0000" autocomplete="tel">
+                <span class="field__err">Please enter your contact number.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="k_business">Link to your business
+                <span class="hint">If you have one — website or page. Optional.</span>
+              </label>
+              <input class="control" id="k_business" name="business_link" type="text" placeholder="yourbusiness.com" autocomplete="url">
+            </div>
+            <div class="field">
+              <label for="k_profile">Your Facebook / profile link
+                <span class="hint">So our team can message you directly.</span>
+              </label>
+              <input class="control" id="k_profile" name="profile_link" type="text" placeholder="facebook.com/your.profile">
+            </div>
+            <div class="field">
+              <label for="k_msg">What would you like help with?</label>
+              <textarea class="control" id="k_msg" name="message" maxlength="4000" placeholder="e.g. My business has plateaued and I'm not sure where the real bottleneck is."></textarea>
+            </div>
+
+            <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+            <div class="form__submit">
+              <button class="btn" type="submit">Book my free consultation <span class="arr">&rarr;</span></button>
+            </div>
+            <p class="form__fine">We only use your details to set up your consultation. No spam, ever.</p>
+          </form>
+        </div>
+        <div class="done" role="status">
+          <div class="done__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
+          <h3>Request received.</h3>
+          <p>Thanks — our team will reach out shortly to set a time for your free consultation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer__brand" href="/programs">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+">
+      <span class="nm">I AM+<small>Coaching &amp; Training Corp.</small></span>
+    </a>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/programs">Programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/corporate">Corporate</a>
+      <a href="/consultation">Free consultation</a>
+      <a href="/staff">Staff with us</a>
+    </nav>
+    <div class="footer__legal">
+      <span>© 2026 I AM+ Coaching &amp; Training Corp. · The Personal Mastery Journey</span>
+      <span>Philippines · nationwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/supabase-config.js"></script>
+<script src="/iam-forms.js"></script>
+</body>
+</html>

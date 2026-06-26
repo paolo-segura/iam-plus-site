@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bring Discovery to Your Team — I AM+ Corporate Programs</title>
+<meta name="description" content="Run I AM+ Discovery for your company. A two-day Personal Mastery experience for teams — book a corporate or group Discovery and our team will design it around your people.">
+<meta property="og:title" content="Bring Discovery to your team — I AM+ Corporate">
+<meta property="og:description" content="A two-day Personal Mastery experience for your whole team. Inquire about a corporate or group Discovery.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iampluscoaching.com/corporate">
+<meta property="og:image" content="https://i-am-plus-coaching.vercel.app/assets/og-iamplus.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/iam-forms.css">
+<!-- I AM+ · CORPORATE / group Discovery inquiry. Submissions -> shared Supabase `leads`
+     (type=corporate, anon INSERT, RLS) -> surfaced in Jericson's admin for the sales team. -->
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brandmark" href="/programs" aria-label="I AM+ home">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching &amp; Training Corp.">
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/programs">The programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/consultation">Free consultation</a>
+      <a class="btn" href="#inquire">Inquire now <span class="arr">&rarr;</span></a>
+    </nav>
+    <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="mobileNav">
+  <div class="drawer__scrim" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <nav class="drawer__nav" aria-label="Sections">
+      <a href="/programs">The programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/consultation">Free consultation</a>
+      <a href="/staff">Staff with us</a>
+    </nav>
+    <a class="btn drawer__cta" href="#inquire">Inquire now <span class="arr">&rarr;</span></a>
+    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Philippines · nationwide</p>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <img class="hero__media" src="https://i-am-plus-coaching.vercel.app/assets/batch-montage.webp" alt="" aria-hidden="true">
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <span class="eyebrow" data-reveal>For companies &amp; teams</span>
+      <h1 class="hero__title" data-reveal data-reveal-delay="80">Bring Discovery<br>to your <span class="cy">team.</span></h1>
+      <p class="hero__sub" data-reveal data-reveal-delay="160">The same two-day Personal Mastery experience that's moved thousands of graduates — run for your company. Aligned people, real ownership, a team that shows up differently on Monday.</p>
+      <div class="hero__cta" data-reveal data-reveal-delay="240">
+        <a class="btn" href="#inquire">Inquire about a corporate Discovery <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="hero__meta metarow" data-reveal data-reveal-delay="320">
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg> Built for your org</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Group &amp; on-site options</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE ===== -->
+<section class="section values">
+  <div class="wrap">
+    <div class="values__grid">
+      <div class="vcard" data-reveal>
+        <div class="vcard__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>One team, one language</h3>
+        <p>When your people go through Discovery together, they come back sharing a vocabulary for ownership, accountability and trust.</p>
+      </div>
+      <div class="vcard" data-reveal data-reveal-delay="80">
+        <div class="vcard__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Designed around you</h3>
+        <p>Group dates, your venue or ours, and a flow shaped to your team's size and goals. Tell us what you need.</p>
+      </div>
+      <div class="vcard" data-reveal data-reveal-delay="160">
+        <div class="vcard__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></div>
+        <h3>Proven, not theoretical</h3>
+        <p>10,000+ lives transformed across 270+ batches. This is a track record, not a pitch deck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INQUIRY FORM ===== -->
+<section class="section formsec" id="inquire">
+  <div class="wrap">
+    <div class="formsec__grid">
+      <div class="formsec__intro" data-reveal>
+        <span class="eyebrow">Corporate inquiry</span>
+        <h2>Let's scope it together.</h2>
+        <p class="lead">Share a few details and our team will reach out to design the right Discovery for your people.</p>
+        <ul class="formsec__list">
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> No commitment — this just starts the conversation</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Group, on-site &amp; custom dates available</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> We'll follow up within a couple of business days</li>
+        </ul>
+      </div>
+
+      <div class="card" data-reveal data-reveal-delay="80">
+        <div class="form__body">
+          <div class="formnote" role="alert" aria-live="polite"></div>
+          <form data-iam-form data-table="leads" data-type="corporate" novalidate>
+            <div class="field">
+              <label for="c_name">Your name<span class="req">*</span></label>
+              <input class="control" id="c_name" name="full_name" type="text" required placeholder="Juan Dela Cruz" autocomplete="name">
+              <span class="field__err">Please enter your name.</span>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="c_company">Company / business</label>
+                <input class="control" id="c_company" name="company" type="text" placeholder="Your company" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="c_team">Approx. team size</label>
+                <select class="control" id="c_team" name="team_size">
+                  <option value="" selected disabled>Select…</option>
+                  <option value="Under 15">Under 15</option>
+                  <option value="15–30">15–30</option>
+                  <option value="30–60">30–60</option>
+                  <option value="60–120">60–120</option>
+                  <option value="120+">120+</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="c_email">Work email<span class="req">*</span></label>
+                <input class="control" id="c_email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+                <span class="field__err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="c_contact">Contact number<span class="req">*</span></label>
+                <input class="control" id="c_contact" name="contact_number" type="tel" required placeholder="0917 000 0000" autocomplete="tel">
+                <span class="field__err">Please enter your contact number.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="c_business">Link to your business
+                <span class="hint">Website or page — helps us understand your team.</span>
+              </label>
+              <input class="control" id="c_business" name="business_link" type="text" placeholder="yourcompany.com" autocomplete="url">
+            </div>
+            <div class="field">
+              <label for="c_profile">Your Facebook / profile link
+                <span class="hint">So our team can message you directly.</span>
+              </label>
+              <input class="control" id="c_profile" name="profile_link" type="text" placeholder="facebook.com/your.profile">
+            </div>
+            <div class="field">
+              <label for="c_msg">What are you looking for?</label>
+              <textarea class="control" id="c_msg" name="message" maxlength="4000" placeholder="e.g. We'd like to run Discovery for ~40 people on our leadership offsite in Q3."></textarea>
+            </div>
+
+            <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+            <div class="form__submit">
+              <button class="btn" type="submit">Send my inquiry <span class="arr">&rarr;</span></button>
+            </div>
+            <p class="form__fine">We only use your details to follow up on your inquiry. No spam, ever.</p>
+          </form>
+        </div>
+        <div class="done" role="status">
+          <div class="done__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
+          <h3>Inquiry received.</h3>
+          <p>Thanks — our team will reach out within a couple of business days to scope your corporate Discovery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer__brand" href="/programs">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+">
+      <span class="nm">I AM+<small>Coaching &amp; Training Corp.</small></span>
+    </a>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/programs">Programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/corporate">Corporate</a>
+      <a href="/consultation">Free consultation</a>
+      <a href="/staff">Staff with us</a>
+    </nav>
+    <div class="footer__legal">
+      <span>© 2026 I AM+ Coaching &amp; Training Corp. · The Personal Mastery Journey</span>
+      <span>Philippines · nationwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/supabase-config.js"></script>
+<script src="/iam-forms.js"></script>
+</body>
+</html>
