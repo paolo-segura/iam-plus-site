@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abundance 12 — The Game of My Life | I AM+</title>
-<meta name="description" content="The pinnacle I AM+ experience. A two-month high-performance coaching program — daily calls, a weekly mastermind, the Success Club, and three in-person Deep Dives — to master your inner game, build real wealth, and live the life your breakthrough was for. Breakthrough is the prerequisite.">
+<meta name="description" content="The pinnacle I AM+ experience. A two-month high-performance coaching program for entrepreneurs, executives, founders, and high performers — daily calls, a weekly mastermind, the Success Club, and three in-person Deep Dives — to master your inner game, build real wealth, and operate at your highest level. By application.">
 <meta property="og:title" content="Abundance 12 — The Game of My Life | I AM+">
 <meta property="og:description" content="Where legends are made. The highest-level I AM+ experience — a two-month high-performance coaching program, anchored by three in-person Deep Dives.">
 <meta property="og:image" content="http://app-bypass-1080p-program-5xw9hz-81810a-76-13-188-119.sslip.io/assets/thumb-abundance.jpg">
@@ -556,6 +556,43 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .hero__media,.band__media{transform:none}
 }
+
+/* ===== APPLY MODAL (simple pop-up) ===== */
+.applyov{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(4,6,12,.74);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.applyov.open{opacity:1;visibility:visible}
+.applycard{position:relative;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;border-radius:22px;padding:clamp(26px,4vw,40px);
+  background:linear-gradient(180deg,rgba(16,18,30,.98),rgba(10,12,20,.98));
+  box-shadow:inset 0 0 0 1px var(--line-2),0 40px 100px -40px rgba(0,0,0,.9);
+  transform:translateY(16px) scale(.985);transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.applyov.open .applycard{transform:none}
+.applycard__x{position:absolute;top:14px;right:14px;width:38px;height:38px;border:0;border-radius:10px;cursor:pointer;
+  background:rgba(255,255,255,.05);color:var(--fog);display:grid;place-items:center;transition:background .2s,color .2s}
+.applycard__x:hover{background:rgba(255,255,255,.1);color:var(--white)}
+.applycard__x svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.applycard h3{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:400;color:var(--white);margin-bottom:6px}
+.applycard .sub{color:var(--mute);font-size:.95rem;margin-bottom:22px;line-height:1.5}
+.afield{margin-bottom:15px}
+.afield label{display:block;font-size:.8rem;font-weight:600;color:var(--fog);margin-bottom:6px}
+.afield .req{color:var(--cyan)}
+.actl{width:100%;font-family:var(--font-body);font-size:1rem;color:var(--white);background:rgba(4,6,12,.6);border:0;border-radius:11px;
+  padding:13px 15px;box-shadow:inset 0 0 0 1px var(--line-2);transition:box-shadow .2s,background .2s}
+.actl::placeholder{color:var(--mute);opacity:.7}
+.actl:focus{outline:0;background:rgba(4,6,12,.85);box-shadow:inset 0 0 0 1.5px var(--cyan),0 0 0 4px rgba(92,225,230,.12)}
+textarea.actl{min-height:88px;resize:vertical;line-height:1.5}
+.afield.bad .actl{box-shadow:inset 0 0 0 1.5px rgba(255,107,107,.7)}
+.applycard .btn{width:100%;justify-content:center;margin-top:8px}
+.applycard__fine{margin-top:12px;font-size:.76rem;color:var(--mute);text-align:center}
+.applynote{display:none;margin-bottom:16px;padding:13px 15px;border-radius:11px;font-size:.92rem;line-height:1.45}
+.applynote.show{display:block}
+.applynote.err{background:rgba(255,107,107,.12);color:#ffb4b4;box-shadow:inset 0 0 0 1px rgba(255,107,107,.35)}
+.applycard.done .applyform{display:none}
+.applydone{display:none;text-align:center;padding:8px 0}
+.applycard.done .applydone{display:block}
+.applydone__ic{width:60px;height:60px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;color:var(--cyan);
+  background:rgba(92,225,230,.12);box-shadow:inset 0 0 0 1.5px rgba(92,225,230,.5)}
+.applydone__ic svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+body.applyopen{overflow:hidden}
 </style>
 <script src="/config.js"></script></head>
 <body>
@@ -571,7 +608,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       <a href="#master" data-spy="master">What You Master</a>
       <a href="#facilitators" data-spy="facilitators">Facilitators</a>
       <a href="#journey" data-spy="journey">The Journey</a>
-      <a class="btn" href="#reserve">Reserve a seat <span class="arr">&rarr;</span></a>
+      <a class="btn" href="#reserve" data-apply>Apply <span class="arr">&rarr;</span></a>
     </nav>
     <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
@@ -589,7 +626,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       <a href="#facilitators" data-spy="facilitators">Facilitators</a>
       <a href="#journey" data-spy="journey">The Journey</a>
     </nav>
-    <a class="btn drawer__cta" href="#reserve">Reserve a seat <span class="arr">&rarr;</span></a>
+    <a class="btn drawer__cta" href="#reserve" data-apply>Apply for Abundance <span class="arr">&rarr;</span></a>
     <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Abundance 12 · Philippines</p>
   </div>
 </div>
@@ -605,15 +642,15 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       <img class="hero__mark" src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching & Training Corp." width="172" height="58" data-reveal>
       <img class="hero__logo" src="https://i-am-plus-coaching.vercel.app/assets/ab-logo-a12.webp" alt="Abundance 12 — The Game of My Life" data-reveal>
       <p class="hero__tagline" data-reveal>Where legends are made</p>
-      <p class="hero__sub" data-reveal>The pinnacle I AM+ experience — a two-month high-performance coaching program. Daily calls, a weekly mastermind, and the Success Club keep you moving, anchored by three in-person Deep Dives where you stop playing not to lose and start playing the game of your life.</p>
+      <p class="hero__sub" data-reveal>For entrepreneurs, executives, founders, and high performers — the pinnacle I AM+ experience. A two-month high-performance coaching program: daily calls, a weekly mastermind, and the Success Club keep you moving, anchored by three in-person Deep Dives where you stop playing not to lose and start playing the game of your life.</p>
       <div class="hero__cta" data-reveal>
-        <a class="btn" href="#reserve">Reserve my seat <span class="arr">&rarr;</span></a>
+        <a class="btn" href="#reserve" data-apply>Apply for Abundance <span class="arr">&rarr;</span></a>
         <a class="btn btn--ghost" href="#what">See what's inside</a>
       </div>
       <div class="hero__meta metarow" data-reveal>
         <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><b>2-month</b> coaching program · Sep–Nov 2026</span>
         <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7c2.5 2 4.5 2 7 0s4.5-2 7 0M3 12c2.5 2 4.5 2 7 0s4.5-2 7 0M3 17c2.5 2 4.5 2 7 0s4.5-2 7 0"/></svg><b>3</b> in-person Deep Dives</span>
-        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4.5"/><path d="M11 12 20 3M16.5 6.5l2.5 2.5M14.5 8.5l2 2"/></svg><b>Breakthrough</b> grads only</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4.5"/><path d="M11 12 20 3M16.5 6.5l2.5 2.5M14.5 8.5l2 2"/></svg><b>By application</b> · an elite room</span>
       </div>
     </div>
   </div>
@@ -650,7 +687,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
         <span class="eyebrow">The next Abundance</span>
         <h2 class="lux">Abundance 12 — <span class="te">The Game of My Life</span>.</h2>
         <p class="lead">This is the next chapter of the Abundance journey. Every batch becomes its own world — and this one is <em>The Game of My Life</em>, where legends are made.</p>
-        <a class="btn" href="#reserve">Reserve my seat <span class="arr">&rarr;</span></a>
+        <a class="btn" href="#reserve" data-apply>Apply for Abundance <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -683,7 +720,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       </li>
       <li>
         <span class="feat__num">02</span>
-        <div><h3>Breakthrough is the doorway</h3><p>Abundance builds on everything Discovery and Breakthrough set in place. That's why it's reserved for graduates — you arrive ready to go all the way.</p></div>
+        <div><h3>An elite room, by design</h3><p>Abundance is for high performers ready to operate at their highest level. Every applicant is personally reviewed, so the room stays sharp, serious, and aligned — and you arrive ready to go all the way.</p></div>
       </li>
       <li>
         <span class="feat__num">03</span>
@@ -824,7 +861,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
     <div class="who__grid">
       <h2 data-reveal>Is this your level?</h2>
       <div class="who__list">
-        <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You've completed Breakthrough — and you're ready for the deep end.</p></div>
+        <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You're an entrepreneur, executive, founder, or high performer ready for the deep end.</p></div>
         <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You're done with incremental — you want a step-change in how you live and lead.</p></div>
         <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You'll commit to the full two-month program — daily, weekly, and all three Deep Dives, all in.</p></div>
         <div class="who__item" data-reveal><span class="ck"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span><p>You want a room of people operating at the level you're growing into.</p></div>
@@ -896,14 +933,14 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   <div class="reserve__scrim"></div>
   <div class="wrap">
     <div class="reserve__head">
-      <span class="eyebrow eyebrow--center" data-reveal>Reserve your seat</span>
+      <span class="eyebrow eyebrow--center" data-reveal>Apply for Abundance</span>
       <h2 class="lux" data-reveal>Seats are few. The room is rare.</h2>
       <p class="lead" data-reveal style="margin-inline:auto;text-align:center">Abundance runs only twice a year, with limited seats. When it's full, the next one is months away.</p>
     </div>
 
     <div class="pricecard" data-reveal>
       <div class="pricecard__top">
-        <div class="pricecard__price"><sup>₱</sup>150,000</div>
+        <div class="pricecard__price"><sup>₱</sup>250,000</div>
         <div class="pricecard__per">per seat · full two-month program · materials, snacks + Deep Dive 3 meals &amp; accommodations</div>
       </div>
       <div class="pricecard__body">
@@ -914,11 +951,11 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Certificate of completion</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> The I AM+ graduate community &amp; network</li>
         </ul>
-        <a class="btn checkout-link" data-product="abundance-12" href="/checkout/abundance-12">Reserve my seat <span class="arr">&rarr;</span></a>
-        <p class="pricecard__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg> Secure checkout · GCash, Maya &amp; cards · <a href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">message us for instalment options</a></p>
+        <a class="btn" href="#reserve" data-apply>Apply for Abundance <span class="arr">&rarr;</span></a>
+        <p class="pricecard__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg> By application · our team personally reviews every applicant · <a href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">message us with questions</a></p>
       </div>
     </div>
-    <p class="guarantee" data-reveal><b>Breakthrough is the prerequisite.</b> Abundance is reserved for graduates of Breakthrough — it's the level the whole journey has been building toward.</p>
+    <p class="guarantee" data-reveal><b>By application only.</b> Abundance is an elite room — our team personally reviews every applicant to keep the level high, the room aligned, and the work serious.</p>
   </div>
 </section>
 
@@ -969,12 +1006,12 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
     <div class="faq__grid">
       <h2 data-reveal>Good to<br>know.</h2>
       <div class="faq__list" data-reveal>
-        <details open><summary>Do I need Breakthrough first?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Yes. Abundance is reserved for graduates of Breakthrough (which itself requires Discovery). It's the highest level of the journey, so you arrive with the foundation already in place.</p></details>
+        <details open><summary>Who is Abundance for?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Entrepreneurs, executives, founders, creators, and high performers ready to operate at their highest level. Abundance is by application — our team personally reviews every applicant to keep the room serious, aligned, and high-calibre.</p></details>
         <details><summary>Is Abundance just three weekends?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>No — it's a full two-month coaching program. The core is ongoing: daily coaching calls, a weekly mastermind, and the Success Club keep you moving the whole way through. The three in-person Deep Dives are the milestones spaced across those two months (about 60–72 days), so the shifts have time to take root in your real life between them.</p></details>
         <details><summary>What's the theme this batch?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Each Abundance batch gets its own world. This one is <em>Abundance 12 — The Game of My Life</em>: where legends are made.</p></details>
         <details><summary>What's included in the investment?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>All three Deep Dives, every exercise and material, the full A12 experience, a certificate of completion, and the I AM+ graduate community.</p></details>
         <details><summary>What's the refund / transfer policy?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Seats are <b>transferable but non-refundable</b>. If you can't make your batch, you can pass your seat to someone else or move to a later batch — just message us and we'll help you arrange it.</p></details>
-        <details><summary>How do I reserve a seat?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Secure online checkout via GCash, Maya, or card. Your seat is confirmed instantly, with details sent to your email.</p></details>
+        <details><summary>How do I join?<span class="pm"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Abundance is by application. Submit your application and our team will reach out to walk you through the next steps, answer your questions, and confirm it's the right fit.</p></details>
       </div>
     </div>
   </div>
@@ -992,7 +1029,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       <a href="/discovery">Discovery</a>
       <a href="/breakthrough">Breakthrough</a>
       <a href="/abundance">Abundance</a>
-      <a href="#reserve">Reserve</a>
+      <a href="#reserve" data-apply>Apply</a>
     </nav>
     <div class="footer__social" aria-label="I AM+ on social media">
       <a href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener" aria-label="I AM+ Coaching on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.81V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
@@ -1011,9 +1048,9 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
 </footer>
 
 <!-- ============ STICKY RESERVE CTA ============ -->
-<a class="seatbar" id="seatBar" href="#reserve" aria-hidden="true" tabindex="-1" aria-label="Reserve my seat">
-  <span class="seatbar__info">Abundance 12 <em>The Game of My Life · limited seats</em></span>
-  <span class="seatbar__btn">Reserve my seat <span class="arr">&rarr;</span></span>
+<a class="seatbar" id="seatBar" href="#reserve" data-apply aria-hidden="true" tabindex="-1" aria-label="Apply for Abundance">
+  <span class="seatbar__info">Abundance 12 <em>The Game of My Life · by application</em></span>
+  <span class="seatbar__btn">Apply for Abundance <span class="arr">&rarr;</span></span>
 </a>
 
 <!-- ============ MOTION — GSAP + ScrollTrigger (progressive enhancement, no Lenis) ============ -->
@@ -1146,6 +1183,75 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
         onEnter:b=>gsap.from(b,{autoAlpha:0,y:30,duration:.85,ease:'power3.out',stagger:.09,overwrite:true})});
     }
   }
+})();
+</script>
+
+<!-- ===== APPLY MODAL (simple pop-up) ===== -->
+<div class="applyov" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="applyTitle" aria-hidden="true">
+  <div class="applycard">
+    <button class="applycard__x" type="button" data-apply-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="applyform">
+      <h3 id="applyTitle">Apply for Abundance</h3>
+      <p class="sub">A few details and our team will personally reach out about the next intake. Investment: ₱250,000.</p>
+      <div class="applynote" role="alert" aria-live="polite"></div>
+      <form id="applyForm" novalidate>
+        <div class="afield"><label for="ab_name">Full name <span class="req">*</span></label>
+          <input class="actl" id="ab_name" name="full_name" type="text" required placeholder="Juan Dela Cruz" autocomplete="name"></div>
+        <div class="afield"><label for="ab_email">Email <span class="req">*</span></label>
+          <input class="actl" id="ab_email" name="email" type="email" required placeholder="you@email.com" autocomplete="email"></div>
+        <div class="afield"><label for="ab_mobile">Mobile number <span class="req">*</span></label>
+          <input class="actl" id="ab_mobile" name="mobile" type="tel" required placeholder="0917 000 0000" autocomplete="tel"></div>
+        <div class="afield"><label for="ab_msg">What are you looking to create? <span style="color:var(--mute);font-weight:400">(optional)</span></label>
+          <textarea class="actl" id="ab_msg" name="message" maxlength="2000" placeholder="A line or two about the game you're playing."></textarea></div>
+        <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <button class="btn" type="submit">Submit my application <span class="arr">&rarr;</span></button>
+        <p class="applycard__fine">No payment now — this starts the conversation. No spam, ever.</p>
+      </form>
+    </div>
+    <div class="applydone">
+      <div class="applydone__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
+      <h3>Application received.</h3>
+      <p class="sub" style="margin-bottom:0">Thank you. Our team will personally review it and reach out about the next Abundance intake.</p>
+    </div>
+  </div>
+</div>
+
+<script src="/supabase-config.js"></script>
+<script>
+(function(){
+  var ov=document.getElementById('applyModal'); if(!ov)return;
+  var card=ov.querySelector('.applycard'), form=document.getElementById('applyForm');
+  var lastFocus=null;
+  function open(e){ if(e)e.preventDefault(); lastFocus=document.activeElement; ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); document.body.classList.add('applyopen'); var f=form&&form.querySelector('input'); if(f)setTimeout(function(){f.focus();},60); }
+  function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); document.body.classList.remove('applyopen'); if(lastFocus&&lastFocus.focus)lastFocus.focus(); }
+  document.querySelectorAll('[data-apply]').forEach(function(b){ b.addEventListener('click',open); });
+  ov.addEventListener('click',function(e){ if(e.target===ov)close(); });
+  ov.querySelectorAll('[data-apply-close]').forEach(function(b){ b.addEventListener('click',close); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('open'))close(); });
+  if(!form)return;
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var SB_URL=window.IAMPLUS_SUPABASE_URL, SB_ANON=window.IAMPLUS_SUPABASE_ANON;
+  var note=ov.querySelector('.applynote'), btn=form.querySelector('[type=submit]'), btnHTML=btn?btn.innerHTML:'';
+  function showErr(m){ if(note){ note.className='applynote show err'; note.textContent=m; } }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var hp=form.querySelector('input[name="company_url"]'); if(hp&&hp.value)return;
+    var bad=false, first=null;
+    ['full_name','email','mobile'].forEach(function(n){
+      var inp=form.querySelector('[name="'+n+'"]'), w=inp.closest('.afield'); w.classList.remove('bad');
+      var v=(inp.value||'').trim();
+      if(!v||(n==='email'&&!EMAIL.test(v))){ w.classList.add('bad'); bad=true; first=first||inp; }
+    });
+    if(bad){ showErr('Please add your name, a valid email, and your mobile number.'); if(first)first.focus(); return; }
+    if(!SB_URL||!SB_ANON){ showErr('This form isn’t connected yet — please message us on Facebook.'); return; }
+    if(note)note.className='applynote';
+    if(btn){ btn.disabled=true; btn.innerHTML='Sending…'; }
+    var payload={}; form.querySelectorAll('[name]').forEach(function(i){ var v=(i.value||'').trim(); if(v)payload[i.name]=v; });
+    delete payload.company_url; payload.source='abundance_apply_modal';
+    fetch(SB_URL+'/rest/v1/abundance_applications',{method:'POST',headers:{'apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok)return r.text().then(function(t){throw new Error(r.status+' '+t);}); card.classList.add('done'); card.scrollTop=0; })
+      .catch(function(err){ if(btn){btn.disabled=false;btn.innerHTML=btnHTML;} showErr('Sorry — something went wrong. Please try again, or message us on Facebook.'); if(window.console)console.warn('[abundance-apply]',err&&err.message); });
+  });
 })();
 </script>
 
