@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House of Transformation — Event Venue for Rent | I AM+</title>
+<meta name="description" content="Rent the House of Transformation — I AM+'s event venue in Ortigas, Pasig. ₱50,000/day, inclusive of an LED wall, sound & lights, two 85-inch LED TVs, chairs & tables, and full-venue access. Perfect for trainings, workshops, and corporate events.">
+<meta property="og:title" content="House of Transformation — venue for rent | I AM+">
+<meta property="og:description" content="A ready-to-run event space in Pasig — LED wall, sound & lights, two 85\" TVs, chairs & tables. ₱50,000/day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iampluscoaching.com/house-of-transformation">
+<meta property="og:image" content="https://i-am-plus-coaching.vercel.app/assets/house-of-transformation.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/iam-forms.css">
+<!-- I AM+ · HOUSE OF TRANSFORMATION venue-rental page. Built on the shared iam-forms.css shell
+     (matches /staff /corporate /consultation) + a small inline block below.
+     PLACEHOLDER PHOTOS — reusing existing Discovery batch imagery. Real HOT photos go in
+     /assets/house-of-transformation/ (see READ-ME-FIRST.md there); tell me and I'll swap them in.
+     Inquiry CTA points to FB Messenger for now; can be wired to a lead form on request. -->
+<style>
+  .cy{color:#5CE1E6}
+  .section--tight{padding-block:clamp(48px,7vw,84px)}
+  .lead-center{max-width:720px;margin-inline:auto;text-align:center}
+  .h2lux{font-family:Fraunces,serif;font-weight:360;font-size:clamp(2rem,4.4vw,3rem);color:#fff;margin:12px 0 0}
+  /* inclusions grid */
+  .incl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(16px,2.2vw,24px);
+    max-width:1000px;margin:clamp(28px,4vw,44px) auto 0}
+  .incl-card{border-radius:18px;padding:clamp(22px,2.8vw,30px);border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+  .incl-card .ic{width:34px;height:34px;color:#5CE1E6;margin-bottom:14px}
+  .incl-card h3{font-family:Fraunces,serif;font-weight:440;font-size:1.28rem;color:#fff;margin:0 0 8px}
+  .incl-card p{margin:0;color:#c2ccd9;font-size:.96rem;line-height:1.55}
+  /* gallery */
+  .gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:200px;gap:12px;
+    max-width:1080px;margin:clamp(28px,4vw,44px) auto 0}
+  .gal img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+  .gal .big{grid-row:span 2}
+  @media(max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .big{grid-column:span 2;grid-row:span 1}}
+  /* price */
+  .price-wrap{max-width:520px;margin:clamp(28px,4vw,44px) auto 0}
+  .price-card{border-radius:22px;padding:clamp(28px,3.6vw,40px);text-align:center;
+    border:1px solid rgba(92,225,230,.28);
+    background:linear-gradient(180deg,rgba(92,225,230,.09),rgba(92,225,230,.02))}
+  .price-card .eyebrow{justify-content:center}
+  .price-card__num{font-family:Fraunces,serif;font-weight:400;color:#fff;line-height:1.02;margin:14px 0 2px;
+    font-size:clamp(2.8rem,7vw,4rem)}
+  .price-card__num sup{font-size:.9rem;color:#5CE1E6;vertical-align:super;font-weight:600;letter-spacing:.08em}
+  .price-card__per{color:#9fb0c4;font-size:.95rem;margin:0 0 24px}
+  .price-card .btn{width:100%;justify-content:center}
+  .price-card__sec{margin-top:14px;font-size:.8rem;color:#8093a8}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brandmark" href="/programs" aria-label="I AM+ home">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching &amp; Training Corp.">
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/programs">The programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="#included">What's included</a>
+      <a class="btn" href="#inquire">Check availability <span class="arr">&rarr;</span></a>
+    </nav>
+    <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="mobileNav">
+  <div class="drawer__scrim" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <nav class="drawer__nav" aria-label="Sections">
+      <a href="/programs">The programs</a>
+      <a href="#included">What's included</a>
+      <a href="#gallery">The space</a>
+      <a href="/discovery">Discovery</a>
+    </nav>
+    <a class="btn drawer__cta" href="#inquire">Check availability <span class="arr">&rarr;</span></a>
+    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ortigas, Pasig · Philippines</p>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <img class="hero__media" src="https://i-am-plus-coaching.vercel.app/assets/house-of-transformation.webp" alt="" aria-hidden="true">
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <span class="eyebrow" data-reveal>Venue rental · Ortigas, Pasig</span>
+      <h1 class="hero__title" data-reveal data-reveal-delay="80">Host it at the House of <span class="cy">Transformation.</span></h1>
+      <p class="hero__sub" data-reveal data-reveal-delay="160">The room where I AM+ runs its own Discovery seminars — now open for your event. A ready-to-run space with an LED wall, sound &amp; lights, and two 85-inch screens. Just bring your people.</p>
+      <div class="hero__cta" data-reveal data-reveal-delay="240">
+        <a class="btn" href="#inquire">Check availability <span class="arr">&rarr;</span></a>
+        <a class="btn btn--ghost" href="#included">See what's included</a>
+      </div>
+      <div class="hero__meta metarow" data-reveal data-reveal-delay="320">
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg> ₱50,000 / day</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg> LED wall + two 85&quot; TVs</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ortigas, Pasig</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT'S INCLUDED ===== -->
+<section class="section section--tight" id="included">
+  <div class="wrap">
+    <div class="lead-center">
+      <span class="eyebrow">All-in for ₱50,000/day</span>
+      <h2 class="h2lux">Everything's already in the room.</h2>
+      <p class="hero__sub" style="margin:16px auto 0;max-width:640px">No hunting for suppliers. The House of Transformation comes set up and event-ready.</p>
+    </div>
+    <div class="incl-grid">
+      <div class="incl-card" data-reveal>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M7 21h10M12 17v4"/></svg>
+        <h3>LED wall</h3>
+        <p>A full LED wall for your slides, branding, or livestream — bright enough for any room setup.</p>
+      </div>
+      <div class="incl-card" data-reveal data-reveal-delay="60">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 10v4M7 7v10M12 4v16M17 8v8M21 11v2"/></svg>
+        <h3>Sound &amp; lights</h3>
+        <p>A basic sound system and lighting rig, ready to go — mics and music covered for talks and sessions.</p>
+      </div>
+      <div class="incl-card" data-reveal data-reveal-delay="120">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        <h3>Two 85&quot; LED TVs</h3>
+        <p>Two large 85-inch LED displays for breakout content, speaker support, or second-screen visuals.</p>
+      </div>
+      <div class="incl-card" data-reveal data-reveal-delay="180">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 11h16M6 11V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M5 11v6M19 11v6M8 17h8"/></svg>
+        <h3>Chairs &amp; tables</h3>
+        <p>Seating and tables included — arrange them classroom, banquet, or theatre style for your format.</p>
+      </div>
+      <div class="incl-card" data-reveal data-reveal-delay="240">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg>
+        <h3>Full-venue access</h3>
+        <p>Run of the whole venue for your event day — the only space off-limits is the I AM+ office.</p>
+      </div>
+      <div class="incl-card" data-reveal data-reveal-delay="300">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Full event day</h3>
+        <p>₱50,000 covers the day — trainings, workshops, launches, church services, or corporate offsites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section section--tight" id="gallery">
+  <div class="wrap">
+    <div class="lead-center">
+      <span class="eyebrow">The space</span>
+      <h2 class="h2lux">A room built for transformation.</h2>
+    </div>
+    <!-- PLACEHOLDER gallery — reusing existing Discovery imagery. Swap for real HOT photos
+         from /assets/house-of-transformation/ once added. -->
+    <div class="gal">
+      <img class="big" src="https://i-am-plus-coaching.vercel.app/assets/house-of-transformation.webp" alt="The House of Transformation event room, Ortigas Pasig" loading="lazy">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/batch-montage.webp" alt="A full room during an I AM+ session" loading="lazy">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-hug-crowd.webp" alt="Participants together in the room" loading="lazy">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-hug-purple.webp" alt="A session moment in the room" loading="lazy">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/emotion/emo-hug-film.webp" alt="The room during a live seminar" loading="lazy">
+    </div>
+    <p class="lead-center" style="margin-top:20px;color:#8093a8;font-size:.86rem">More photos of the venue coming soon.</p>
+  </div>
+</section>
+
+<!-- ===== PRICE + INQUIRE ===== -->
+<section class="section section--tight" id="inquire">
+  <div class="wrap">
+    <div class="lead-center">
+      <span class="eyebrow">Book the room</span>
+      <h2 class="h2lux">Simple, all-in pricing.</h2>
+    </div>
+    <div class="price-wrap">
+      <div class="price-card">
+        <span class="eyebrow">Venue rental</span>
+        <div class="price-card__num"><sup>₱</sup>50,000</div>
+        <p class="price-card__per">per day · all inclusions above · Ortigas, Pasig</p>
+        <a class="btn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Check availability <span class="arr">&rarr;</span></a>
+        <p class="price-card__sec">Message our team with your date and event type — we'll confirm availability and walk you through the space.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer__brand" href="/programs">
+      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+">
+      <span class="nm">I AM+<small>Coaching &amp; Training Corp.</small></span>
+    </a>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/programs">Programs</a>
+      <a href="/discovery">Discovery</a>
+      <a href="/house-of-transformation">Venue rental</a>
+      <a href="/corporate">Corporate</a>
+      <a href="/consultation">Free consultation</a>
+    </nav>
+    <div class="footer__legal">
+      <span>© 2026 I AM+ Coaching &amp; Training Corp. · The Personal Mastery Journey</span>
+      <span><a href="/terms">Terms</a> · Ortigas, Pasig · Philippines</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/iam-forms.js"></script>
+</body>
+</html>

@@ -437,17 +437,19 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   </div>
 </section>
 
-<!-- ===== WHO WE ARE (positioning manifesto) ===== -->
-<section class="section" id="who-we-are">
-  <div class="wrap" style="max-width:880px;text-align:center">
-    <span class="eyebrow eyebrow--center" data-reveal>Who we are</span>
-    <h2 class="shift__big" data-reveal style="margin-top:20px">Personal Mastery &amp; <span class="hl">Human Development.</span></h2>
-    <div data-reveal style="margin-top:28px;display:flex;flex-direction:column;gap:20px;max-width:720px;margin-inline:auto;text-align:left;font-size:clamp(1.02rem,1.4vw,1.15rem);line-height:1.78;color:var(--fog)">
+<!-- ===== WHO WE ARE (positioning manifesto — coaches-speaking video BG + dark overlay) ===== -->
+<section class="section" id="who-we-are" style="position:relative;overflow:hidden;padding-block:clamp(84px,12vw,150px)">
+  <video class="autoplay-iv" muted loop playsinline preload="none" poster="assets/who-we-are-coaches-poster.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"><source src="assets/who-we-are-coaches.mp4" type="video/mp4"></video>
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,9,15,.9),rgba(6,9,15,.8) 42%,rgba(6,9,15,.9))"></div>
+  <div class="wrap" style="position:relative;z-index:2;max-width:860px">
+    <span class="eyebrow" data-reveal>Who we are</span>
+    <h2 class="shift__big" data-reveal style="margin-top:16px">Personal Mastery &amp; <span class="hl">Human Development.</span></h2>
+    <div data-reveal style="margin-top:22px;max-width:780px;display:flex;flex-direction:column;gap:16px;font-size:clamp(1rem,1.25vw,1.1rem);line-height:1.72;color:var(--fog)">
       <p>We're an organization dedicated to helping people <b style="color:var(--white)">grow, break through their limitations, and create meaningful results</b> in their lives.</p>
       <p>Yes, we facilitate powerful, transformative experiences — we were among the pioneers in this space. But that's not our end goal. <b style="color:var(--white)">A breakthrough is simply a tool, not the destination.</b></p>
-      <p>Our real mission is to help people develop the <b style="color:var(--white)">mindset, skills, and habits</b> that enable them to move forward, achieve their goals, build better relationships, grow their careers or businesses, and ultimately create a better life.</p>
+      <p>Our real mission is to help people build the <b style="color:var(--white)">mindset, skills, and habits</b> to move forward, achieve their goals, grow their relationships, careers, and businesses, and create a better life.</p>
+      <p style="font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.32;color:var(--white);margin-top:6px">We don't just make you feel better — we <span class="hl">help you become better</span>, so you achieve <span class="hl">better results</span>.</p>
     </div>
-    <p data-reveal style="margin-top:30px;font-family:var(--font-display);font-size:clamp(1.35rem,2.6vw,1.85rem);line-height:1.32;color:var(--white);max-width:760px;margin-inline:auto">At I AM+, we don't just make you feel better — we <span class="hl">help you become better</span>, so you can achieve <span class="hl">better results</span>.</p>
   </div>
 </section>
 
@@ -572,19 +574,6 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
         <span class="disc"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg></span>
         <span class="lbl">Tap for sound</span>
       </button>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ANCHOR BAND 2 — HEAL THE WORLD (movement) ===== -->
-<section class="filmband movement center">
-  <video class="filmband__media autoplay-iv" muted loop playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/heal-the-world-poster.webp" aria-hidden="true"><source src="https://i-am-plus-coaching.vercel.app/assets/heal-the-world.mp4" type="video/mp4"></video>
-  <div class="filmband__scrim"></div>
-  <div class="wrap">
-    <div class="filmband__cap" data-reveal>
-      <span class="eyebrow eyebrow--center">Bigger than any one of us</span>
-      <h2>What starts as your breakthrough doesn't stay yours.</h2>
-      <p>Every year, I AM+ graduates turn the work outward — into their families, their teams, and their communities.</p>
     </div>
   </div>
 </section>
