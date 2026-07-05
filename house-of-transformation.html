@@ -199,20 +199,91 @@
   </div>
 </section>
 
-<!-- ===== PRICE + INQUIRE ===== -->
-<section class="section section--tight" id="inquire">
+<!-- ===== RESERVE (reserve → we confirm; no blind inquiry) ===== -->
+<section class="section formsec" id="inquire">
   <div class="wrap">
-    <div class="lead-center">
-      <span class="eyebrow">Book the room</span>
-      <h2 class="h2lux">Simple, all-in pricing.</h2>
-    </div>
-    <div class="price-wrap">
-      <div class="price-card">
-        <span class="eyebrow">Venue rental</span>
-        <div class="price-card__num"><sup>₱</sup>50,000</div>
-        <p class="price-card__per">per day · all inclusions above · Ortigas, Pasig</p>
-        <a class="btn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Check availability <span class="arr">&rarr;</span></a>
-        <p class="price-card__sec">Message our team with your date and event type — we'll confirm availability and walk you through the space.</p>
+    <div class="formsec__grid">
+      <div class="formsec__intro" data-reveal>
+        <span class="eyebrow">Reserve the room</span>
+        <h2>Pick a date.<br>We'll confirm it.</h2>
+        <p class="lead"><b style="color:#fff">₱50,000</b> for the full day — all inclusions above. Tell us your date and event; we'll confirm availability and lock it in. No back-and-forth.</p>
+        <ul class="formsec__list">
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Send your preferred date &amp; event type</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> We confirm the date + walk you through the space</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Lock your day at the ₱50,000 rate</li>
+        </ul>
+        <p class="formsec__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> 3F, Ayala Malls The 30th, Meralco Ave, Ortigas, Pasig City</p>
+      </div>
+
+      <div class="card" data-reveal data-reveal-delay="80">
+        <div class="form__body">
+          <div class="formnote" role="alert" aria-live="polite"></div>
+          <form id="reserveForm" data-iam-form data-table="website_leads" data-type="corporate" data-source="venue_rental_form" novalidate>
+            <div class="field">
+              <label for="r_name">Full name<span class="req">*</span></label>
+              <input class="control" id="r_name" name="full_name" type="text" required placeholder="Juan Dela Cruz" autocomplete="name">
+              <span class="field__err">Please enter your name.</span>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="r_email">Email<span class="req">*</span></label>
+                <input class="control" id="r_email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
+                <span class="field__err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="r_contact">Contact number<span class="req">*</span></label>
+                <input class="control" id="r_contact" name="contact_number" type="tel" required placeholder="0917 000 0000" autocomplete="tel">
+                <span class="field__err">Please enter your contact number.</span>
+              </div>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="b_date">Preferred date<span class="req">*</span></label>
+                <input class="control" id="b_date" type="date">
+                <span class="field__err">Please pick a preferred date.</span>
+              </div>
+              <div class="field">
+                <label for="b_altdate">Alternate date <span class="hint">optional</span></label>
+                <input class="control" id="b_altdate" type="date">
+              </div>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="b_event">Event type</label>
+                <select class="control" id="b_event">
+                  <option value="" selected disabled>Select…</option>
+                  <option>Corporate offsite / meeting</option>
+                  <option>Training / workshop / seminar</option>
+                  <option>Product launch</option>
+                  <option>Church service</option>
+                  <option>Party / celebration</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="b_headcount">Expected headcount</label>
+                <input class="control" id="b_headcount" type="number" min="1" placeholder="e.g. 80">
+              </div>
+            </div>
+            <div class="field">
+              <label for="r_msg">Anything else?</label>
+              <textarea class="control" id="r_msg" maxlength="4000" placeholder="Tell us about your event — timing, setup, any needs."></textarea>
+              <input type="hidden" name="message" id="r_msg_hidden">
+            </div>
+
+            <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+            <div class="form__submit">
+              <button class="btn" type="submit">Request this date <span class="arr">&rarr;</span></button>
+            </div>
+            <p class="form__fine">We'll only use your details to confirm your booking. No spam, ever.</p>
+          </form>
+        </div>
+        <div class="done" role="status">
+          <div class="done__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
+          <h3>Reservation request sent.</h3>
+          <p>Thanks — our team will confirm availability for your date and walk you through the next steps shortly.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -247,6 +318,41 @@
     if(!v||!b) return;
     b.addEventListener('click',function(){ v.muted=false; v.currentTime=0; v.play(); b.style.display='none'; });
     v.addEventListener('click',function(){ if(!v.paused){v.pause();}else{v.play();} });
+  })();
+
+  // Reserve form: require a preferred date + fold the venue-specific fields into the
+  // hidden `message` that gets posted. Runs on document in the CAPTURE phase so it
+  // fires BEFORE iam-forms.js reads the payload (it posts every named input as a column,
+  // so only known-safe columns — name/email/contact_number/message — are ever sent).
+  (function(){
+    var form = document.getElementById('reserveForm');
+    if(!form) return;
+    try{
+      var t=new Date();
+      var iso=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+      ['b_date','b_altdate'].forEach(function(id){ var el=document.getElementById(id); if(el) el.min=iso; });
+    }catch(_){}
+    document.addEventListener('submit', function(e){
+      if(e.target !== form) return;
+      var d=document.getElementById('b_date'),
+          alt=document.getElementById('b_altdate'),
+          ev=document.getElementById('b_event'),
+          hc=document.getElementById('b_headcount'),
+          notes=document.getElementById('r_msg'),
+          hidden=document.getElementById('r_msg_hidden');
+      if(d && !d.value){
+        e.preventDefault(); e.stopPropagation();
+        var w=d.closest('.field'); if(w) w.classList.add('field--bad'); d.focus();
+        return;
+      }
+      var parts=['— VENUE RENTAL REQUEST · House of Transformation —'];
+      if(d && d.value) parts.push('Preferred date: '+d.value);
+      if(alt && alt.value) parts.push('Alternate date: '+alt.value);
+      if(ev && ev.value) parts.push('Event type: '+ev.value);
+      if(hc && hc.value) parts.push('Expected headcount: '+hc.value);
+      var userNotes=(notes && notes.value.trim()) ? ('\n\nNotes: '+notes.value.trim()) : '';
+      if(hidden) hidden.value = parts.join('\n') + userNotes;
+    }, true);
   })();
 </script>
 </body>
