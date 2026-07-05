@@ -35,11 +35,18 @@
   .incl-card h3{font-family:Fraunces,serif;font-weight:440;font-size:1.28rem;color:#fff;margin:0 0 8px}
   .incl-card p{margin:0;color:#c2ccd9;font-size:.96rem;line-height:1.55}
   /* gallery */
-  .gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:200px;gap:12px;
-    max-width:1080px;margin:clamp(28px,4vw,44px) auto 0}
-  .gal img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
-  .gal .big{grid-row:span 2}
-  @media(max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal .big{grid-column:span 2;grid-row:span 1}}
+  /* editorial masonry — handles mixed portrait/landscape without cropping */
+  .gal{column-count:3;column-gap:12px;max-width:1080px;margin:clamp(28px,4vw,44px) auto 0}
+  .gal img{width:100%;margin:0 0 12px;border-radius:14px;display:block;break-inside:avoid}
+  @media(max-width:760px){.gal{column-count:2}}
+  @media(max-width:440px){.gal{column-count:1}}
+  /* venue reel */
+  .hot-vid{max-width:960px;margin:clamp(28px,4vw,44px) auto 0;border-radius:20px;overflow:hidden;
+    position:relative;background:#0a0f18;border:1px solid rgba(92,225,230,.22);box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+  .hot-vid video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#0a0f18}
+  .hot-vid__sound{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;
+    padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.28);
+    background:rgba(6,10,18,.6);color:#fff;font:600 .82rem/1 Inter,sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
   /* price */
   .price-wrap{max-width:520px;margin:clamp(28px,4vw,44px) auto 0}
   .price-card{border-radius:22px;padding:clamp(28px,3.6vw,40px);text-align:center;
@@ -152,20 +159,42 @@
   </div>
 </section>
 
+<!-- ===== VENUE REEL ===== -->
+<section class="section section--tight" id="reel">
+  <div class="wrap">
+    <div class="lead-center">
+      <span class="eyebrow">See it in action</span>
+      <h2 class="h2lux">The room, brought to life.</h2>
+    </div>
+    <div class="hot-vid">
+      <video id="hotReel" playsinline preload="none" muted loop poster="/assets/house-of-transformation/reel-poster.jpg">
+        <source src="/assets/house-of-transformation/reel.mp4" type="video/mp4">
+      </video>
+      <button class="hot-vid__sound" id="hotReelSound" type="button" aria-pressed="false">
+        <span aria-hidden="true">&#128266;</span><span>Tap to play with sound</span>
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- ===== GALLERY ===== -->
 <section class="section section--tight" id="gallery">
   <div class="wrap">
     <div class="lead-center">
       <span class="eyebrow">The space</span>
-      <h2 class="h2lux">A room built for transformation.</h2>
+      <h2 class="h2lux">Your blank canvas — and what people do with it.</h2>
     </div>
-    <!-- Real House of Transformation venue stills (pulled from the venue-reveal footage). -->
+    <!-- Editorial masonry: empty-room stills + real events held at the venue. -->
     <div class="gal">
-      <img class="big" src="/assets/house-of-transformation/room-1.jpg" alt="The House of Transformation event room — LED wall lit, red-carpet aisle and theatre seating, Ortigas Pasig" loading="lazy">
-      <img src="/assets/house-of-transformation/room-2.jpg" alt="The room set theatre-style facing the LED wall" loading="lazy">
-      <img src="/assets/house-of-transformation/room-3.jpg" alt="Side view of the stage and LED wall" loading="lazy">
-      <img src="/assets/house-of-transformation/room-4.jpg" alt="The stage, side screens and seating" loading="lazy">
-      <img src="https://i-am-plus-coaching.vercel.app/assets/house-of-transformation.webp" alt="The room full during a live I AM+ event" loading="lazy">
+      <img src="/assets/house-of-transformation/room-1.jpg" alt="The room set theatre-style with the LED wall lit" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-06.jpg" alt="A speaker on stage before a full room" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-02.jpg" alt="An elegant evening event styled with balloons" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-03.jpg" alt="A group celebration on the red carpet" loading="lazy">
+      <img src="/assets/house-of-transformation/room-3.jpg" alt="The stage and LED wall, room empty and ready" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-01.jpg" alt="A corporate partners summit on the main stage" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-05.jpg" alt="A packed audience during a seminar" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-08.jpg" alt="An evening session lit in blue" loading="lazy">
+      <img src="/assets/house-of-transformation/events/event-09.jpg" alt="Attendees enjoying an event in the room" loading="lazy">
     </div>
   </div>
 </section>
@@ -211,5 +240,14 @@
 </footer>
 
 <script src="/iam-forms.js"></script>
+<script>
+  // Venue reel: tap to play with sound (mirrors the other I AM+ videos).
+  (function(){
+    var v=document.getElementById('hotReel'), b=document.getElementById('hotReelSound');
+    if(!v||!b) return;
+    b.addEventListener('click',function(){ v.muted=false; v.currentTime=0; v.play(); b.style.display='none'; });
+    v.addEventListener('click',function(){ if(!v.paused){v.pause();}else{v.play();} });
+  })();
+</script>
 </body>
 </html>
