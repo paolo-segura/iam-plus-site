@@ -35,11 +35,29 @@
   .incl-card h3{font-family:Fraunces,serif;font-weight:440;font-size:1.28rem;color:#fff;margin:0 0 8px}
   .incl-card p{margin:0;color:#c2ccd9;font-size:.96rem;line-height:1.55}
   /* gallery */
-  /* editorial masonry — handles mixed portrait/landscape without cropping */
-  .gal{column-count:3;column-gap:12px;max-width:1080px;margin:clamp(28px,4vw,44px) auto 0}
-  .gal img{width:100%;margin:0 0 12px;border-radius:14px;display:block;break-inside:avoid}
-  @media(max-width:760px){.gal{column-count:2}}
-  @media(max-width:440px){.gal{column-count:1}}
+  /* ── Cinematic Venue Lookbook ── one curated set, not a scrapbook.
+     The varied event photos are unified by identical framing + a muted grade + ink
+     gradient by default; hover blooms each tile to full colour and lifts it. */
+  .vgal{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;max-width:1120px;margin:clamp(28px,4vw,46px) auto 0}
+  .vtile{position:relative;overflow:hidden;border-radius:16px;background:#0a0f18;grid-column:span 2;aspect-ratio:4/3;margin:0}
+  .vtile--wide{grid-column:span 3}
+  .vtile img{width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(.82) contrast(1.03) brightness(.9);
+    transition:filter .55s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+  .vtile::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(6,10,18,.14) 0%,transparent 34%,transparent 46%,rgba(6,10,18,.9) 100%)}
+  .vtile__num{position:absolute;top:12px;left:13px;z-index:2;font:600 .66rem/1 Inter,sans-serif;letter-spacing:.14em;
+    color:rgba(255,255,255,.9);background:rgba(6,10,18,.42);padding:4px 8px;border-radius:7px;backdrop-filter:blur(5px)}
+  .vtile__cap{position:absolute;left:16px;right:16px;bottom:15px;z-index:2;margin:0;transform:translateY(7px);opacity:.94;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1), opacity .5s}
+  .vtile__tag{display:block;font:600 .64rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#5CE1E6;margin-bottom:6px}
+  .vtile__tag::before{content:"";display:inline-block;width:16px;height:1.5px;background:#5CE1E6;vertical-align:middle;margin-right:8px;transition:width .5s}
+  .vtile__desc{font-family:Fraunces,serif;font-weight:400;font-size:clamp(1rem,1.5vw,1.16rem);color:#fff;line-height:1.18}
+  .vtile:hover img{filter:saturate(1.06) contrast(1) brightness(1);transform:scale(1.045)}
+  .vtile:hover .vtile__cap{transform:translateY(0);opacity:1}
+  .vtile:hover .vtile__tag::before{width:30px}
+  @media(max-width:820px){.vgal{grid-template-columns:1fr 1fr;gap:12px}.vtile,.vtile--wide{grid-column:span 1}}
+  @media(max-width:460px){.vgal{grid-template-columns:1fr}.vtile,.vtile--wide{grid-column:span 1}}
   /* venue reel */
   .hot-vid{max-width:960px;margin:clamp(28px,4vw,44px) auto 0;border-radius:20px;overflow:hidden;
     position:relative;background:#0a0f18;border:1px solid rgba(92,225,230,.22);box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
@@ -182,19 +200,57 @@
   <div class="wrap">
     <div class="lead-center">
       <span class="eyebrow">The space</span>
-      <h2 class="h2lux">Your blank canvas — and what people do with it.</h2>
+      <h2 class="h2lux">Your blank canvas —<br>and what people do with it.</h2>
+      <p class="hero__sub" style="margin:14px auto 0;max-width:600px">The same room, set every way — from an empty stage to a full house.</p>
     </div>
-    <!-- Editorial masonry: empty-room stills + real events held at the venue. -->
-    <div class="gal">
-      <img src="/assets/house-of-transformation/room-1.jpg" alt="The room set theatre-style with the LED wall lit" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-06.jpg" alt="A speaker on stage before a full room" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-02.jpg" alt="An elegant evening event styled with balloons" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-03.jpg" alt="A group celebration on the red carpet" loading="lazy">
-      <img src="/assets/house-of-transformation/room-3.jpg" alt="The stage and LED wall, room empty and ready" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-01.jpg" alt="A corporate partners summit on the main stage" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-05.jpg" alt="A packed audience during a seminar" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-08.jpg" alt="An evening session lit in blue" loading="lazy">
-      <img src="/assets/house-of-transformation/events/event-09.jpg" alt="Attendees enjoying an event in the room" loading="lazy">
+    <!-- Cinematic Venue Lookbook — uniform framing + a muted grade unify the varied
+         event photos into one curated set; hover blooms each tile to full colour. -->
+    <div class="vgal">
+      <figure class="vtile vtile--wide">
+        <img src="/assets/house-of-transformation/room-1.jpg" alt="The room set theatre-style with the LED wall lit" loading="lazy">
+        <span class="vtile__num">01</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">The Room</span><span class="vtile__desc">Theatre set, LED wall lit</span></figcaption>
+      </figure>
+      <figure class="vtile vtile--wide">
+        <img src="/assets/house-of-transformation/room-3.jpg" alt="The stage and LED wall, room empty and ready" loading="lazy">
+        <span class="vtile__num">02</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">The Room</span><span class="vtile__desc">Empty &amp; ready for you</span></figcaption>
+      </figure>
+      <figure class="vtile">
+        <img src="/assets/house-of-transformation/events/event-06.jpg" alt="A speaker on the main stage before a full room" loading="lazy">
+        <span class="vtile__num">03</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Summit</span><span class="vtile__desc">Main stage moment</span></figcaption>
+      </figure>
+      <figure class="vtile">
+        <img src="/assets/house-of-transformation/events/event-02.jpg" alt="An elegant evening event styled with balloons" loading="lazy">
+        <span class="vtile__num">04</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Celebration</span><span class="vtile__desc">Evening styling</span></figcaption>
+      </figure>
+      <figure class="vtile">
+        <img src="/assets/house-of-transformation/events/event-05.jpg" alt="A packed audience during a seminar" loading="lazy">
+        <span class="vtile__num">05</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Seminar</span><span class="vtile__desc">Full house</span></figcaption>
+      </figure>
+      <figure class="vtile vtile--wide">
+        <img src="/assets/house-of-transformation/events/event-03.jpg" alt="A group celebration on the red carpet" loading="lazy">
+        <span class="vtile__num">06</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Celebration</span><span class="vtile__desc">Milestone night</span></figcaption>
+      </figure>
+      <figure class="vtile vtile--wide">
+        <img src="/assets/house-of-transformation/events/event-01.jpg" alt="A corporate partners summit on the main stage" loading="lazy">
+        <span class="vtile__num">07</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Summit</span><span class="vtile__desc">Partners day</span></figcaption>
+      </figure>
+      <figure class="vtile vtile--wide">
+        <img src="/assets/house-of-transformation/events/event-08.jpg" alt="An evening session lit in blue" loading="lazy">
+        <span class="vtile__num">08</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Session</span><span class="vtile__desc">After dark</span></figcaption>
+      </figure>
+      <figure class="vtile vtile--wide">
+        <img src="/assets/house-of-transformation/events/event-09.jpg" alt="Attendees enjoying an event in the room" loading="lazy">
+        <span class="vtile__num">09</span>
+        <figcaption class="vtile__cap"><span class="vtile__tag">Seminar</span><span class="vtile__desc">The room, full</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
