@@ -77,6 +77,36 @@
   .price-card__per{color:#9fb0c4;font-size:.95rem;margin:0 0 24px}
   .price-card .btn{width:100%;justify-content:center}
   .price-card__sec{margin-top:14px;font-size:.8rem;color:#8093a8}
+  /* ── availability calendar ── reads /assets/hot-availability.json ── */
+  .cal{max-width:860px;margin:clamp(24px,3.5vw,42px) auto 0}
+  .cal__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+  .cal__nav{display:inline-flex;gap:8px}
+  .cal__navbtn{width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font-size:1.15rem;display:grid;place-items:center;
+    transition:background .2s,border-color .2s,opacity .2s}
+  .cal__navbtn:hover{background:rgba(92,225,230,.12);border-color:rgba(92,225,230,.4)}
+  .cal__navbtn:disabled{opacity:.28;cursor:not-allowed}
+  .cal__note{font:500 .8rem/1.3 Inter,sans-serif;color:#8093a8}
+  .cal__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.4vw,36px)}
+  @media(max-width:680px){.cal__grid{grid-template-columns:1fr}}
+  .cmonth__title{text-align:center;font-family:Fraunces,serif;font-weight:400;font-size:1.22rem;color:#fff;margin-bottom:14px}
+  .cmonth__dow{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:7px}
+  .cmonth__dow span{text-align:center;font:600 .64rem/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5b6b80}
+  .cmonth__days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cday{aspect-ratio:1;display:grid;place-items:center;border-radius:9px;font:500 .9rem/1 Inter,sans-serif;
+    color:#cfd8e6;background:rgba(255,255,255,.03);border:1px solid transparent;user-select:none}
+  .cday--empty{background:transparent}
+  .cday--past{color:#39465a;background:transparent}
+  .cday--booked{color:#66738a;background:rgba(255,255,255,.02);text-decoration:line-through;
+    text-decoration-color:rgba(255,96,116,.55);text-decoration-thickness:2px}
+  .cday--open{cursor:pointer;color:#fff;background:rgba(92,225,230,.08);border-color:rgba(92,225,230,.22);
+    transition:background .18s,border-color .18s,transform .18s}
+  .cday--open:hover{background:rgba(92,225,230,.22);border-color:#5CE1E6;transform:translateY(-1px)}
+  .cday--open:focus-visible{outline:2px solid #5CE1E6;outline-offset:2px}
+  .cday--selected{background:#5CE1E6;color:#06121e;border-color:#5CE1E6;font-weight:700}
+  .cal__legend{display:flex;gap:20px;justify-content:center;margin-top:20px;font:500 .82rem/1 Inter,sans-serif;color:#9fb0c4}
+  .cal__legend span{display:inline-flex;align-items:center;gap:8px}
+  .cal__dot{width:11px;height:11px;border-radius:50%;display:inline-block}
 </style>
 </head>
 <body>
@@ -91,7 +121,7 @@
       <a href="/programs">The programs</a>
       <a href="/discovery">Discovery</a>
       <a href="#included">What's included</a>
-      <a class="btn" href="#inquire">Check availability <span class="arr">&rarr;</span></a>
+      <a class="btn" href="#availability">Check availability <span class="arr">&rarr;</span></a>
     </nav>
     <button class="navtoggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
   </div>
@@ -105,7 +135,7 @@
       <a href="#gallery">The space</a>
       <a href="/discovery">Discovery</a>
     </nav>
-    <a class="btn drawer__cta" href="#inquire">Check availability <span class="arr">&rarr;</span></a>
+    <a class="btn drawer__cta" href="#availability">Check availability <span class="arr">&rarr;</span></a>
     <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ortigas, Pasig · Philippines</p>
   </div>
 </div>
@@ -122,7 +152,7 @@
       <h1 class="hero__title" data-reveal data-reveal-delay="80">Host it at the House of <span class="cy">Transformation.</span></h1>
       <p class="hero__sub" data-reveal data-reveal-delay="160">The room where I AM+ runs its own Discovery seminars — now open for your event. A ready-to-run space with an LED wall, sound &amp; lights, and two 85-inch screens. Just bring your people.</p>
       <div class="hero__cta" data-reveal data-reveal-delay="240">
-        <a class="btn" href="#inquire">Check availability <span class="arr">&rarr;</span></a>
+        <a class="btn" href="#availability">Check availability <span class="arr">&rarr;</span></a>
         <a class="btn btn--ghost" href="#included">See what's included</a>
       </div>
       <div class="hero__meta metarow" data-reveal data-reveal-delay="320">
@@ -251,6 +281,31 @@
         <span class="vtile__num">09</span>
         <figcaption class="vtile__cap"><span class="vtile__tag">Seminar</span><span class="vtile__desc">The room, full</span></figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AVAILABILITY ===== -->
+<section class="section section--tight" id="availability">
+  <div class="wrap">
+    <div class="lead-center">
+      <span class="eyebrow">Check availability</span>
+      <h2 class="h2lux">See an open date? Grab it.</h2>
+      <p class="hero__sub" style="margin:14px auto 0;max-width:600px">Open days are highlighted — struck-through dates are already booked. Tap an open day to start your reservation.</p>
+    </div>
+    <div class="cal" id="hotCal">
+      <div class="cal__head">
+        <div class="cal__nav">
+          <button class="cal__navbtn" data-cal-prev type="button" aria-label="Previous months">&lsaquo;</button>
+          <button class="cal__navbtn" data-cal-next type="button" aria-label="Next months">&rsaquo;</button>
+        </div>
+        <span class="cal__note">From our House of Transformation booking calendar</span>
+      </div>
+      <div class="cal__grid" data-cal-grid></div>
+      <div class="cal__legend">
+        <span><span class="cal__dot" style="background:#5CE1E6"></span> Open</span>
+        <span><span class="cal__dot" style="background:rgba(255,96,116,.7)"></span> Booked</span>
+      </div>
     </div>
   </div>
 </section>
@@ -409,6 +464,63 @@
       var userNotes=(notes && notes.value.trim()) ? ('\n\nNotes: '+notes.value.trim()) : '';
       if(hidden) hidden.value = parts.join('\n') + userNotes;
     }, true);
+  })();
+
+  // Availability calendar: renders 2 months, marks booked venue days from
+  // /assets/hot-availability.json, and lets visitors tap an open day to prefill
+  // the reservation form. Booked data is synced from the HoT booking calendar.
+  (function(){
+    var host=document.getElementById('hotCal'); if(!host) return;
+    var grid=host.querySelector('[data-cal-grid]');
+    var prevBtn=host.querySelector('[data-cal-prev]'), nextBtn=host.querySelector('[data-cal-next]');
+    var booked={}; // set of ISO date -> true
+    var MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var DOW=['Su','Mo','Tu','We','Th','Fr','Sa'];
+    var VISIBLE=2;
+    var today=new Date(); today.setHours(0,0,0,0);
+    var minMonth=new Date(today.getFullYear(),today.getMonth(),1);
+    var cursor=new Date(minMonth);
+    function pad(n){return (n<10?'0':'')+n;}
+    function iso(y,m,d){return y+'-'+pad(m+1)+'-'+pad(d);}
+    function monthHTML(base){
+      var y=base.getFullYear(), m=base.getMonth();
+      var firstDow=new Date(y,m,1).getDay();
+      var days=new Date(y,m+1,0).getDate();
+      var h='<div class="cmonth"><div class="cmonth__title">'+MON[m]+' '+y+'</div>';
+      h+='<div class="cmonth__dow">'+DOW.map(function(x){return '<span>'+x+'</span>';}).join('')+'</div>';
+      h+='<div class="cmonth__days">';
+      for(var i=0;i<firstDow;i++) h+='<span class="cday cday--empty"></span>';
+      for(var d=1;d<=days;d++){
+        var key=iso(y,m,d), dt=new Date(y,m,d);
+        if(dt<today) h+='<span class="cday cday--past">'+d+'</span>';
+        else if(booked[key]) h+='<span class="cday cday--booked" title="Booked">'+d+'</span>';
+        else h+='<span class="cday cday--open" role="button" tabindex="0" data-date="'+key+'" aria-label="'+key+' — open">'+d+'</span>';
+      }
+      return h+'</div></div>';
+    }
+    function render(){
+      var out='';
+      for(var i=0;i<VISIBLE;i++) out+=monthHTML(new Date(cursor.getFullYear(),cursor.getMonth()+i,1));
+      grid.innerHTML=out;
+      prevBtn.disabled=(cursor.getFullYear()===minMonth.getFullYear() && cursor.getMonth()===minMonth.getMonth());
+    }
+    function pick(dateStr, el){
+      grid.querySelectorAll('.cday--selected').forEach(function(n){n.classList.remove('cday--selected');});
+      if(el) el.classList.add('cday--selected');
+      var input=document.getElementById('b_date');
+      if(input){ input.value=dateStr; var w=input.closest('.field'); if(w) w.classList.remove('field--bad'); }
+      var form=document.getElementById('reserveForm');
+      if(form){ try{ form.scrollIntoView({behavior:'smooth',block:'center'}); }catch(_){} }
+    }
+    grid.addEventListener('click',function(e){ var el=e.target.closest('[data-date]'); if(el) pick(el.getAttribute('data-date'), el); });
+    grid.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ var el=e.target.closest('[data-date]'); if(el){ e.preventDefault(); pick(el.getAttribute('data-date'), el); } } });
+    prevBtn.addEventListener('click',function(){ cursor=new Date(cursor.getFullYear(),cursor.getMonth()-1,1); if(cursor<minMonth) cursor=new Date(minMonth); render(); });
+    nextBtn.addEventListener('click',function(){ cursor=new Date(cursor.getFullYear(),cursor.getMonth()+1,1); render(); });
+    render(); // draw immediately (all open) then refine once data loads
+    fetch('/assets/hot-availability.json',{cache:'no-store'})
+      .then(function(r){ return r.ok?r.json():null; })
+      .then(function(data){ if(data&&data.booked){ data.booked.forEach(function(d){ booked[d]=true; }); render(); } })
+      .catch(function(){});
   })();
 </script>
 </body>
