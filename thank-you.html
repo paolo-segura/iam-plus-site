@@ -13,7 +13,8 @@
      successful Xendit payment, e.g.:
        https://iampluscoaching.com/thank-you?program=discovery&order_id=ORD123&date=2026-08-08&venue=House%20of%20Transformation
      Params (all optional, page degrades gracefully): program (discovery|breakthrough|abundance),
-     order_id, date (YYYY-MM-DD → enables Add-to-calendar), venue. -->
+     order_id, date (YYYY-MM-DD or a full ISO timestamp like 2026-08-08T09:00:00+08:00 →
+     enables Add-to-calendar; leading date portion is used), venue. -->
 <style>
   :root{
     --ink:#070b12; --ink2:#0b1220; --line:rgba(255,255,255,.10);
@@ -122,12 +123,15 @@
     }
     if (oid){ document.getElementById("refBox").hidden = false; document.getElementById("orderid").textContent = oid; }
 
-    // Add to calendar (only when we know the date)
-    if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)){
+    // Add to calendar (only when we know the date).
+    // Accept a plain date (YYYY-MM-DD) OR a full ISO timestamp (YYYY-MM-DDT09:00:00+08:00)
+    // — Jericson's redirect passes {startISO}, so use the leading date portion.
+    var dateOnly = (date || "").slice(0, 10);
+    if (dateOnly && /^\d{4}-\d{2}-\d{2}$/.test(dateOnly)){
       var title = (t ? t.title : "I AM+ event");
       var loc = venue || "House of Transformation, Pasig (see your email for your city/venue)";
       var details = "Registration opens an hour before — we start on time. Bring a jacket, a water bottle, and a notebook & pen. Clear your schedule after. Have your e-ticket / QR ready. Support: 0919 585 4117.";
-      var p = date.split("-");
+      var p = dateOnly.split("-");
       var startYMD = p[0]+p[1]+p[2];
       var dt = new Date(Date.UTC(+p[0], +p[1]-1, +p[2])); dt.setUTCDate(dt.getUTCDate()+1);
       function pad(n){return (n<10?"0":"")+n;}
