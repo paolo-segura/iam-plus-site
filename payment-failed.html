@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Payment didn't go through — I AM+</title>
+<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- I AM+ · post-payment FAILURE / cancelled page. Jericson's checkout points the Xendit
+     failure_redirect_url here, e.g.:
+       https://iampluscoaching.com/payment-failed?program=discovery
+     Params (optional): program (discovery|breakthrough|abundance). No charge was made. -->
+<style>
+  :root{
+    --ink:#070b12; --ink2:#0b1220; --line:rgba(255,255,255,.10);
+    --white:#fff; --fog:#c4cede; --mute:#8a99ad; --amber:#F5A524;
+    --acc:#5CE1E6; --acc-deep:#29B6BD; /* default cyan; JS overrides per program */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--fog);min-height:100vh;
+    background:
+      radial-gradient(120% 80% at 82% -8%, color-mix(in srgb, var(--amber) 12%, transparent), transparent 55%),
+      radial-gradient(90% 70% at 8% 108%, rgba(8,20,40,.6), transparent 60%),
+      linear-gradient(180deg,var(--ink),var(--ink2));
+    display:flex;align-items:center;justify-content:center;padding:28px 20px}
+  .card{width:100%;max-width:540px;border-radius:22px;padding:clamp(30px,5vw,46px);text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    border:1px solid var(--line);box-shadow:0 40px 90px -40px rgba(0,0,0,.8)}
+  .brand{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;color:var(--white);margin-bottom:22px}
+  .brand span{color:var(--acc)}
+  .mark{width:74px;height:74px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;
+    background:color-mix(in srgb, var(--amber) 16%, transparent);border:1.5px solid var(--amber);
+    box-shadow:0 0 30px color-mix(in srgb, var(--amber) 38%, transparent)}
+  .mark svg{width:34px;height:34px;stroke:var(--amber);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .eyebrow{display:inline-block;font-weight:600;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+  h1{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(1.9rem,5vw,2.5rem);color:var(--white);line-height:1.08;letter-spacing:-.01em}
+  .lead{margin:14px auto 0;max-width:440px;font-size:1.04rem;line-height:1.6;color:var(--fog)}
+  .lead b{color:var(--white)}
+  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:1rem;padding:14px 26px;border-radius:12px;
+    text-decoration:none;cursor:pointer;transition:transform .15s, background .2s, border-color .2s}
+  .btn--primary{background:var(--acc);color:#06121e}
+  .btn--primary:hover{background:var(--acc-deep);color:#fff;transform:translateY(-1px)}
+  .btn--ghost{background:transparent;color:var(--white);border:1px solid var(--line)}
+  .btn--ghost:hover{border-color:var(--acc);color:var(--acc)}
+  .support{margin-top:24px;font-size:.92rem;color:var(--mute)}
+  .support b{color:var(--fog)}
+  .foot{margin-top:26px;font-size:.8rem;color:var(--mute)}
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">I AM<span>+</span></div>
+    <div class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+    <span class="eyebrow" id="progLabel">Payment</span>
+    <h1>That didn't go through.</h1>
+    <p class="lead">Your payment wasn't completed and <b>no charge was made</b>. It happens — a cancelled window or a card hiccup. You can try again, or message us and we'll help you sort it out.</p>
+
+    <div class="cta">
+      <a class="btn btn--primary" id="retryBtn" href="/programs">Try again</a>
+      <a class="btn btn--ghost" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Message us for help</a>
+    </div>
+    <p class="support">Prefer to talk it through? Message our team at <b>0919&nbsp;585&nbsp;4117</b>.</p>
+    <p class="foot">I AM+ Coaching &amp; Training Corp. · The Personal Mastery Journey</p>
+  </main>
+
+  <script>
+  (function(){
+    var q = new URLSearchParams(location.search);
+    var prog = (q.get("program")||"").toLowerCase();
+    var THEME = {
+      discovery:    {label:"Discovery — Personal Mastery", acc:"#5CE1E6", deep:"#29B6BD", back:"/discovery"},
+      breakthrough: {label:"Breakthrough — 3-Day Seminar", acc:"#FF7A45", deep:"#E85826", back:"/breakthrough"},
+      abundance:    {label:"Abundance 12 — The Game of My Life", acc:"#E6C56C", deep:"#C9A24B", back:"/abundance"}
+    };
+    var t = THEME[prog];
+    if (t){
+      document.documentElement.style.setProperty("--acc", t.acc);
+      document.documentElement.style.setProperty("--acc-deep", t.deep);
+      document.getElementById("progLabel").textContent = t.label;
+      var r = document.getElementById("retryBtn");
+      r.setAttribute("href", t.back); r.textContent = "Try again";
+    }
+  })();
+  </script>
+</body>
+</html>
