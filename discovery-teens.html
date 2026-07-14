@@ -73,6 +73,49 @@
   .tfaq summary::-webkit-details-marker{display:none}
   .tfaq summary .pm{color:#5CE1E6;font-size:1.3rem;line-height:1}
   .tfaq p{margin:0 0 18px;color:#c2ccd9;font-size:.98rem;line-height:1.6}
+  /* ---- FULL-BLEED PROOF BAND (real breakthrough moment) ---- */
+  .tband{position:relative;min-height:72vh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+  .tband__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:-2;transform:scale(1.05);will-change:transform}
+  .tband__scrim{position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(90% 80% at 12% 96%,rgba(92,225,230,.18),transparent 58%),
+      linear-gradient(180deg,rgba(6,10,18,.36),rgba(10,14,22,.2) 42%,rgba(6,10,18,.9))}
+  .tband .wrap{padding-block:clamp(44px,7vw,84px);width:100%}
+  .tband__cap{max-width:620px}
+  .tband__cap h2{font-family:Fraunces,serif;font-weight:360;font-size:clamp(1.85rem,4vw,2.9rem);color:#fff;margin:12px 0 14px;line-height:1.14}
+  .tband__cap p{font-size:1.04rem;color:#dfe6f0;max-width:50ch;line-height:1.6}
+  .tband__credit{position:absolute;right:clamp(14px,4vw,28px);bottom:12px;z-index:2;
+    font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(207,216,230,.5)}
+  /* ---- GALLERY: masonry via CSS columns (mixed orientation ok) ---- */
+  .tgal{columns:3 260px;column-gap:14px;max-width:1180px;margin:clamp(30px,4vw,46px) auto 0}
+  @media(max-width:900px){.tgal{columns:2 200px}}
+  @media(max-width:520px){.tgal{columns:2 150px;column-gap:10px}}
+  .tgal figure{margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(92,225,230,.14),0 22px 50px -30px rgba(0,0,0,.8);
+    transition:transform .4s ease,box-shadow .4s ease}
+  .tgal figure:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(92,225,230,.4),0 30px 60px -28px rgba(0,0,0,.85)}
+  .tgal img{display:block;width:100%;height:auto;background:#0a0f18}
+  .tgal figure[data-phase]::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;z-index:2;opacity:0;transition:opacity .4s}
+  .tgal figure:hover[data-phase]::before{opacity:.9}
+  .tgal figure[data-phase="arrival"]::before{background:#7bd0ff}
+  .tgal figure[data-phase="work"]::before{background:#5CE1E6}
+  .tgal figure[data-phase="breakthrough"]::before{background:#b98cff}
+  .tgal figure[data-phase="celebration"]::before{background:#ffd27b}
+  /* ---- GRADIENT PHOTO WALL ---- */
+  .twall{position:relative;min-height:86vh;display:flex;align-items:center;justify-content:center;
+    text-align:center;overflow:hidden;isolation:isolate}
+  .twall__grid{position:absolute;inset:0;z-index:-3;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+  .twall__grid img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+  .twall__wash{position:absolute;inset:0;z-index:-2;mix-blend-mode:soft-light;opacity:.9;
+    background:linear-gradient(125deg,#6c4db5 0%,#b1478f 36%,#12233c 66%,#1c6f77 100%)}
+  .twall__scrim{position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(120% 100% at 50% 42%,rgba(6,10,18,.14),rgba(6,10,18,.84)),
+      linear-gradient(180deg,rgba(6,10,18,.4),transparent 30%,transparent 70%,rgba(4,7,12,.96))}
+  .twall__cap{max-width:700px;padding-inline:24px}
+  .twall__cap h2{font-family:Fraunces,serif;font-weight:360;font-size:clamp(2.1rem,5.2vw,3.9rem);color:#fff;
+    margin:14px 0 16px;line-height:1.1;text-shadow:0 2px 34px rgba(0,0,0,.55)}
+  .twall__cap p{font-size:1.05rem;color:#dfe6f0;max-width:48ch;margin-inline:auto;line-height:1.6}
 </style>
 </head>
 <body>
@@ -85,6 +128,7 @@
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="/programs">The programs</a>
+      <a href="#gallery">The 2 days</a>
       <a href="/discovery">Discovery</a>
       <a href="/consultation">Free consultation</a>
       <a class="btn" href="#reserve">Reserve a seat <span class="arr">&rarr;</span></a>
@@ -97,6 +141,7 @@
   <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
     <nav class="drawer__nav" aria-label="Sections">
       <a href="/programs">The programs</a>
+      <a href="#gallery">Inside the two days</a>
       <a href="/discovery">Discovery (adults)</a>
       <a href="#details">Dates &amp; details</a>
       <a href="/consultation">Free consultation</a>
@@ -171,6 +216,71 @@
         <h3>A room that gets them</h3>
         <p>Two days beside peers doing the same work — and facilitators who meet teens where they are, without the lecture.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROOF BAND (real breakthrough moment) ===== -->
+<section class="tband">
+  <img class="tband__img" src="/assets/discovery-teens/band-breakthrough.webp" alt="A Discovery Teens participant moved to tears, held close by a peer during a breakthrough moment." loading="lazy">
+  <div class="tband__scrim"></div>
+  <div class="wrap">
+    <div class="tband__cap" data-reveal>
+      <span class="eyebrow">What two days unlock</span>
+      <h2>The weight they've carried quietly — set down in a weekend.</h2>
+      <p>This is the part no brochure captures: the moment a teen stops performing and something real moves. It happens in this room, with people their own age.</p>
+    </div>
+  </div>
+  <span class="tband__credit">Discovery Teens · Davao · photos by Soulful Media Productions</span>
+</section>
+
+<!-- ===== GALLERY: Inside the two days ===== -->
+<section class="section section--tight" id="gallery">
+  <div class="wrap">
+    <div class="lead-center">
+      <span class="eyebrow">Inside the two days</span>
+      <h2 style="font-family:Fraunces,serif;font-weight:360;font-size:clamp(2rem,4.4vw,3rem);color:#fff;margin:12px 0 0">Real teens. Real work. One unforgettable weekend.</h2>
+    </div>
+    <div class="tgal" data-reveal>
+      <figure data-phase="arrival"><img src="/assets/discovery-teens/gallery/g01.webp" alt="A parent and two teens welcomed at Discovery Teens registration" loading="lazy"></figure>
+      <figure data-phase="arrival"><img src="/assets/discovery-teens/gallery/g02.webp" alt="A family holding the Discovery Teens workbook on arrival" loading="lazy"></figure>
+      <figure data-phase="arrival"><img src="/assets/discovery-teens/gallery/g03.webp" alt="The Discovery Teens personal-mastery workbook" loading="lazy"></figure>
+      <figure data-phase="arrival"><img src="/assets/discovery-teens/gallery/g04.webp" alt="A facilitator opening the Discovery Teens room" loading="lazy"></figure>
+      <figure data-phase="work"><img src="/assets/discovery-teens/gallery/g05.webp" alt="A teen applauding in front of the glowing I AM+ stage" loading="lazy"></figure>
+      <figure data-phase="work"><img src="/assets/discovery-teens/gallery/g06.webp" alt="A teen sharing during a small-group exercise" loading="lazy"></figure>
+      <figure data-phase="work"><img src="/assets/discovery-teens/gallery/g07.webp" alt="Teens writing affirmations for one another" loading="lazy"></figure>
+      <figure data-phase="work"><img src="/assets/discovery-teens/gallery/g08.webp" alt="A teen journaling during a reflection exercise" loading="lazy"></figure>
+      <figure data-phase="work"><img src="/assets/discovery-teens/gallery/g09.webp" alt="Building a vision board during Discovery Teens" loading="lazy"></figure>
+      <figure data-phase="work"><img src="/assets/discovery-teens/gallery/g10.webp" alt="The mask exercise — the faces we show the world" loading="lazy"></figure>
+      <figure data-phase="breakthrough"><img src="/assets/discovery-teens/gallery/g11.webp" alt="A teen in a quiet, reflective moment" loading="lazy"></figure>
+      <figure data-phase="breakthrough"><img src="/assets/discovery-teens/gallery/g12.webp" alt="A teen moved to tears, surrounded by peers" loading="lazy"></figure>
+      <figure data-phase="breakthrough"><img src="/assets/discovery-teens/gallery/g13.webp" alt="A teen comforted by a facilitator during a breakthrough" loading="lazy"></figure>
+      <figure data-phase="breakthrough"><img src="/assets/discovery-teens/gallery/g14.webp" alt="A teen sitting with the Love-Infused Transformation stage behind them" loading="lazy"></figure>
+      <figure data-phase="breakthrough"><img src="/assets/discovery-teens/gallery/g15.webp" alt="A teen in a moment of quiet release" loading="lazy"></figure>
+      <figure data-phase="celebration"><img src="/assets/discovery-teens/gallery/g16.webp" alt="Teens laughing together during Discovery Teens" loading="lazy"></figure>
+      <figure data-phase="celebration"><img src="/assets/discovery-teens/gallery/g17.webp" alt="Two teens sharing a laugh over the workbook" loading="lazy"></figure>
+      <figure data-phase="celebration"><img src="/assets/discovery-teens/gallery/g18.webp" alt="A teen smiling during the program" loading="lazy"></figure>
+      <figure data-phase="celebration"><img src="/assets/discovery-teens/gallery/g19.webp" alt="The full Discovery Teens cohort together on the final day" loading="lazy"></figure>
+      <figure data-phase="celebration"><img src="/assets/discovery-teens/gallery/g20.webp" alt="The Discovery Teens batch celebrating at the close of the weekend" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GRADIENT PHOTO WALL ===== -->
+<section class="twall">
+  <div class="twall__grid" aria-hidden="true">
+    <img src="/assets/discovery-teens/wall-1.webp" alt="">
+    <img src="/assets/discovery-teens/wall-2.webp" alt="">
+    <img src="/assets/discovery-teens/wall-3.webp" alt="">
+    <img src="/assets/discovery-teens/wall-4.webp" alt="">
+  </div>
+  <div class="twall__wash"></div>
+  <div class="twall__scrim"></div>
+  <div class="wrap">
+    <div class="twall__cap" data-reveal>
+      <span class="eyebrow eyebrow--center">The room holds nothing back</span>
+      <h2>Strangers walk in.<br>Friends for life walk out.</h2>
+      <p>Two days of doing the real work — together. The breakthroughs they'll witness, and the one that's theirs, are what they carry home.</p>
     </div>
   </div>
 </section>
