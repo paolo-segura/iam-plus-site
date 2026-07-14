@@ -496,6 +496,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   .hero__media,.band__media{transform:none}
 }
 </style>
+<link rel="stylesheet" href="/inquiry-modal.css">
 <script src="/config.js"></script></head>
 <body>
 
@@ -737,6 +738,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Access to the I AM+ graduate community</li>
         </ul>
         <a class="btn bt-reserve" href="#venue">Reserve my seat <span class="arr">&rarr;</span></a>
+        <button class="btn btn--ghost inq-cta" type="button" data-inquire>Not ready to reserve? Inquire</button>
         <p class="pricecard__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg> Secure checkout · GCash, Maya &amp; cards</p>
       </div>
     </div>
@@ -992,6 +994,87 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   }
 })();
 </script>
+
+<!-- ============ INQUIRE MODAL — lead capture for hesitant buyers ============ -->
+<div class="inq-overlay" id="inq-overlay" data-source="breakthrough_inquiry" aria-hidden="true">
+  <div class="inq-modal" role="dialog" aria-modal="true" aria-labelledby="inq-title" aria-describedby="inq-sub" id="inq-modal">
+
+    <button class="inq-close" type="button" id="inq-close" aria-label="Close inquiry form">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <p class="inq-eyebrow">Talk to us first</p>
+    <h2 class="inq-title" id="inq-title">Have questions before you reserve?</h2>
+    <p class="inq-sub" id="inq-sub">No pressure &mdash; tell us a little about yourself and someone from the I&nbsp;AM+ team will personally reach out.</p>
+
+    <div class="inq-alert" id="inq-alert" role="alert">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+        <circle cx="7.5" cy="7.5" r="6.75" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M7.5 4.2v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="7.5" cy="10.6" r=".85" fill="currentColor"/>
+      </svg>
+      <span id="inq-alert-text"></span>
+    </div>
+
+    <form id="inq-form" novalidate>
+
+      <div class="inq-hp" aria-hidden="true">
+        <label for="inq-company-url">Company URL</label>
+        <input type="text" id="inq-company-url" name="company_url" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="inq-field" id="inq-field-name">
+        <label class="inq-label" for="inq-name">Full name <span class="inq-req" aria-hidden="true">*</span></label>
+        <input class="inq-control" type="text" id="inq-name" name="full_name" autocomplete="name" placeholder="Juan Dela Cruz" required aria-required="true">
+        <p class="inq-hint" id="inq-hint-name">Please tell us your name.</p>
+      </div>
+
+      <div class="inq-field" id="inq-field-phone">
+        <label class="inq-label" for="inq-phone">Mobile number <span class="inq-req" aria-hidden="true">*</span></label>
+        <input class="inq-control" type="tel" id="inq-phone" name="mobile" inputmode="tel" autocomplete="tel" placeholder="0917 123 4567" required aria-required="true">
+        <p class="inq-hint" id="inq-hint-phone">Please add a mobile number we can reach you on.</p>
+      </div>
+
+      <div class="inq-field" id="inq-field-email">
+        <label class="inq-label" for="inq-email">Email <span class="inq-req" aria-hidden="true">*</span></label>
+        <input class="inq-control" type="email" id="inq-email" name="email" autocomplete="email" placeholder="you@example.com" required aria-required="true">
+        <p class="inq-hint" id="inq-hint-email">That email doesn&rsquo;t look right &mdash; mind double-checking?</p>
+      </div>
+
+      <div class="inq-field" id="inq-field-message">
+        <label class="inq-label" for="inq-message">What would you like to know before you join? <span class="inq-opt">(optional)</span></label>
+        <textarea class="inq-control" id="inq-message" name="message" rows="3" placeholder="Schedules, inclusions, whether this is right for you &mdash; ask us anything."></textarea>
+      </div>
+
+      <button class="btn inq-submit" type="submit" id="inq-submit">Send my inquiry <span aria-hidden="true">&rarr;</span></button>
+
+      <p class="inq-privacy">
+        <svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true">
+          <rect x="1" y="5.2" width="9" height="7" rx="1.6" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M3.2 5V3.8a2.3 2.3 0 014.6 0V5" stroke="currentColor" stroke-width="1.1"/>
+        </svg>
+        Your details stay with the I&nbsp;AM+ team &mdash; used only to reach you about this inquiry.
+      </p>
+    </form>
+
+    <div class="inq-success" id="inq-success">
+      <span class="inq-success-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <h3 class="inq-success-title" id="inq-success-title" tabindex="-1">Request received</h3>
+      <p class="inq-success-body">Our team will reach out to you shortly &mdash; keep an eye on your phone and inbox.</p>
+      <button class="btn btn--ghost" type="button" id="inq-done">Done</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="/supabase-config.js"></script>
+<script src="/inquiry-modal.js"></script>
 
 </body>
 </html>
