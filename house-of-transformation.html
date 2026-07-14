@@ -310,17 +310,18 @@
   </div>
 </section>
 
-<!-- ===== RESERVE (reserve → we confirm; no blind inquiry) ===== -->
+<!-- ===== RESERVE (form saves a lead to Supabase AND opens a pre-filled email inquiry
+     to iampluscoachingsystem@gmail.com so requirements can be discussed before booking) ===== -->
 <section class="section formsec" id="inquire">
   <div class="wrap">
     <div class="formsec__grid">
       <div class="formsec__intro" data-reveal>
         <span class="eyebrow">Reserve the room</span>
         <h2>Pick a date.<br>We'll confirm it.</h2>
-        <p class="lead"><b style="color:#fff">₱50,000</b> for the full day — all inclusions above. Tell us your date and event; we'll confirm availability and lock it in. No back-and-forth.</p>
+        <p class="lead"><b style="color:#fff">₱50,000</b> for the full day — all inclusions above. Send us your date and event details, and we'll confirm availability, then sort out any requirements — booths, catering, AV, setup — together.</p>
         <ul class="formsec__list">
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Send your preferred date &amp; event type</li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> We confirm the date + walk you through the space</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Send your preferred date &amp; event details</li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> We confirm the date, the space &amp; any requirements</li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Lock your day at the ₱50,000 rate</li>
         </ul>
         <p class="formsec__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> 3F, Ayala Malls The 30th, Meralco Ave, Ortigas, Pasig City</p>
@@ -377,8 +378,8 @@
               </div>
             </div>
             <div class="field">
-              <label for="r_msg">Anything else?</label>
-              <textarea class="control" id="r_msg" maxlength="4000" placeholder="Tell us about your event — timing, setup, any needs."></textarea>
+              <label for="r_msg">Requirements &amp; questions</label>
+              <textarea class="control" id="r_msg" maxlength="4000" placeholder="Sponsor / exhibitor booths, catering, AV, stage setup, room layout, timing — tell us what you need."></textarea>
               <input type="hidden" name="message" id="r_msg_hidden">
             </div>
 
@@ -387,13 +388,13 @@
             <div class="form__submit">
               <button class="btn" type="submit">Request this date <span class="arr">&rarr;</span></button>
             </div>
-            <p class="form__fine">We'll only use your details to confirm your booking. No spam, ever.</p>
+            <p class="form__fine">This opens a pre-filled email to our team — just review and hit send. We'll only use your details to confirm your booking.</p>
           </form>
         </div>
         <div class="done" role="status">
           <div class="done__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
-          <h3>Reservation request sent.</h3>
-          <p>Thanks — our team will confirm availability for your date and walk you through the next steps shortly.</p>
+          <h3>Almost there — check your email.</h3>
+          <p>We've opened a pre-filled email with your details. Just hit <b style="color:#fff">send</b> and our team will confirm your date and sort out any requirements with you. Didn't open? Write us at <a href="mailto:iampluscoachingsystem@gmail.com" style="color:#5CE1E6;text-decoration:underline">iampluscoachingsystem@gmail.com</a>.</p>
         </div>
       </div>
     </div>
@@ -431,21 +432,37 @@
     v.addEventListener('click',function(){ if(!v.paused){v.pause();}else{v.play();} });
   })();
 
-  // Reserve form: require a preferred date + fold the venue-specific fields into the
-  // hidden `message` that gets posted. Runs on document in the CAPTURE phase so it
-  // fires BEFORE iam-forms.js reads the payload (it posts every named input as a column,
-  // so only known-safe columns — name/email/contact_number/message — are ever sent).
+  // Reserve form: on submit we do TWO things —
+  //   1) fold the venue-specific fields into the hidden `message` column so the lead is
+  //      saved to Supabase (iam-forms.js posts name/email/contact_number/message);
+  //   2) open a pre-filled email to the venue team so the visitor can send their inquiry
+  //      and spell out any requirements (booths, catering, AV, setup) before booking.
+  // Runs on document in the CAPTURE phase so the message fold happens BEFORE iam-forms.js
+  // reads the payload. The email only opens when the core fields are complete (mirrors
+  // iam-forms.js validation) so the template is never half-empty; otherwise we let
+  // iam-forms.js surface the field errors and no email opens.
   (function(){
     var form = document.getElementById('reserveForm');
     if(!form) return;
+    var VENUE_EMAIL='iampluscoachingsystem@gmail.com';
+    var EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     try{
       var t=new Date();
       var iso=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
       ['b_date','b_altdate'].forEach(function(id){ var el=document.getElementById(id); if(el) el.min=iso; });
     }catch(_){}
+    function niceDate(v){
+      if(!v) return ''; var p=v.split('-'); if(p.length!==3) return v;
+      var dt=new Date(+p[0],+p[1]-1,+p[2]); if(isNaN(dt.getTime())) return v;
+      return dt.toLocaleDateString('en-US',{weekday:'short',year:'numeric',month:'long',day:'numeric'});
+    }
+    function val(el){ return el ? (el.value||'').trim() : ''; }
     document.addEventListener('submit', function(e){
       if(e.target !== form) return;
-      var d=document.getElementById('b_date'),
+      var name=document.getElementById('r_name'),
+          email=document.getElementById('r_email'),
+          contact=document.getElementById('r_contact'),
+          d=document.getElementById('b_date'),
           alt=document.getElementById('b_altdate'),
           ev=document.getElementById('b_event'),
           hc=document.getElementById('b_headcount'),
@@ -456,6 +473,7 @@
         var w=d.closest('.field'); if(w) w.classList.add('field--bad'); d.focus();
         return;
       }
+      // 1) Fold venue fields into the hidden `message` for the Supabase lead.
       var parts=['— VENUE RENTAL REQUEST · House of Transformation —'];
       if(d && d.value) parts.push('Preferred date: '+d.value);
       if(alt && alt.value) parts.push('Alternate date: '+alt.value);
@@ -463,6 +481,32 @@
       if(hc && hc.value) parts.push('Expected headcount: '+hc.value);
       var userNotes=(notes && notes.value.trim()) ? ('\n\nNotes: '+notes.value.trim()) : '';
       if(hidden) hidden.value = parts.join('\n') + userNotes;
+
+      // 2) Open a pre-filled email — only if the core fields are valid.
+      var nm=val(name), em=val(email), ct=val(contact);
+      if(nm && em && EMAIL_RE.test(em) && ct && d && d.value){
+        var dateNice=niceDate(d.value), altNice=(alt&&alt.value)?niceDate(alt.value):'—';
+        var subject='House of Transformation — Venue Inquiry ('+dateNice+')';
+        var body=[
+          'Hi I AM+ team,','',
+          "I'd like to inquire about renting the House of Transformation.",'',
+          'Name:               '+nm,
+          'Email:              '+em,
+          'Contact number:     '+ct,
+          'Preferred date:     '+dateNice,
+          'Alternate date:     '+altNice,
+          'Event type:         '+((ev&&ev.value)||'—'),
+          'Expected headcount: '+((hc&&hc.value)||'—'),'',
+          'Special requirements (sponsor / exhibitor booths, catering,',
+          'AV, stage setup, room layout, etc.):',
+          ((notes&&notes.value.trim())||'[ tell us here ]'),'',
+          'Thank you!'
+        ].join('\r\n');
+        var href='mailto:'+VENUE_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+        // Defer briefly so iam-forms.js fires its Supabase POST first; a mailto: does not
+        // unload the page, so the success state still shows after the mail app opens.
+        setTimeout(function(){ try{ window.location.href=href; }catch(_){} }, 200);
+      }
     }, true);
   })();
 
