@@ -330,7 +330,9 @@
       <div class="card" data-reveal data-reveal-delay="80">
         <div class="form__body">
           <div class="formnote" role="alert" aria-live="polite"></div>
-          <form id="reserveForm" data-iam-form data-table="website_leads" data-type="corporate" data-source="venue_rental_form" novalidate>
+          <!-- Handled by the custom submit script below (POSTs to the venue-inquiry
+               edge function) — NOT the generic iam-forms.js handler, so no data-iam-form. -->
+          <form id="reserveForm" novalidate>
             <div class="field">
               <label for="r_name">Full name<span class="req">*</span></label>
               <input class="control" id="r_name" name="full_name" type="text" required placeholder="Juan Dela Cruz" autocomplete="name">
@@ -384,7 +386,6 @@
             <div class="field">
               <label for="r_msg">Requirements &amp; questions</label>
               <textarea class="control" id="r_msg" maxlength="4000" placeholder="Sponsor / exhibitor booths, catering, AV, stage setup, room layout, timing — tell us what you need."></textarea>
-              <input type="hidden" name="message" id="r_msg_hidden">
             </div>
 
             <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -392,13 +393,13 @@
             <div class="form__submit">
               <button class="btn" type="submit">Request this date <span class="arr">&rarr;</span></button>
             </div>
-            <p class="form__fine">This opens a pre-filled email to our team — just review and hit send. We'll only use your details to confirm your booking.</p>
+            <p class="form__fine">We'll email you back to confirm your dates and sort out any requirements. We'll only use your details for your booking.</p>
           </form>
         </div>
         <div class="done" role="status">
           <div class="done__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
-          <h3>Almost there — check your email.</h3>
-          <p>We've opened a pre-filled email with your details. Just hit <b style="color:#fff">send</b> and our team will confirm your date and sort out any requirements with you. Didn't open? Write us at <a href="mailto:iampluscoachingsystem@gmail.com" style="color:#5CE1E6;text-decoration:underline">iampluscoachingsystem@gmail.com</a>.</p>
+          <h3>Your inquiry's on its way.</h3>
+          <p>We've emailed our team your details and <b style="color:#fff">CC'd you</b> so you have a copy. We'll get back to you shortly to confirm your dates and sort out any requirements.</p>
         </div>
       </div>
     </div>
@@ -437,20 +438,18 @@
     v.addEventListener('click',function(){ if(!v.paused){v.pause();}else{v.play();} });
   })();
 
-  // Reserve form: on submit we do TWO things —
-  //   1) fold the venue-specific fields into the hidden `message` column so the lead is
-  //      saved to Supabase (iam-forms.js posts name/email/contact_number/message);
-  //   2) open a pre-filled email to the venue team so the visitor can send their inquiry
-  //      and spell out any requirements (booths, catering, AV, setup) before booking.
-  // Runs on document in the CAPTURE phase so the message fold happens BEFORE iam-forms.js
-  // reads the payload. The email only opens when the core fields are complete (mirrors
-  // iam-forms.js validation) so the template is never half-empty; otherwise we let
-  // iam-forms.js surface the field errors and no email opens.
+  // Reserve form -> venue-inquiry edge function.
+  // We own the submit (no data-iam-form / iam-forms.js handler) so we control validation
+  // and the result state. On a valid submit we POST the structured fields to the function,
+  // which sends the Brevo email (To: I AM+, Cc: the visitor) and saves the lead as backup.
   (function(){
     var form = document.getElementById('reserveForm');
     if(!form) return;
-    var VENUE_EMAIL='iampluscoachingsystem@gmail.com';
+    var FUNCTION_URL='https://dvvlxxbsxirhcqiaysfe.supabase.co/functions/v1/venue-inquiry';
     var EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var card=form.closest('.card');
+    var btn=form.querySelector('[type=submit]');
+    var btnLabel=btn?btn.innerHTML:'';
     var dFrom=document.getElementById('b_date_from'),
         dTo=document.getElementById('b_date_to'),
         aFrom=document.getElementById('b_altdate_from'),
@@ -484,64 +483,59 @@
       if(from===to) return niceDate(from);
       return niceDate(from)+' → '+niceDate(to);
     }
-    function val(el){ return el ? (el.value||'').trim() : ''; }
+    function val(id){ var el=document.getElementById(id); return el ? (el.value||'').trim() : ''; }
+    function setBad(id,on){ var el=document.getElementById(id); var w=el&&el.closest('.field'); if(w) w.classList.toggle('field--bad', !!on); }
+    function note(kind,msg){
+      var n=card?card.querySelector('.formnote'):null; if(!n) return;
+      n.className='formnote show formnote--'+(kind==='ok'?'ok':'err');
+      n.innerHTML=(kind==='ok'
+        ? '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>'
+        : '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>')+'<span>'+msg+'</span>';
+    }
 
-    document.addEventListener('submit', function(e){
-      if(e.target !== form) return;
-      var name=document.getElementById('r_name'),
-          email=document.getElementById('r_email'),
-          contact=document.getElementById('r_contact'),
-          ev=document.getElementById('b_event'),
-          hc=document.getElementById('b_headcount'),
-          notes=document.getElementById('r_msg'),
-          hidden=document.getElementById('r_msg_hidden');
-      var df=val(dFrom), dt2=val(dTo), af=val(aFrom), at=val(aTo);
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      // Honeypot — bots fill the hidden company_url trap; humans never see it.
+      var hp=form.querySelector('input[name="company_url"]'); if(hp && hp.value) return;
 
-      // Preferred dates required (both sides); "to" can't precede "from".
-      if(!df || !dt2 || dt2 < df){
-        e.preventDefault(); e.stopPropagation();
-        if(prefField) prefField.classList.add('field--bad');
-        (df ? dTo : dFrom).focus();
-        return;
-      }
-      if(prefField) prefField.classList.remove('field--bad');
+      var nm=val('r_name'), em=val('r_email'), ct=val('r_contact');
+      var df=val('b_date_from'), dt2=val('b_date_to'), af=val('b_altdate_from'), at=val('b_altdate_to');
 
-      var prefRange=fmtRange(df,dt2), altRange=fmtRange(af,at);
+      // Validate; highlight every bad field, focus the first.
+      var firstBad=null;
+      setBad('r_name', !nm); if(!nm) firstBad=firstBad||'r_name';
+      var emailOk=em && EMAIL_RE.test(em); setBad('r_email', !emailOk); if(!emailOk) firstBad=firstBad||'r_email';
+      setBad('r_contact', !ct); if(!ct) firstBad=firstBad||'r_contact';
+      var datesOk=df && dt2 && dt2>=df; if(prefField) prefField.classList.toggle('field--bad', !datesOk);
+      if(!datesOk) firstBad=firstBad||(df?'b_date_to':'b_date_from');
+      if(firstBad){ var fb=document.getElementById(firstBad); if(fb) fb.focus(); note('err','Please fix the highlighted fields and try again.'); return; }
 
-      // 1) Fold venue fields into the hidden `message` for the Supabase lead.
-      var parts=['— VENUE RENTAL REQUEST · House of Transformation —'];
-      parts.push('Preferred dates: '+prefRange);
-      if(altRange) parts.push('Alternate dates: '+altRange);
-      if(ev && ev.value) parts.push('Event type: '+ev.value);
-      if(hc && hc.value) parts.push('Expected headcount: '+hc.value);
-      var userNotes=(notes && notes.value.trim()) ? ('\n\nNotes: '+notes.value.trim()) : '';
-      if(hidden) hidden.value = parts.join('\n') + userNotes;
+      var payload={
+        full_name:nm, email:em, contact_number:ct,
+        preferred_dates:fmtRange(df,dt2),
+        alternate_dates:fmtRange(af,at),
+        event_type:val('b_event'),
+        headcount:val('b_headcount'),
+        requirements:val('r_msg'),
+        company_url:(hp?hp.value:'')
+      };
 
-      // 2) Open a pre-filled email — only if the core fields are valid.
-      //    (Interim: mailto opens the visitor's mail app. Being swapped for a
-      //     server-side auto-send that emails I AM+ and CCs the visitor.)
-      var nm=val(name), em=val(email), ct=val(contact);
-      if(nm && em && EMAIL_RE.test(em) && ct){
-        var subject='New House of Transformation Booking Inquiry — '+nm;
-        var body=[
-          'Hi I AM+ team,','',
-          "I'd like to inquire about renting the House of Transformation.",'',
-          'Name:               '+nm,
-          'Email:              '+em,
-          'Contact number:     '+ct,
-          'Preferred dates:    '+prefRange,
-          'Alternate dates:    '+(altRange||'—'),
-          'Event type:         '+((ev&&ev.value)||'—'),
-          'Expected headcount: '+((hc&&hc.value)||'—'),'',
-          'Special requirements (sponsor / exhibitor booths, catering,',
-          'AV, stage setup, room layout, etc.):',
-          ((notes&&notes.value.trim())||'[ tell us here ]'),'',
-          'Thank you!'
-        ].join('\r\n');
-        var href='mailto:'+VENUE_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-        setTimeout(function(){ try{ window.location.href=href; }catch(_){} }, 200);
-      }
-    }, true);
+      var n=card?card.querySelector('.formnote'):null; if(n) n.className='formnote';
+      if(btn){ btn.disabled=true; btn.innerHTML='Sending…'; }
+
+      fetch(FUNCTION_URL, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      }).then(function(res){
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        if(card){ card.classList.add('is-done'); try{ card.scrollIntoView({behavior:'smooth',block:'center'}); }catch(_){} }
+      }).catch(function(err){
+        if(btn){ btn.disabled=false; btn.innerHTML=btnLabel; }
+        note('err','Sorry — something went wrong sending your inquiry. Please try again, or message us on Facebook.');
+        if(window.console) console.warn('[venue-inquiry]', err && err.message);
+      });
+    });
   })();
 
   // Availability calendar: renders 2 months, marks booked venue days from
