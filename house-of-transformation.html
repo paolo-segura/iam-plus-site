@@ -348,15 +348,19 @@
                 <span class="field__err">Please enter your contact number.</span>
               </div>
             </div>
-            <div class="grid2">
-              <div class="field">
-                <label for="b_date">Preferred date<span class="req">*</span></label>
-                <input class="control" id="b_date" type="date">
-                <span class="field__err">Please pick a preferred date.</span>
+            <div class="field" id="prefDatesField">
+              <label>Preferred dates<span class="req">*</span> <span style="font-weight:400;color:var(--faint);letter-spacing:0;font-size:.76rem">— use the same date for both if it's just one day</span></label>
+              <div class="grid2">
+                <div class="field"><label for="b_date_from">From</label><input class="control" id="b_date_from" type="date"></div>
+                <div class="field"><label for="b_date_to">To</label><input class="control" id="b_date_to" type="date"></div>
               </div>
-              <div class="field">
-                <label for="b_altdate">Alternate date <span class="hint">optional</span></label>
-                <input class="control" id="b_altdate" type="date">
+              <span class="field__err">Please pick your preferred dates — same date for both if it's a one-day booking.</span>
+            </div>
+            <div class="field">
+              <label>Alternate dates <em style="font-weight:400;color:var(--faint);letter-spacing:0;font-size:.78rem">(optional)</em></label>
+              <div class="grid2">
+                <div class="field"><label for="b_altdate_from">From</label><input class="control" id="b_altdate_from" type="date"></div>
+                <div class="field"><label for="b_altdate_to">To</label><input class="control" id="b_altdate_to" type="date"></div>
               </div>
             </div>
             <div class="grid2">
@@ -447,55 +451,86 @@
     if(!form) return;
     var VENUE_EMAIL='iampluscoachingsystem@gmail.com';
     var EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var dFrom=document.getElementById('b_date_from'),
+        dTo=document.getElementById('b_date_to'),
+        aFrom=document.getElementById('b_altdate_from'),
+        aTo=document.getElementById('b_altdate_to'),
+        prefField=document.getElementById('prefDatesField');
+
+    // No past dates; each range's "to" cannot precede its "from".
     try{
       var t=new Date();
       var iso=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
-      ['b_date','b_altdate'].forEach(function(id){ var el=document.getElementById(id); if(el) el.min=iso; });
+      [dFrom,dTo,aFrom,aTo].forEach(function(el){ if(el) el.min=iso; });
     }catch(_){}
+    // Picking a "from" one-day-defaults the "to" and floors it (one day = same date twice).
+    function linkRange(from,to){
+      if(!from||!to) return;
+      from.addEventListener('change',function(){
+        if(from.value){ to.min=from.value; if(!to.value || to.value<from.value) to.value=from.value; }
+      });
+    }
+    linkRange(dFrom,dTo); linkRange(aFrom,aTo);
+
     function niceDate(v){
       if(!v) return ''; var p=v.split('-'); if(p.length!==3) return v;
       var dt=new Date(+p[0],+p[1]-1,+p[2]); if(isNaN(dt.getTime())) return v;
       return dt.toLocaleDateString('en-US',{weekday:'short',year:'numeric',month:'long',day:'numeric'});
     }
+    function fmtRange(from,to){
+      if(!from && !to) return '';
+      if(from && !to) return niceDate(from);
+      if(!from && to) return niceDate(to);
+      if(from===to) return niceDate(from);
+      return niceDate(from)+' → '+niceDate(to);
+    }
     function val(el){ return el ? (el.value||'').trim() : ''; }
+
     document.addEventListener('submit', function(e){
       if(e.target !== form) return;
       var name=document.getElementById('r_name'),
           email=document.getElementById('r_email'),
           contact=document.getElementById('r_contact'),
-          d=document.getElementById('b_date'),
-          alt=document.getElementById('b_altdate'),
           ev=document.getElementById('b_event'),
           hc=document.getElementById('b_headcount'),
           notes=document.getElementById('r_msg'),
           hidden=document.getElementById('r_msg_hidden');
-      if(d && !d.value){
+      var df=val(dFrom), dt2=val(dTo), af=val(aFrom), at=val(aTo);
+
+      // Preferred dates required (both sides); "to" can't precede "from".
+      if(!df || !dt2 || dt2 < df){
         e.preventDefault(); e.stopPropagation();
-        var w=d.closest('.field'); if(w) w.classList.add('field--bad'); d.focus();
+        if(prefField) prefField.classList.add('field--bad');
+        (df ? dTo : dFrom).focus();
         return;
       }
+      if(prefField) prefField.classList.remove('field--bad');
+
+      var prefRange=fmtRange(df,dt2), altRange=fmtRange(af,at);
+
       // 1) Fold venue fields into the hidden `message` for the Supabase lead.
       var parts=['— VENUE RENTAL REQUEST · House of Transformation —'];
-      if(d && d.value) parts.push('Preferred date: '+d.value);
-      if(alt && alt.value) parts.push('Alternate date: '+alt.value);
+      parts.push('Preferred dates: '+prefRange);
+      if(altRange) parts.push('Alternate dates: '+altRange);
       if(ev && ev.value) parts.push('Event type: '+ev.value);
       if(hc && hc.value) parts.push('Expected headcount: '+hc.value);
       var userNotes=(notes && notes.value.trim()) ? ('\n\nNotes: '+notes.value.trim()) : '';
       if(hidden) hidden.value = parts.join('\n') + userNotes;
 
       // 2) Open a pre-filled email — only if the core fields are valid.
+      //    (Interim: mailto opens the visitor's mail app. Being swapped for a
+      //     server-side auto-send that emails I AM+ and CCs the visitor.)
       var nm=val(name), em=val(email), ct=val(contact);
-      if(nm && em && EMAIL_RE.test(em) && ct && d && d.value){
-        var dateNice=niceDate(d.value), altNice=(alt&&alt.value)?niceDate(alt.value):'—';
-        var subject='House of Transformation — Venue Inquiry ('+dateNice+')';
+      if(nm && em && EMAIL_RE.test(em) && ct){
+        var subject='New House of Transformation Booking Inquiry — '+nm;
         var body=[
           'Hi I AM+ team,','',
           "I'd like to inquire about renting the House of Transformation.",'',
           'Name:               '+nm,
           'Email:              '+em,
           'Contact number:     '+ct,
-          'Preferred date:     '+dateNice,
-          'Alternate date:     '+altNice,
+          'Preferred dates:    '+prefRange,
+          'Alternate dates:    '+(altRange||'—'),
           'Event type:         '+((ev&&ev.value)||'—'),
           'Expected headcount: '+((hc&&hc.value)||'—'),'',
           'Special requirements (sponsor / exhibitor booths, catering,',
@@ -504,8 +539,6 @@
           'Thank you!'
         ].join('\r\n');
         var href='mailto:'+VENUE_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-        // Defer briefly so iam-forms.js fires its Supabase POST first; a mailto: does not
-        // unload the page, so the success state still shows after the mail app opens.
         setTimeout(function(){ try{ window.location.href=href; }catch(_){} }, 200);
       }
     }, true);
@@ -552,8 +585,13 @@
     function pick(dateStr, el){
       grid.querySelectorAll('.cday--selected').forEach(function(n){n.classList.remove('cday--selected');});
       if(el) el.classList.add('cday--selected');
-      var input=document.getElementById('b_date');
-      if(input){ input.value=dateStr; var w=input.closest('.field'); if(w) w.classList.remove('field--bad'); }
+      // Prefill the preferred-dates range. The calendar is single-select, so a tap =
+      // a clean one-day pick (From = To = tapped day); the visitor extends "To" in the
+      // field for a multi-day booking.
+      var from=document.getElementById('b_date_from'), to=document.getElementById('b_date_to');
+      if(from){ from.value=dateStr; }
+      if(to){ to.min=dateStr; to.value=dateStr; }
+      var pf=document.getElementById('prefDatesField'); if(pf) pf.classList.remove('field--bad');
       var form=document.getElementById('reserveForm');
       if(form){ try{ form.scrollIntoView({behavior:'smooth',block:'center'}); }catch(_){} }
     }
