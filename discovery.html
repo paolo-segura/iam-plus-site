@@ -448,12 +448,13 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
 .venue__city{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:600}
 .venue__name{font-family:var(--font-display);font-size:1.7rem;color:var(--white);font-weight:380;margin:10px 0 12px}
 .venue__addr{font-size:.96rem;color:var(--mute);line-height:1.6;min-height:3.1em}
-.venue__foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;
+.venue__foot{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
   padding-top:18px;border-top:1px solid var(--line)}
 .venue__addr{margin-bottom:22px}
 .venue__date .lbl{display:block;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:3px}
 .venue__date b{font-family:var(--font-display);font-size:1.16rem;color:var(--white);font-weight:380}
-.venue .btn--ghost{padding:11px 20px;font-size:.86rem}
+.venue .btn{padding:11px 20px;font-size:.86rem}
+.venue__cta{display:inline-flex;gap:10px;align-items:stretch;flex-wrap:wrap;justify-content:flex-end}
 @media(max-width:760px){.venues{grid-template-columns:1fr}}
 
 /* ============ FAQ (minimal hairline) ============ */
@@ -897,7 +898,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <p class="venue__addr">3F Ayala Malls the 30th, 30 Meralco Ave, Ortigas, Pasig City</p>
           <div class="venue__foot">
             <div class="venue__date"><span class="lbl">Next batch</span><b data-next="hot">—</b></div>
-            <a class="btn btn--ghost venue-reserve" data-city="hot" href="#reserve">Reserve</a>
+            <div class="venue__cta">
+              <a class="btn venue-reserve" data-city="hot" href="#reserve">Reserve</a>
+              <button class="btn btn--ghost" type="button" data-inquire>Inquire</button>
+            </div>
           </div>
         </div>
       </div>
@@ -909,7 +913,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <p class="venue__addr">2F Plazuela de Molino, Bacoor Blvd, Bacoor, Cavite</p>
           <div class="venue__foot">
             <div class="venue__date"><span class="lbl">Next batch</span><b data-next="hop">—</b></div>
-            <a class="btn btn--ghost venue-reserve" data-city="hop" href="#reserve">Reserve</a>
+            <div class="venue__cta">
+              <a class="btn venue-reserve" data-city="hop" href="#reserve">Reserve</a>
+              <button class="btn btn--ghost" type="button" data-inquire>Inquire</button>
+            </div>
           </div>
         </div>
       </div>
@@ -921,7 +928,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <p class="venue__addr">Mangga St. cor. Luisa St., Juna Subd., Davao City, Davao del Sur</p>
           <div class="venue__foot">
             <div class="venue__date"><span class="lbl">Next batch</span><b data-next="davao">—</b></div>
-            <a class="btn btn--ghost venue-reserve" data-city="davao" href="#reserve">Reserve</a>
+            <div class="venue__cta">
+              <a class="btn venue-reserve" data-city="davao" href="#reserve">Reserve</a>
+              <button class="btn btn--ghost" type="button" data-inquire>Inquire</button>
+            </div>
           </div>
         </div>
       </div>
@@ -933,7 +943,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <p class="venue__addr">Golden Prince Hotel, Cebu City · venue tentative — SMX Convention Center being considered.</p>
           <div class="venue__foot">
             <div class="venue__date"><span class="lbl">Next batch</span><b data-next="cebu">—</b></div>
-            <a class="btn btn--ghost venue-reserve" data-city="cebu" href="#reserve">Reserve</a>
+            <div class="venue__cta">
+              <a class="btn venue-reserve" data-city="cebu" href="#reserve">Reserve</a>
+              <button class="btn btn--ghost" type="button" data-inquire>Inquire</button>
+            </div>
           </div>
         </div>
       </div>
@@ -945,7 +958,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
           <p class="venue__addr">Lacson St., Mandalagan, Bacolod City · venue tentative — to be confirmed.</p>
           <div class="venue__foot">
             <div class="venue__date"><span class="lbl">Next batch</span><b data-next="bacolod">—</b></div>
-            <a class="btn btn--ghost venue-reserve" data-city="bacolod" href="#reserve">Reserve</a>
+            <div class="venue__cta">
+              <a class="btn venue-reserve" data-city="bacolod" href="#reserve">Reserve</a>
+              <button class="btn btn--ghost" type="button" data-inquire>Inquire</button>
+            </div>
           </div>
         </div>
       </div>
