@@ -9,8 +9,11 @@
 <meta property="og:description" content="A two-day Personal Mastery experience for teens (12–17). Oct 17–18, 2026 · Davao City.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://iampluscoaching.com/discovery-teens">
-<meta property="og:image" content="https://i-am-plus-coaching.vercel.app/assets/og-iamplus.jpg">
+<meta property="og:image" content="https://iampluscoaching.com/assets/discovery-teens/teens-logo-thumbnail.png">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://iampluscoaching.com/assets/discovery-teens/teens-logo-thumbnail.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +56,13 @@
   .tprice__note{color:#9fb0c4;font-size:.9rem;margin:0 0 22px}
   .tprice .btn{width:100%;justify-content:center}
   .tprice__sec{margin-top:14px;font-size:.8rem;color:#8093a8}
+  /* pricing tiers */
+  .tprice__badge{display:inline-block;margin-bottom:4px;font:700 .66rem/1 Inter,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#04222b;background:#5CE1E6;border-radius:999px;padding:6px 13px}
+  .tprice__was{font-family:Inter,sans-serif;font-size:1.05rem;font-weight:600;color:#8093a8;text-decoration:line-through;margin-left:9px;vertical-align:middle}
+  .tprice__save{color:#9fb0c4;font-size:.88rem;margin:2px 0 20px}
+  .tprice__save b{color:#5CE1E6}
+  .tprice__dp{text-align:left;font-size:.9rem;color:#cfd8e6;line-height:1.55;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;margin-bottom:20px}
+  .tprice__dp b{color:#fff}
   /* facilitator */
   .tfacil{display:flex;gap:22px;align-items:center;max-width:560px;margin:clamp(24px,3.4vw,36px) auto 0;
     padding:clamp(20px,3vw,28px);border-radius:20px;border:1px solid rgba(255,255,255,.1);
@@ -305,10 +315,12 @@
       </div>
       <div class="tcard tprice" id="reserve">
         <div class="tprice__eyebrow">Reserve a seat</div>
-        <div class="tprice__num">Announcing&nbsp;soon</div>
-        <p class="tprice__note">Final pricing drops shortly. Reserve your teen's seat now and our team will lock your rate and confirm the venue.</p>
+        <span class="tprice__badge">Early-bird rate</span>
+        <div class="tprice__num">₱9,500 <span class="tprice__was">₱12,000</span></div>
+        <p class="tprice__save"><b>Save ₱2,500</b> — early-bird pricing, for a limited time.</p>
+        <div class="tprice__dp"><b>Just want to lock the seat?</b> Reserve now with a <b>₱5,000 deposit</b> and settle the balance before the event.</div>
         <a class="btn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Reserve my teen's seat <span class="arr">&rarr;</span></a>
-        <p class="tprice__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;color:#5CE1E6"><path d="M20 6 9 17l-5-5"/></svg> Limited seats · Davao · Oct 17–18</p>
+        <p class="tprice__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;color:#5CE1E6"><path d="M20 6 9 17l-5-5"/></svg> Limited seats · Davao · Oct 17–18 · Ages 12–17</p>
       </div>
     </div>
   </div>

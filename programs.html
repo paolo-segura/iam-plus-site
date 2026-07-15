@@ -355,6 +355,25 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .hero__media,.filmband__media{transform:none}
 }
+
+/* ===== OTHER PROGRAMS ===== */
+.otherprogs{background:radial-gradient(75% 90% at 50% 0%,rgba(92,225,230,.06),transparent 55%),linear-gradient(180deg,var(--ink),var(--void))}
+.otherprogs .ladder__head{text-align:center}
+.opgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,400px));gap:clamp(22px,3vw,34px);justify-content:center;margin-top:clamp(30px,4vw,50px)}
+.opcard{display:flex;flex-direction:column;text-decoration:none;color:inherit;border-radius:20px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  box-shadow:inset 0 0 0 1px var(--line),0 30px 70px -40px rgba(0,0,0,.82);
+  transition:transform .38s ease,box-shadow .38s ease}
+.opcard:hover{transform:translateY(-5px);box-shadow:inset 0 0 0 1px rgba(92,225,230,.42),0 44px 84px -38px rgba(0,0,0,.88)}
+.opcard__media{display:block;aspect-ratio:16/9;overflow:hidden;background:#0a0f18}
+.opcard__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.opcard:hover .opcard__media img{transform:scale(1.03)}
+.opcard__body{padding:clamp(20px,2.6vw,26px);display:flex;flex-direction:column;gap:9px}
+.opcard__title{font-family:var(--font-display);font-size:1.42rem;color:var(--white);font-weight:400;line-height:1.1}
+.opcard__sub{color:var(--mute);font-size:.95rem;line-height:1.55}
+.opcard__go{margin-top:6px;color:var(--cyan);font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px}
+.opcard__go .arr{transition:transform .3s ease}
+.opcard:hover .opcard__go .arr{transform:translateX(5px)}
 </style>
 </head>
 <body>
@@ -522,6 +541,29 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
 
     </div>
     <p class="ladder__note" data-reveal>Whatever you came for — it starts the same way.</p>
+  </div>
+</section>
+
+<!-- ===== OTHER PROGRAMS ===== -->
+<section class="section otherprogs" id="more-programs">
+  <div class="wrap">
+    <div class="ladder__head">
+      <span class="eyebrow eyebrow--center" data-reveal>More from I AM+</span>
+      <h2 data-reveal>Other programs &amp; experiences</h2>
+    </div>
+    <div class="opgrid" data-reveal>
+      <a class="opcard" href="/discovery-teens">
+        <span class="opcard__media">
+          <img src="/assets/discovery-teens/teens-logo-thumbnail.png" alt="Discovery Teens — Personal Mastery Course for ages 12–17" loading="lazy">
+        </span>
+        <span class="opcard__body">
+          <b class="opcard__title">Discovery Teens</b>
+          <span class="opcard__sub">The same Personal Mastery work that's moved thousands of adults — built for ages 12–17. Oct 17–18 · Davao City.</span>
+          <span class="opcard__go">Explore Discovery Teens <span class="arr">&rarr;</span></span>
+        </span>
+      </a>
+      <!-- Coming soon: Coaching Mastery · Builder Summit · Seal the Deal -->
+    </div>
   </div>
 </section>
 
