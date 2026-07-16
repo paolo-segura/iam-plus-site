@@ -319,7 +319,7 @@
         <div class="tprice__num">₱9,500 <span class="tprice__was">₱12,000</span></div>
         <p class="tprice__save"><b>Save ₱2,500</b> — early-bird pricing, for a limited time.</p>
         <div class="tprice__dp"><b>Just want to lock the seat?</b> Reserve now with a <b>₱5,000 deposit</b> and settle the balance before the event.</div>
-        <a class="btn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Reserve my teen's seat <span class="arr">&rarr;</span></a>
+        <a class="btn" id="teensReserveBtn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Reserve my teen's seat <span class="arr">&rarr;</span></a>
         <p class="tprice__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;color:#5CE1E6"><path d="M20 6 9 17l-5-5"/></svg> Limited seats · Davao · Oct 17–18 · Ages 12–17</p>
       </div>
     </div>
@@ -382,6 +382,7 @@
   </div>
 </footer>
 
+<script src="/config.js"></script>
 <script src="/iam-forms.js"></script>
 <script>
   // Teens video: tap to unmute + play (mirrors the Discovery VSL behaviour, no external deps).
@@ -392,6 +393,17 @@
       if(v.muted||v.paused){v.muted=false;v.play();b.setAttribute('aria-pressed','true');b.style.display='none';}
     });
     v.addEventListener('click',function(){ if(!v.paused){v.pause();}else{v.play();} });
+  })();
+
+  // Reserve → hosted checkout (early-bird offer, ₱9,500). Mirrors Discovery's wiring: uses
+  // window.IAMPLUS_CHECKOUT_BASE from config.js; falls back to a root-relative /checkout/… path
+  // (empty base) so it still resolves on Jericson's domain if this page is embedded as a
+  // site_page. Buyers can switch to Regular (₱12,000) or the ₱5,000 Deposit in the checkout's
+  // "Price Offer" selector. Static href stays as Messenger — the no-JS fallback.
+  (function(){
+    var a=document.getElementById('teensReserveBtn'); if(!a) return;
+    var CHECKOUT_BASE=window.IAMPLUS_CHECKOUT_BASE||"";
+    a.setAttribute('href', CHECKOUT_BASE+'/checkout/discovery-teens-2026-10-17/early-bird');
   })();
 </script>
 </body>
