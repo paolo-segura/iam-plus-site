@@ -108,6 +108,7 @@
   .cal__legend span{display:inline-flex;align-items:center;gap:8px}
   .cal__dot{width:11px;height:11px;border-radius:50%;display:inline-block}
 </style>
+<!-- Meta Pixel (Discovery + I AM+) --><script src="/pixel.js"></script>
 </head>
 <body>
 
@@ -529,6 +530,10 @@
         body:JSON.stringify(payload)
       }).then(function(res){
         if(!res.ok) throw new Error('HTTP '+res.status);
+        /* Meta Pixel: a venue reservation inquiry is a Lead. */
+        if(window.iamTrack) window.iamTrack('Lead',
+          { content_name: 'venue_rental' },
+          { email: em, phone: ct, name: nm });
         if(card){ card.classList.add('is-done'); try{ card.scrollIntoView({behavior:'smooth',block:'center'}); }catch(_){} }
       }).catch(function(err){
         if(btn){ btn.disabled=false; btn.innerHTML=btnLabel; }

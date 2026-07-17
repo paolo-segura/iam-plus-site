@@ -285,6 +285,10 @@
       body: JSON.stringify(payload)
     }).then(function (res) {
       if (!res.ok) { return res.text().then(function (t) { throw new Error('HTTP ' + res.status + ' ' + t); }); }
+      /* Meta Pixel: a saved inquiry is a Lead. Advanced matching from the form. */
+      if (window.iamTrack) window.iamTrack('Lead',
+        { content_name: LEAD_SOURCE },
+        { email: payload.email, phone: payload.contact_number, name: payload.full_name });
       showSuccess();
     }).catch(function (err) {
       setSubmitting(false);

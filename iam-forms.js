@@ -156,6 +156,13 @@
         body: JSON.stringify(payload)
       }).then(function (res) {
         if (!res.ok) { return res.text().then(function (t) { throw new Error("HTTP " + res.status + " " + t); }); }
+        /* Meta Pixel: count marketing-lead forms (website_leads) as a Lead;
+           skip staffing_applications (job applications aren't ad leads). */
+        if (window.iamTrack && table === "website_leads") {
+          window.iamTrack("Lead",
+            { content_name: payload.source || payload.type || "website" },
+            { email: payload.email, phone: payload.contact_number || payload.mobile, name: payload.full_name || payload.name });
+        }
         card.classList.add("is-done");
         try { card.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (_) {}
       }).catch(function (err) {
