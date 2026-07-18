@@ -1,0 +1,54 @@
+name: HoT availability sync
+
+# Keeps assets/hot-availability.json in step with the live "I AM + House of
+# Transformation" Google Calendar. Runs every 6 hours (and on-demand). Only commits
+# + redeploys when the venue-booked dates actually change.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"     # 00:00, 06:00, 12:00, 18:00 UTC
+  workflow_dispatch: {}         # manual "Run workflow" button
+
+permissions:
+  contents: write               # allow the bot to commit the updated JSON
+
+concurrency:
+  group: hot-availability-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet google-auth requests
+
+      - name: Sync availability from Google Calendar
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+        run: python scripts/sync_hot_availability.py
+
+      - name: Publish if changed
+        env:
+          DOKPLOY_KEY: ${{ secrets.DOKPLOY_KEY }}
+        run: |
+          if [ -z "$(git status --porcelain assets/hot-availability.json)" ]; then
+            echo "No booking changes — nothing to publish."
+            exit 0
+          fi
+          echo "Booking changes detected — committing + redeploying."
+          git config user.name "hot-availability-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/hot-availability.json
+          git commit -m "HoT availability: auto-sync from Google Calendar"
+          git push
+          curl -s -w "\nHTTP %{http_code}\n" \
+            -H "x-api-key: $DOKPLOY_KEY" -H "Content-Type: application/json" \
+            "http://76.13.188.119:3000/api/application.deploy" \
+            -d '{"applicationId":"3VlaKH6Yodc9IrFkmD5vB","title":"auto: HoT availability sync"}'
