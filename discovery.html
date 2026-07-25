@@ -1112,7 +1112,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
          ['2026-10-25','2026-10-26'],['2026-11-28','2026-11-29'],['2026-12-19','2026-12-20']],
     // New cities (2026) — dates confirmed, venue TBA
     davao:[['2026-07-11','2026-07-12']],
-    cebu:[['2026-10-03','2026-10-04']],
+    cebu:[['2026-11-07','2026-11-08']],
     bacolod:[['2026-07-11','2026-07-12']]
   };
   const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1165,7 +1165,11 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
     document.querySelectorAll('.venue-reserve').forEach(a=>{
       const k=a.getAttribute('data-city');
       const b=nextBuyable(SCHED[k]||[]);
-      if(b&&CITYKEY[k]){a.setAttribute('href',CHECKOUT_BASE+'/checkout/discovery-'+CITYKEY[k]+'-'+b[0]);}
+      // Offer slug is EXPLICIT ('/regular'). Bare /checkout/<sku> 307-redirects to a default
+      // offer, and Cebu now carries a second '/deposit' (₱5,000 down payment) offer — so an
+      // implicit default could land a buyer on the down payment instead of the full price.
+      // Every Discovery product has an active 'regular' offer, so this is safe for all cities.
+      if(b&&CITYKEY[k]){a.setAttribute('href',CHECKOUT_BASE+'/checkout/discovery-'+CITYKEY[k]+'-'+b[0]+'/regular');}
       else{a.setAttribute('href','#venues');}
     });
   }

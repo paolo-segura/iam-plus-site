@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Discovery TEENS — I AM+ | Ages 12–17 · Oct 17–18, Davao City</title>
-<meta name="description" content="Discovery TEENS by I AM+ — a two-day Personal Mastery experience built for ages 12–17. October 17–18, 2026 in Davao City. Confidence, ownership, and a mindset that carries them for life.">
+<title>Discovery TEENS — I AM+ | Ages 12–17 · Davao Oct 17–18 · Cebu Dec 12–13</title>
+<meta name="description" content="Discovery TEENS by I AM+ — a two-day Personal Mastery experience built for ages 12–17. Davao City on October 17–18, 2026 and Cebu City on December 12–13, 2026. Confidence, ownership, and a mindset that carries them for life.">
 <meta property="og:title" content="Discovery TEENS — the head start you wish you had | I AM+">
-<meta property="og:description" content="A two-day Personal Mastery experience for teens (12–17). Oct 17–18, 2026 · Davao City.">
+<meta property="og:description" content="A two-day Personal Mastery experience for teens (12–17). Davao · Oct 17–18, 2026 and Cebu · Dec 12–13, 2026.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://iampluscoaching.com/discovery-teens">
 <meta property="og:image" content="https://iampluscoaching.com/assets/discovery-teens/teens-logo-thumbnail.png">
@@ -21,9 +21,11 @@
 <link rel="stylesheet" href="/iam-forms.css">
 <!-- I AM+ · DISCOVERY TEENS landing page (ages 12–17). Built on the shared iam-forms.css shell
      (matches /staff /corporate /consultation) + a small teens-specific inline block below.
-     PLACEHOLDER PRICE — Paolo to confirm (candidates: ₱7,500 / ₱8,500 / ₱9,500).
-     Reserve CTA points to FB Messenger for now; swap to the hosted checkout product URL
-     (CHECKOUT_BASE + '/checkout/discovery-teens-2026-10-17') once Jericson creates the product. -->
+     TWO CITIES share this page — each has its own product + Reserve button:
+       Davao · Oct 17–18, 2026  → discovery-teens-2026-10-17
+       Cebu  · Dec 12–13, 2026  → discovery-teens-cebu-2026-12-12
+     Both price identically (early-bird ₱9,500, ₱12,000 anchor, ₱5,000 down payment).
+     Keep the on-page prices 1:1 with the offer rows in data/cebu-2026-update.sql. -->
 <style>
   /* ---- Discovery Teens accents (kept on-brand: I AM+ cyan on dark) ---- */
   .cy{color:#5CE1E6}
@@ -63,6 +65,15 @@
   .tprice__save b{color:#5CE1E6}
   .tprice__dp{text-align:left;font-size:.9rem;color:#cfd8e6;line-height:1.55;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;margin-bottom:20px}
   .tprice__dp b{color:#fff}
+  /* Two cities = a side-by-side city picker, EQUAL weight. Deliberately not primary/ghost:
+     a Davao parent and a Cebu parent are on different islands and are never choosing between
+     these dates — the task is "find mine", not "pick one". Ghosting Cebu would read as the
+     B-side batch. The two-line city/date anatomy is what keeps it from looking like a
+     duplicated CTA. */
+  .tprice__choose{font:600 .72rem/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9fb0c4;margin:0 0 10px}
+  .tprice__btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tprice__city{flex-direction:column;gap:3px;padding-block:13px}
+  .tprice__city small{font-size:.74rem;font-weight:500;opacity:.85}
   /* facilitator */
   .tfacil{display:flex;gap:22px;align-items:center;max-width:560px;margin:clamp(24px,3.4vw,36px) auto 0;
     padding:clamp(20px,3vw,28px);border-radius:20px;border:1px solid rgba(255,255,255,.1);
@@ -158,7 +169,7 @@
       <a href="/consultation">Free consultation</a>
     </nav>
     <a class="btn drawer__cta" href="#reserve">Reserve a seat <span class="arr">&rarr;</span></a>
-    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Davao City · Philippines</p>
+    <p class="drawer__foot"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Davao &amp; Cebu · Philippines</p>
   </div>
 </div>
 
@@ -178,9 +189,8 @@
         <a class="btn btn--ghost" href="#video">Watch the video</a>
       </div>
       <div class="hero__meta metarow" data-reveal data-reveal-delay="320">
-        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg> Oct 17–18, 2026</span>
-        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Davao City</span>
-        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Ages 12–17</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Davao · Oct 17–18, 2026</span>
+        <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Cebu · Dec 12–13, 2026</span>
       </div>
     </div>
   </div>
@@ -251,6 +261,7 @@
     <div class="lead-center">
       <span class="eyebrow">Inside the two days</span>
       <h2 style="font-family:Fraunces,serif;font-weight:360;font-size:clamp(2rem,4.4vw,3rem);color:#fff;margin:12px 0 0">Real teens. Real work. One unforgettable weekend.</h2>
+      <p style="color:#9fb0c4;font-size:.95rem;margin:14px 0 0">Every photo here is from a real Davao batch — Cebu gets the exact same two days in December.</p>
     </div>
     <div class="tgal" data-reveal>
       <figure data-phase="arrival"><img src="/assets/discovery-teens/gallery/g01.webp" alt="A parent and two teens welcomed at Discovery Teens registration" loading="lazy"></figure>
@@ -307,10 +318,10 @@
       <div class="tcard">
         <h3>Your two days</h3>
         <ul class="tlist">
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><span><b>October 17–18, 2026</b> — Saturday &amp; Sunday</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><span><b>Davao City — October 17–18, 2026</b> (Saturday &amp; Sunday)</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><span><b>Cebu City — December 12–13, 2026</b> (Saturday &amp; Sunday)</span></li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>9:00 AM onwards</b>, both days</span></li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><b>Davao City</b> — venue details on registration</span></li>
-          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span><b>Ages 12–17</b> — built specifically for teens</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><b>Venue shared when you register</b> — in each city</span></li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span>Full 2-day program, all exercises &amp; materials, and a certificate of completion</span></li>
         </ul>
       </div>
@@ -319,9 +330,13 @@
         <span class="tprice__badge">Early-bird rate</span>
         <div class="tprice__num">₱9,500 <span class="tprice__was">₱12,000</span></div>
         <p class="tprice__save"><b>Save ₱2,500</b> — early-bird pricing, for a limited time.</p>
-        <div class="tprice__dp"><b>Just want to lock the seat?</b> Reserve now with a <b>₱5,000 deposit</b> and settle the balance before the event.</div>
-        <a class="btn" id="teensReserveBtn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener">Reserve my teen's seat <span class="arr">&rarr;</span></a>
-        <p class="tprice__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;color:#5CE1E6"><path d="M20 6 9 17l-5-5"/></svg> Limited seats · Davao · Oct 17–18 · Ages 12–17</p>
+        <div class="tprice__dp"><b>Just want to lock the seat?</b> Reserve now with a <b>₱5,000 down payment</b> and settle the balance before the event.</div>
+        <p class="tprice__choose">Choose your city — same program, same price</p>
+        <div class="tprice__btns">
+          <a class="btn tprice__city" id="teensReserveBtn" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener"><b>Davao</b><small>Oct 17–18</small></a>
+          <a class="btn tprice__city" id="teensReserveBtnCebu" href="https://www.facebook.com/iampluscoaching" target="_blank" rel="noopener"><b>Cebu</b><small>Dec 12–13</small></a>
+        </div>
+        <p class="tprice__sec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;color:#5CE1E6"><path d="M20 6 9 17l-5-5"/></svg> Limited seats in each city · Ages 12–17</p>
       </div>
     </div>
   </div>
@@ -357,7 +372,8 @@
       <details><summary>Do parents need to attend?<span class="pm">+</span></summary><p>No — the two days are for the teens. Our team will keep you updated on logistics, drop-off, and pick-up once you register.</p></details>
       <details><summary>What should my teen bring?<span class="pm">+</span></summary><p>Just themselves, an open mind, and comfortable clothes. We'll send a full what-to-bring list after you reserve a seat.</p></details>
       <details><summary>Are the prices inclusive of VAT?<span class="pm">+</span></summary><p>Prices shown are exclusive of VAT. If you need an official receipt or a VAT breakdown, just message us and our team will sort it out.</p></details>
-      <details><summary>How do we reserve a seat?<span class="pm">+</span></summary><p>Tap any <b>Reserve a seat</b> button and message our team — we'll confirm availability, share the venue, and lock your teen's spot for October 17–18 in Davao.</p></details>
+      <details><summary>Is the Cebu run the same as the Davao one?<span class="pm">+</span></summary><p>Yes — <b>Davao City on October 17–18</b> and <b>Cebu City on December 12–13</b> are the same two-day program, the same curriculum, and the same pricing. Book whichever city is closest to home.</p></details>
+      <details><summary>How do we reserve a seat?<span class="pm">+</span></summary><p>Tap the <b>Reserve</b> button for your city — Davao or Cebu — and you'll go straight to checkout. Prefer to pay in stages? Choose the <b>₱5,000 down payment</b> option there to lock the seat and settle the balance before the event.</p></details>
     </div>
   </div>
 </section>
@@ -378,7 +394,7 @@
     </nav>
     <div class="footer__legal">
       <span>© 2026 I AM+ Coaching &amp; Training Corp. · The Personal Mastery Journey</span>
-      <span><a href="/terms">Terms</a> · Davao City · Philippines</span>
+      <span><a href="/terms">Terms</a> · Davao &amp; Cebu · Philippines</span>
     </div>
   </div>
 </footer>
@@ -396,15 +412,24 @@
     v.addEventListener('click',function(){ if(!v.paused){v.pause();}else{v.play();} });
   })();
 
-  // Reserve → hosted checkout (early-bird offer, ₱9,500). Mirrors Discovery's wiring: uses
-  // window.IAMPLUS_CHECKOUT_BASE from config.js; falls back to a root-relative /checkout/… path
-  // (empty base) so it still resolves on Jericson's domain if this page is embedded as a
-  // site_page. Buyers can switch to Regular (₱12,000) or the ₱5,000 Deposit in the checkout's
-  // "Price Offer" selector. Static href stays as Messenger — the no-JS fallback.
+  // Reserve → hosted checkout (early-bird offer, ₱9,500), one product per city. Mirrors
+  // Discovery's wiring: uses window.IAMPLUS_CHECKOUT_BASE from config.js; falls back to a
+  // root-relative /checkout/… path (empty base) so it still resolves on Jericson's domain if
+  // this page is embedded as a site_page. The offer slug is always EXPLICIT so a buyer can
+  // never be dropped onto the ₱5,000 down payment by a default-offer redirect. They can still
+  // switch to the down payment in the checkout's own "Price Offer" selector.
+  // Static hrefs stay as Messenger — the no-JS fallback.
   (function(){
-    var a=document.getElementById('teensReserveBtn'); if(!a) return;
     var CHECKOUT_BASE=window.IAMPLUS_CHECKOUT_BASE||"";
-    a.setAttribute('href', CHECKOUT_BASE+'/checkout/discovery-teens-2026-10-17/early-bird');
+    var CITIES={
+      teensReserveBtn:     'discovery-teens-2026-10-17',      // Davao · Oct 17–18, 2026
+      teensReserveBtnCebu: 'discovery-teens-cebu-2026-12-12'  // Cebu  · Dec 12–13, 2026
+    };
+    Object.keys(CITIES).forEach(function(id){
+      var a=document.getElementById(id); if(!a) return;
+      a.setAttribute('href', CHECKOUT_BASE+'/checkout/'+CITIES[id]+'/early-bird');
+      a.removeAttribute('target'); a.removeAttribute('rel');  // stay in-tab once it's a real checkout
+    });
   })();
 </script>
 </body>
