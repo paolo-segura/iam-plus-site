@@ -1110,8 +1110,9 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
          ['2026-04-25','2026-04-26'],['2026-05-30','2026-05-31'],['2026-06-27','2026-06-28'],
          ['2026-07-25','2026-07-26'],['2026-08-29','2026-08-30'],['2026-09-26','2026-09-27'],
          ['2026-10-25','2026-10-26'],['2026-11-28','2026-11-29'],['2026-12-19','2026-12-20']],
-    // New cities (2026) — dates confirmed, venue TBA
-    davao:[['2026-07-11','2026-07-12']],
+    // New cities (2026). Past batches stay in the array on purpose: nextDate/nextBuyable
+    // skip them, but elapsedSince() counts them toward the running batch total.
+    davao:[['2026-07-11','2026-07-12'],['2026-09-12','2026-09-13']],
     cebu:[['2026-11-07','2026-11-08']],
     bacolod:[['2026-07-11','2026-07-12']]
   };
