@@ -7,11 +7,11 @@
 <meta name="description" content="A one-day leadership & coaching event for HR leaders, executives, and managers — by I AM+ Coaching & Training Corp. with Coach Gina Katigbak. You develop everyone else; here, someone develops you. Date to be announced — join the waitlist for first access.">
 <meta property="og:title" content="Coaching Mastery — Date to be announced | I AM+">
 <meta property="og:description" content="You develop everyone else. Here, someone develops you. A one-day transformation for HR leaders, executives & managers. Date to be announced — join the waitlist for first access.">
-<meta property="og:image" content="https://iampluscoaching.com/assets/coaching-mastery/og-coaching-mastery.jpg">
+<meta property="og:image" content="assets/coaching-mastery/og-coaching-mastery.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" sizes="32x32" href="https://i-am-plus-coaching.vercel.app/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://i-am-plus-coaching.vercel.app/assets/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://i-am-plus-coaching.vercel.app/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <!--
   I AM+ · COACHING MASTERY event page · PRODUCTION site_pages build (Jericson's domain)
   Event sub-brand of I AM+ × Coach Gina / Leadershift (LCM). Cloned 1:1 from breakthrough.html:
@@ -27,7 +27,7 @@
       COACHING / MASTERY wordmark echo. Modernized, not the dated washed look.
 
   PRODUCTION DIFFS vs local (mirrors breakthrough.html / discovery-live.html):
-    • assets absolutized to https://i-am-plus-coaching.vercel.app/assets/... (renders inside Jericson's site_pages iframe)
+    • local preview mirror: assets/ paths are relative. Prod mirror is coaching-mastery.html (renders inside Jericson's site_pages iframe)
     • nav/footer program links root-relative + extensionless (/programs /discovery /breakthrough /coaching-mastery)
     • DATE TBA (2026-07-28): the Sept 5 batch is off the calendar until a new date is locked, so there is
       NO checkout on this page. Every primary CTA (.cm-waitlist) opens the waitlist modal, which posts to
@@ -216,7 +216,7 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
 /* .hero__media = graceful photo layer. When Task 4's photoreal plate (cm-hero.webp) is uploaded to the
    assets host it paints UNDER the scrim; until then this 404s silently and the CSS ember/red glow carries the hero. */
 .hero__media{position:absolute;inset:0;z-index:-2;background-color:var(--cm-void);
-  background-image:url("https://iampluscoaching.com/assets/coaching-mastery/cm-hero.webp");
+  background-image:url("assets/coaching-mastery/cm-hero.webp");
   background-size:cover;background-position:center;transform:scale(1.06);will-change:transform;filter:contrast(1.05) saturate(.92)}
 .hero__scrim{position:absolute;inset:0;z-index:-1;
   background:
@@ -472,7 +472,7 @@ body{ background:#100d11; }
 /* fixed full-viewport paper layer — one clean crop of the Poster-B hand-made paper,
    no tiling/repetition, gentle parallax as the content scrolls over it */
 body::before{ content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
-  background:#100d11 url("https://iampluscoaching.com/assets/coaching-mastery/cm-paper-bg.webp") center center / cover no-repeat; }
+  background:#100d11 url("assets/coaching-mastery/cm-paper-bg.webp") center center / cover no-repeat; }
 body::after{ opacity:.03; }                       /* paper carries the grain now — dial the SVG noise down */
 
 /* every ground → transparent so the paper baseline shows through */
@@ -518,7 +518,7 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
 @media(max-width:440px){ .room__grid{ grid-template-columns:1fr; } }
 </style>
 <link rel="stylesheet" href="/inquiry-modal.css">
-<script src="/config.js"></script><!-- Meta Pixel (Discovery + I AM+) --><script src="/pixel.js"></script>
+<script src="/config.js"></script><!-- Meta Pixel omitted in the local mirror -->
 </head>
 <body>
 
@@ -526,7 +526,7 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
 <header class="top" id="top">
   <div class="wrap">
     <a class="brandmark" href="/programs" aria-label="I AM+ home">
-      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+ Coaching & Training Corp.">
+      <img src="assets/logo-iamplus-white.webp" alt="I AM+ Coaching & Training Corp.">
     </a>
     <nav class="nav" aria-label="On this page">
       <a href="#hook" data-spy="hook">Overview</a>
@@ -662,7 +662,7 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
     </div>
     <div class="spk-grid" data-reveal>
       <figure class="spk">
-        <img class="spk__photo" src="https://iampluscoaching.com/assets/coaching-mastery/cm-spk-gina.webp" alt="Coach Gina Katigbak" width="800" height="1000" loading="lazy">
+        <img class="spk__photo" src="assets/coaching-mastery/cm-spk-gina.webp" alt="Coach Gina Katigbak" width="800" height="1000" loading="lazy">
         <span class="spk__grad" aria-hidden="true"></span>
         <span class="spk__frame" aria-hidden="true"></span>
         <span class="spk__mark" aria-hidden="true">CM</span>
@@ -673,7 +673,7 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
         </figcaption>
       </figure>
       <figure class="spk">
-        <img class="spk__photo" src="https://iampluscoaching.com/assets/coaching-mastery/cm-spk-max.webp" alt="Coach Max Salazar" width="800" height="1000" loading="lazy">
+        <img class="spk__photo" src="assets/coaching-mastery/cm-spk-max.webp" alt="Coach Max Salazar" width="800" height="1000" loading="lazy">
         <span class="spk__grad" aria-hidden="true"></span>
         <span class="spk__frame" aria-hidden="true"></span>
         <span class="spk__mark" aria-hidden="true">CM</span>
@@ -684,7 +684,7 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
         </figcaption>
       </figure>
       <figure class="spk">
-        <img class="spk__photo" src="https://iampluscoaching.com/assets/coaching-mastery/cm-spk-migs.webp" alt="Coach Migs Flores" width="800" height="1000" loading="lazy">
+        <img class="spk__photo" src="assets/coaching-mastery/cm-spk-migs.webp" alt="Coach Migs Flores" width="800" height="1000" loading="lazy">
         <span class="spk__grad" aria-hidden="true"></span>
         <span class="spk__frame" aria-hidden="true"></span>
         <span class="spk__mark" aria-hidden="true">CM</span>
@@ -739,12 +739,12 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
       <p class="lead">Coach Max and Coach Gina in the room — the same energy Coaching Mastery is built on.</p>
     </div>
     <div class="room__grid" data-reveal>
-      <figure class="room__cell"><img src="https://iampluscoaching.com/assets/coaching-mastery/room/room-1.webp" alt="Leadership coaching cohort filling the room" width="1000" height="750" loading="lazy"></figure>
-      <figure class="room__cell"><img src="https://iampluscoaching.com/assets/coaching-mastery/room/room-2.webp" alt="Coaching masterclass on stage" width="1000" height="750" loading="lazy"></figure>
-      <figure class="room__cell"><img src="https://iampluscoaching.com/assets/coaching-mastery/room/room-3.webp" alt="Cohort celebrating at graduation" width="1000" height="750" loading="lazy"></figure>
-      <figure class="room__cell"><img src="https://iampluscoaching.com/assets/coaching-mastery/room/room-4.webp" alt="Coach Gina Katigbak with a Leadership Coaching MasterClass participant" width="1000" height="750" loading="lazy"></figure>
-      <figure class="room__cell"><img src="https://iampluscoaching.com/assets/coaching-mastery/room/room-5.webp" alt="A full room of HR leaders and managers" width="1000" height="750" loading="lazy"></figure>
-      <figure class="room__cell"><img src="https://iampluscoaching.com/assets/coaching-mastery/room/room-6.webp" alt="Coaching cohort in the room" width="1000" height="750" loading="lazy"></figure>
+      <figure class="room__cell"><img src="assets/coaching-mastery/room/room-1.webp" alt="Leadership coaching cohort filling the room" width="1000" height="750" loading="lazy"></figure>
+      <figure class="room__cell"><img src="assets/coaching-mastery/room/room-2.webp" alt="Coaching masterclass on stage" width="1000" height="750" loading="lazy"></figure>
+      <figure class="room__cell"><img src="assets/coaching-mastery/room/room-3.webp" alt="Cohort celebrating at graduation" width="1000" height="750" loading="lazy"></figure>
+      <figure class="room__cell"><img src="assets/coaching-mastery/room/room-4.webp" alt="Coach Gina Katigbak with a Leadership Coaching MasterClass participant" width="1000" height="750" loading="lazy"></figure>
+      <figure class="room__cell"><img src="assets/coaching-mastery/room/room-5.webp" alt="A full room of HR leaders and managers" width="1000" height="750" loading="lazy"></figure>
+      <figure class="room__cell"><img src="assets/coaching-mastery/room/room-6.webp" alt="Coaching cohort in the room" width="1000" height="750" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -826,7 +826,7 @@ body::after{ opacity:.03; }                       /* paper carries the grain now
 <footer class="footer">
   <div class="wrap">
     <a class="footer__brand" href="/programs">
-      <img src="https://i-am-plus-coaching.vercel.app/assets/logo-iamplus-white.webp" alt="I AM+">
+      <img src="assets/logo-iamplus-white.webp" alt="I AM+">
       <span class="nm">I AM+<small>Coaching &amp; Training Corp.</small></span>
     </a>
     <nav class="footer__nav" aria-label="Footer">
