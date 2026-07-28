@@ -6,12 +6,30 @@
 -- Extends the canonical lead schema in  iam-plus/data/leadforms-tables.sql
 -- (fold this in there once run, so there is one source of truth).
 --
+-- ⚠️  STALE AS OF 2026-07-28 — READ THIS BEFORE TRUSTING ANYTHING BELOW.
+--     BOTH PARTS ARE ALREADY DEPLOYED on dvvlxxbsxirhcqiaysfe. Verified by
+--     catalogue query (db/2026-07-28-leads-bridge-discovery.sql, STEP 1):
+--       • PART A live — website_leads_type_check allows 'inquiry'
+--       • PART B live — trigger `trg_bridge_inquiry_to_leads` exists on
+--         public.website_leads, AFTER INSERT, WHEN (new.type = 'inquiry')
+--     The "pending Jericson / DO NOT RUN" wording below is therefore WRONG.
+--     It was never updated after PART B was actually run.
+--
+--     🔴 AND THE MAPPING BELOW IS KNOWN-BAD against the real table: PART B
+--     inserts source='website_inquiry', but the live table has
+--       leads_source_check CHECK (source IN ('transaction','manual_admin',
+--                                            'manual_affiliate','subscription'))
+--     so that value is rejected. Because the function swallows errors
+--     (`exception when others ... return new`), a rejected insert is INVISIBLE:
+--     the lead saves to website_leads and never reaches the dashboard.
+--     Confirm against the deployed function body (STEP 2 of the 07-28 file)
+--     before changing anything here.
+--
 -- ⚠️  DO NOT RUN THIS WHOLE FILE BLINDLY. It is split into two parts:
---       PART A — safe to run now. Lets the site capture inquiries.
---       PART B — bridge into Jericson's CRM `public.leads`. DO NOT RUN until
---                the column mapping below is confirmed against his live table
---                (see the TODO block). Running it with a wrong mapping will make
---                every inquiry INSERT fail at runtime.
+--       PART A — already run. Lets the site capture inquiries.
+--       PART B — already run (see above). The commented SQL below is the
+--                ORIGINAL DRAFT with placeholder columns, NOT what is live.
+--                Do not re-run it as-is; it would install the broken mapping.
 --
 -- Security model is unchanged: the public site (anon key) may ONLY INSERT into
 -- `website_leads`. It never touches `public.leads` directly — the PART B trigger
