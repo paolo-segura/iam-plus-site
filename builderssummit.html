@@ -1195,6 +1195,14 @@ body::after{
      arriving, check that first — the old URL 404s silently. */
   var RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxbY5dfJLwzoBknOuTqBlFoaZzXt189RxtnY2zs-O_TbL3mUx2f7gMSxh4xHxSQh1fQ/exec";
 
+  /* ⚙️ WHEN THE NEXT SUMMIT IS SCHEDULED, CHANGE THIS WITH THE DATE ABOVE.
+     One sheet, one tab per batch. The tab name is sent with every RSVP, so the
+     script needs no edit and no redeploy — it creates the tab (headers, frozen
+     row) on the first RSVP and leaves previous batches untouched.
+     Renaming the tab inside the spreadsheet does NOT work: that moves the rows
+     already collected and leaves incoming ones landing on the old name. */
+  var RSVP_SHEET = "Aug 19 2026";
+
   var LEAD_SOURCE = "builders_summit_rsvp";
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -1278,7 +1286,8 @@ body::after{
         guests: d.guests || "No",
         building: d.building || "",
         consent: true,
-        source: LEAD_SOURCE
+        source: LEAD_SOURCE,
+        sheet: RSVP_SHEET
       })
     }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
