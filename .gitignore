@@ -1,1 +1,8 @@
 .DS_Store
+preview-hot.html
+
+# Builders Summit — 4K masters and raw media stay on Paolo's disk. Only the
+# generated derivatives in assets/builders-summit/web/ are versioned + deployed.
+assets/builders-summit/photos/
+assets/builders-summit/video/
+assets/builders-summit/gallery/*.png

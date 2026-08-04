@@ -1,1 +1,11 @@
 .git
+
+# Builders Summit: only assets/builders-summit/web/ is referenced by the page.
+# photos/ holds the 4K masters (~18 MB) used once to generate the web
+# derivatives — shipping them bloats the image and serves nothing.
+assets/builders-summit/photos/
+
+# Drop folder for the raw Same Day Edit. Any video placed here must be
+# web-encoded into assets/builders-summit/web/ before the page references it;
+# the raw 101 MB file must never ship.
+assets/builders-summit/video/
