@@ -4,16 +4,16 @@ PRODID:-//I AM+ Coaching & Training Corp.//Builders Summit//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:builders-summit-batch3-20260820@iampluscoaching.com
-DTSTAMP:20260803T000000Z
-DTSTART:20260820T020000Z
-DTEND:20260820T070000Z
+UID:builders-summit-batch3-20260819@iampluscoaching.com
+DTSTAMP:20260804T000000Z
+DTSTART:20260819T020000Z
+DTEND:20260819T070000Z
 SUMMARY:Builders Summit — Batch 3 (I AM+)
 LOCATION:3F House of Transformation\, Ayala Malls The 30th\, Ortigas\, Pasi
  g City
 DESCRIPTION:Free community gathering\, 10 AM to 3 PM. Hosted by Builders Bu
  reau\, powered by I AM+ Coaching & Training Corp.
-URL:https://iampluscoaching.com/builders-summit
+URL:https://iampluscoaching.com/builderssummit
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
