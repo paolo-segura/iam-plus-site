@@ -945,8 +945,13 @@ body::after{
             <div class="field" id="f-program">
               <label for="rsvp-program">Which I AM+ program did you attend?</label>
               <select id="rsvp-program" name="program" aria-describedby="e-program" required>
+                <!-- Ordered by the I AM+ programme ladder, then the standalone ones.
+                     Free text on "Iba pa" so nobody is forced into a wrong answer. -->
                 <option value="" selected disabled>Choose one</option>
                 <option value="Discovery">Discovery</option>
+                <option value="Breakthrough">Breakthrough</option>
+                <option value="Abundance">Abundance</option>
+                <option value="Grand Expo You">Grand Expo You</option>
                 <option value="Power of You">Power of You</option>
                 <option value="Ako Naman Muna">Ako Naman Muna</option>
                 <option value="__other__">Iba pa / Other</option>
