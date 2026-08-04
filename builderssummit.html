@@ -135,20 +135,32 @@ body::after{
     radial-gradient(80% 52% at 50% 0%, var(--glow) 0%, rgba(23,64,150,0) 68%),
     radial-gradient(120% 55% at 50% 100%, rgba(10,40,104,.42) 0%, rgba(10,40,104,0) 72%);
 }
-/* Sections carrying the plate itself: a blurred crop under a heavy scrim, so it
-   reads as depth and never competes with type. */
+/* Sections carrying a generated atmosphere plate. Purpose-made per section
+   (Gemini / nano banana, prompts in builders-summit-docs/) rather than reusing
+   one crop everywhere — a single wash read flat and lifeless. Each is abstract
+   light + haze, deliberately NOT another skyline, so it adds depth without
+   competing with the hero or the photography. Text-free by construction.
+   Blur + a scrim keep them behind type at all times. */
+.plated{position:relative}
 .plated::before{
   content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
-  background-image:image-set(
-    url("/assets/builders-summit/web/plate-wash-1600.webp") type("image/webp"),
-    url("/assets/builders-summit/web/plate-wash-1600.jpg") type("image/jpeg"));
   background-size:cover;background-position:center;
-  opacity:.30;
+  opacity:.62;
 }
 .plated::after{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(180deg,var(--void) 0%,rgba(3,11,51,.72) 26%,rgba(3,11,51,.72) 74%,var(--void) 100%);
+  background:linear-gradient(180deg,var(--void) 0%,rgba(3,11,51,.58) 22%,rgba(3,11,51,.58) 76%,var(--void) 100%);
 }
+.bg-arc::before{background-image:image-set(
+  url("/assets/builders-summit/web/bg-arc-1600.webp") type("image/webp"),
+  url("/assets/builders-summit/web/bg-arc-1600.jpg") type("image/jpeg"))}
+.bg-grid::before{background-image:image-set(
+  url("/assets/builders-summit/web/bg-grid-1600.webp") type("image/webp"),
+  url("/assets/builders-summit/web/bg-grid-1600.jpg") type("image/jpeg"));
+  background-position:center bottom}
+.bg-horizon::before{background-image:image-set(
+  url("/assets/builders-summit/web/bg-horizon-1600.webp") type("image/webp"),
+  url("/assets/builders-summit/web/bg-horizon-1600.jpg") type("image/jpeg"))}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* ===================== TYPE ROLES ===================== */
@@ -691,7 +703,7 @@ body::after{
 </section>
 
 <!-- ============================ THE BUREAU ============================ -->
-<section class="section bureau plated" id="the-bureau">
+<section class="section bureau plated bg-arc" id="the-bureau">
   <div class="wrap">
     <div class="bureau__top">
       <div data-reveal>
@@ -724,7 +736,7 @@ body::after{
 </section>
 
 <!-- ============================ WHY WE EXIST ============================ -->
-<section class="section why atmos" id="why-we-exist">
+<section class="section why plated bg-grid" id="why-we-exist">
   <div class="wrap">
     <div data-reveal>
       <p class="eyebrow">Why we exist</p>
@@ -877,7 +889,7 @@ body::after{
 </section>
 
 <!-- ============================ RSVP ============================ -->
-<section class="section rsvp plated" id="rsvp">
+<section class="section rsvp plated bg-horizon" id="rsvp">
   <div class="wrap">
     <div class="rsvp__panel">
       <div class="rsvp__grid">
