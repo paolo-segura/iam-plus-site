@@ -1206,6 +1206,33 @@ body::after{
   var LEAD_SOURCE = "builders_summit_rsvp";
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+  /* Idempotency key for this RSVP.
+
+     A save can succeed while the visitor never sees it: the row lands, then the
+     response is lost to a dropped connection or an Apps Script cold start. The
+     page reports failure, the visitor tries again, and one person becomes two
+     rows — which is exactly what "Try once more" below used to invite.
+
+     Every attempt at the SAME RSVP carries the same id, so the script can spot a
+     retry and skip the second write. It is deliberately generated once here
+     rather than per submit — regenerating it on each click would defeat the
+     entire mechanism. A page reload starts a genuinely new RSVP, which is right:
+     that is how someone signs a second person up from the same browser. */
+  var RSVP_REQUEST_ID = (function () {
+    try {
+      if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+      if (window.crypto && crypto.getRandomValues) {
+        var b = new Uint8Array(16);
+        crypto.getRandomValues(b);
+        return Array.prototype.map.call(b, function (x) {
+          return ("0" + x.toString(16)).slice(-2);
+        }).join("");
+      }
+    } catch (e) { /* fall through */ }
+    // Last resort: still unique enough to pair a submit with its own retry.
+    return "rid-" + Date.now() + "-" + Math.random().toString(16).slice(2, 10);
+  })();
+
   var form = document.getElementById("rsvpForm");
   var doneEl = document.getElementById("rsvpDone");
   var alertEl = document.getElementById("rsvpAlert");
@@ -1287,7 +1314,8 @@ body::after{
         building: d.building || "",
         consent: true,
         source: LEAD_SOURCE,
-        sheet: RSVP_SHEET
+        sheet: RSVP_SHEET,
+        request_id: RSVP_REQUEST_ID
       })
     }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
