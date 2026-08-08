@@ -1119,7 +1119,10 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
     // skip them, but elapsedSince() counts them toward the running batch total.
     davao:[['2026-07-11','2026-07-12'],['2026-09-12','2026-09-13']],
     cebu:[['2026-11-07','2026-11-08']],
-    bacolod:[['2026-07-11','2026-07-12']]
+    // 2026-08-08: Bacolod returns Sep 19–20. Product row = discovery-bacolod-2026-09-19
+    // (data/bacolod-2026-09-19-update.sql). Venue still the tentative Base Function Hall —
+    // swap the venue card + VENUES label + the SQL together once I AM+ confirms.
+    bacolod:[['2026-07-11','2026-07-12'],['2026-09-19','2026-09-20']]
   };
   const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const fmtBatch=([sIso,eIso])=>{
