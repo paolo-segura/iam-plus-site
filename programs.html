@@ -633,7 +633,13 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
       <h2>Watch a full I AM+ gathering.</h2>
     </div>
     <div class="film__frame" data-reveal>
-      <video id="filmVideo" muted playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/grand-anm-poster.webp"><source src="https://i-am-plus-coaching.vercel.app/assets/grand-anm-full.mp4" type="video/mp4"></video>
+      <!-- 2026-08-08: v4 re-cut — the old static end card + editor credit are replaced by the
+           animated I AM+ logo sting (logo-sting Vesper, 9s), overlaid on the film's own black
+           tail from 7:30 so the music plays under it. Runtime unchanged (459.267s). Served from
+           THIS site, not the Vercel asset host: uploading there needs `vercel --prod` from
+           iam-plus/app/, whose working tree currently un-ignores api/ and would publish the
+           Xendit create-invoice + webhook endpoints. Masters: assets/videos/edits/. -->
+      <video id="filmVideo" muted playsinline preload="none" poster="https://i-am-plus-coaching.vercel.app/assets/grand-anm-poster.webp"><source src="/assets/grand-anm-full-v4.mp4" type="video/mp4"></video>
       <button class="film__play" id="filmPlay" type="button" aria-label="Tap for sound">
         <span class="disc"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/></svg></span>
         <span class="lbl">Tap for sound</span>
