@@ -443,8 +443,11 @@ body::after{
 /* ===================== RSVP ===================== */
 .rsvp{background:linear-gradient(180deg,var(--void) 0%,#05163F 50%,var(--void) 100%);position:relative}
 .rsvp__panel{
+  /* Exposed as a variable so the invite can cancel it exactly and bleed to the
+     panel edge on phones — hard-coding the clamp twice would drift. */
+  --panel-pad:clamp(32px,5vw,68px);
   position:relative;background:var(--ink);border:1px solid var(--line);
-  padding:clamp(32px,5vw,68px);
+  padding:var(--panel-pad);
 }
 .rsvp__panel::before{
   content:"";position:absolute;inset:0;pointer-events:none;
@@ -458,15 +461,26 @@ body::after{
 .rsvp__re{margin-top:18px}
 
 /* ---------- the invite ----------
-   The poster lives here rather than in the page body on purpose. Its job isn't
-   decoration — it's what an attendee forwards to the person they're bringing,
-   and the form two columns over is where guest names get asked for. Small and
-   click-to-open: at full size a 4:5 poster would fight the form for the eye. */
-.invite{margin:32px 0 0;display:flex;align-items:center;gap:18px}
-.invite__thumb{display:block;flex:0 0 118px;border:1px solid var(--line);line-height:0}
-.invite__thumb img{width:100%;height:auto;display:block;
-  filter:saturate(.9) contrast(1.04) brightness(.98)}
-.invite figcaption{min-width:0}
+   The poster lives in the RSVP section rather than the page body on purpose:
+   it's what an attendee forwards to the person they're bringing, and the form
+   below is where guest names get asked for.
+
+   It sits ABOVE the whole grid, not inside a column. At 118px in a side column
+   it was decoration — but the poster carries the real details (date, doors,
+   venue, QR), and on a phone the single column made it smaller still. Full
+   width on phones is the entire point; that's where a poster actually gets
+   read. Capped on desktop so a 4:5 portrait doesn't shove the form itself below
+   the fold. Still click-to-open for the full-size version.
+
+   No dimming filter here. The old one kept a small thumb from fighting the
+   form; at this size the poster IS the thing being read, so it runs at full
+   strength — and it's already dark navy, so it sits in the palette anyway. */
+.invite{margin:0 0 clamp(30px,4vw,46px);display:flex;flex-direction:column;align-items:center;gap:14px}
+.invite__thumb{display:block;width:min(100%,440px);border:1px solid var(--line);line-height:0;
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.9);transition:transform .35s ease}
+.invite__thumb:hover{transform:translateY(-3px)}
+.invite__thumb img{width:100%;height:auto;display:block}
+.invite figcaption{min-width:0;text-align:center;max-width:56ch}
 .invite__hint{margin-top:8px;color:var(--fog);font-size:.9rem;line-height:1.55}
 .invite__hint a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(92,225,230,.4)}
 .invite__hint a:hover{border-bottom-color:var(--cyan)}
@@ -621,6 +635,15 @@ body::after{
    all. Stacking costs scroll; shrinking costs the entire point of the section. */
 @media (max-width:600px){
   .speakers__grid{grid-template-columns:1fr;gap:36px;max-width:320px}
+
+  /* On a phone the panel's own padding, not the 440px cap, is what shrinks the
+     poster. Cancel it so the invite runs to the panel edge — the detail bar
+     (date, doors, venue) is only legible at that width. The caption keeps its
+     padding, and the side border comes off so it reads as deliberate bleed
+     rather than a misaligned box. */
+  .invite{margin-left:calc(-1 * var(--panel-pad));margin-right:calc(-1 * var(--panel-pad))}
+  .invite__thumb{width:100%;border-left:0;border-right:0}
+  .invite figcaption{padding:0 var(--panel-pad)}
 }
 @media (max-width:520px){
   .hero__eyebrow{font-size:.66rem;letter-spacing:.22em}
@@ -988,6 +1011,33 @@ body::after{
 <section class="section rsvp plated bg-horizon" id="rsvp">
   <div class="wrap">
     <div class="rsvp__panel">
+
+      <figure class="invite" data-reveal>
+        <a class="invite__thumb" href="/assets/builders-summit/web/invite-batch-3-1080-v2.jpg"
+           target="_blank" rel="noopener noreferrer" aria-label="Open the Batch 3 invite at full size">
+          <picture>
+            <!-- Displayed at ~350 CSS px on a phone, which is ~1050 device px at 3x —
+                 a single 540 file would render soft, and legibility is the whole
+                 point of showing the poster this size. -->
+            <source type="image/webp"
+                    srcset="/assets/builders-summit/web/invite-batch-3-540-v2.webp 540w, /assets/builders-summit/web/invite-batch-3-1080-v2.webp 1080w"
+                    sizes="(max-width:600px) 92vw, 440px">
+            <img src="/assets/builders-summit/web/invite-batch-3-540-v2.jpg"
+                 srcset="/assets/builders-summit/web/invite-batch-3-540-v2.jpg 540w, /assets/builders-summit/web/invite-batch-3-1080-v2.jpg 1080w"
+                 sizes="(max-width:600px) 92vw, 440px"
+                 loading="lazy"
+                 width="1080" height="1350"
+                 alt="Builders Summit Batch 3 invite: Coach Erin Everly and Coach Victor Barrameda, Wednesday August 19 2026, 10 AM to 3 PM, doors 9:30 AM, House of Transformation, Ortigas. Free to join.">
+          </picture>
+        </a>
+        <figcaption>
+          <p class="label">The invite &mdash; tap to open full size</p>
+          <p class="invite__hint">Bringing someone?
+            <a href="/assets/builders-summit/web/invite-batch-3-1080-v2.jpg" download>Save the poster</a>
+            and send it their way &mdash; each guest still RSVPs here.</p>
+        </figcaption>
+      </figure>
+
       <div class="rsvp__grid">
 
         <div data-reveal>
@@ -1000,24 +1050,6 @@ body::after{
             <div><dt>Time</dt><dd>10:00 AM &ndash; 3:00 PM</dd></div>
             <div><dt>Speakers</dt><dd>Coach Erin Everly · Coach Victor Barrameda</dd></div>
           </dl>
-
-          <figure class="invite" data-reveal>
-            <a class="invite__thumb" href="/assets/builders-summit/web/invite-batch-3-1080-v2.jpg"
-               target="_blank" rel="noopener noreferrer" aria-label="Open the Batch 3 invite at full size">
-              <picture>
-                <source type="image/webp" srcset="/assets/builders-summit/web/invite-batch-3-540-v2.webp">
-                <img src="/assets/builders-summit/web/invite-batch-3-540-v2.jpg" loading="lazy"
-                     width="1080" height="1350"
-                     alt="Builders Summit Batch 3 invite: Coach Erin Everly and Coach Victor Barrameda, Wednesday August 19 2026, 10 AM to 3 PM, doors 9:30 AM, House of Transformation, Ortigas. Free to join.">
-              </picture>
-            </a>
-            <figcaption>
-              <p class="label">The invite</p>
-              <p class="invite__hint">Bringing someone?
-                <a href="/assets/builders-summit/web/invite-batch-3-1080-v2.jpg" download>Save the poster</a>
-                and send it their way &mdash; each guest still RSVPs here.</p>
-            </figcaption>
-          </figure>
         </div>
 
         <div data-reveal>
