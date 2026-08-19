@@ -1107,15 +1107,19 @@ body.menu-open .navtoggle span:nth-child(3){transform:rotate(-45deg)}
     hot:[['2026-07-04','2026-07-05'],['2026-08-08','2026-08-09'],['2026-09-12','2026-09-13'],
          ['2026-10-10','2026-10-11'],['2026-11-14','2026-11-15'],['2026-12-05','2026-12-06']],
     // House of Prime — Bacoor, Cavite (I AM+ South)
-    // ⚠️ 2026-08-02: the ENTIRE remaining 2026 Cavite schedule was withdrawn by I AM+ — they are
-    // building a completely new one. Past batches stay (elapsedSince() counts them toward the
-    // running batch total); every FUTURE date is removed on purpose, so the venue card reads
-    // "Coming soon" and Reserve falls back to #venues instead of selling an unconfirmed date.
-    // Removed: Aug 29–30, Sep 26–27, Oct 25–26, Nov 28–29, Dec 19–20. Restore only from the
-    // new official schedule — do NOT re-add these from memory or from any older doc.
+    // 2026-08-02: the ENTIRE remaining 2026 Cavite schedule was withdrawn by I AM+ (Aug 29–30,
+    // Sep 26–27, Oct 25–26, Nov 28–29, Dec 19–20) while they built a new one. Their offers are
+    // still is_active=false in Supabase, so none of them can be bought — do NOT re-add any of
+    // those dates from memory or from an older doc.
+    // ⚠️ 2026-08-19: the FIRST date off the new schedule is confirmed — Oct 3–4. Verified live
+    // before adding: product discovery-cavite-2026-10-03 is Active at ₱15,000 with an active
+    // 'regular' offer and both day rows in product_event_schedules, and
+    // /checkout/discovery-cavite-2026-10-03/regular renders ₱15,000 for Oct 3–4.
+    // Add later Cavite dates ONLY as I AM+ confirms them AND a matching buyable product exists —
+    // this array must stay 1:1 with the Supabase rows or Reserve becomes an orphan link.
     hop:[['2026-01-24','2026-01-25'],['2026-02-27','2026-03-02'],['2026-03-28','2026-03-29'],
          ['2026-04-25','2026-04-26'],['2026-05-30','2026-05-31'],['2026-06-27','2026-06-28'],
-         ['2026-07-25','2026-07-26']],
+         ['2026-07-25','2026-07-26'],['2026-10-03','2026-10-04']],
     // New cities (2026). Past batches stay in the array on purpose: nextDate/nextBuyable
     // skip them, but elapsedSince() counts them toward the running batch total.
     davao:[['2026-07-11','2026-07-12'],['2026-09-12','2026-09-13']],
